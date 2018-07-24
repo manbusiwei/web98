@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="robots" content="index,follow" />
+    <meta name="keywords" data-cont="Bitcoin, Bitcoin Price, Bitcoin Quotes, Litecoin, Litecoin Price, Litecoin Quotes, Ethereum, Ethereum, Ethereum, Bitcoin Exchange, Bitcoin Exchange, Bit 98 network" content="" />
+    <meta name="description" data-cont="比特酒吧|BTC98 it is the most professional and safe comprehensive virtual currency and digital currency trading platform in the world. The platform adopts advanced technologies such as distributed servers and SSL cold storage, and it provides a stable, safe and fast service trading exp  erience for digital asset lovers. To create the most professional and safest Bitcoin / Ethereum / Litecoin and other virtual digital assets currency trading platform" content="" />
+    <title data-cont="比特酒吧| BTC98 - The most professional and safe virtual digital currency trading platform [official website]"></title>
+    <link rel="icon" href="/static/customer/images/favicon.ico">
+    <link rel="stylesheet" href="/static/customer/css/global.css" type="text/css">
+    <link rel="stylesheet" href="/static/customer/css/main.css?v=20180509" type="text/css">
+    <script type="text/javascript" src="/static/customer/js/plugin/jquery.1.11.0.min.js"></script>
+    <script type="text/javascript" src="/static/customer/js/common/webHelper.min.js"></script>
+    <script type="text/javascript" src="/static/customer/js/locale/tsi.min.js?v=20180203"></script>
+    <script type="text/javascript" src="/static/customer/js/coinuni.min.js?v=1.0"></script>
+    <script type="text/javascript" src="/static/customer/js/common/os.js"></script>
+    <style>
+    .top-fixed-nav {
+        background-color: rgba(0, 0, 0, 0.1)
+    }
+    </style>
+</head>
+
+<body>
+    <div id="docLoading"></div>
+    <!-- head nav -->
+    <div class="top-fixed-nav">
+        <a href="/" class="logo"></a>
+        <ul class="left nav">
+            <li><a class="white" href="/index.html" data-cont="Home"></a></li>
+            <li><a href="/trade/coinTrade.html" data-cont="Trade"></a></li>
+            <li><a href="/other/news.html" data-cont="Information"></a></li>
+            <li><a href="/active/promotion.html" data-cont="Welfare"></a></li>
+            <li><a href="/active/inviteRebate.html" data-cont="Invitation"></a></li>
+            <li><a class="valid-login" onclick="doLogin('finance')" data-cont="Finance"></a></li>
+            <li><a class="valid-login" onclick="doLogin('security')" data-cont="Security"></a></li>
+        </ul>
+        <div class="top-login right top-user">
+            <div id="lang" class="right">
+                <span class="lang"><em class="flag"></em><em class="flagName"></em></span>
+                <div class="lanague">
+                    <ul>
+                        <li class="en_US"><a href="javascript:void(0)" onclick="cutLanguage('&lang=en_US')">English</a></li>
+                        <li class="ko_KR"><a href="javascript:void(0)" onclick="cutLanguage('&lang=ko_KR')">한국어</a></li>
+                        <li class="ja_JP"><a href="javascript:void(0)" onclick="cutLanguage('&lang=ja_JP')">日本語</a></li>
+                        <li class="fr_FR"><a href="javascript:void(0)" onclick="cutLanguage('&lang=fr_FR')">Français</a></li>
+                        <li class="es_AR"><a href="javascript:void(0)" onclick="cutLanguage('&lang=es_AR')">Espagnol</a></li>
+                        <li class="ru_RU"><a href="javascript:void(0)" onclick="cutLanguage('&lang=ru_RU')">русский </a></li>
+                        <li class="my_ZG"><a href="javascript:void(0)" onclick="cutLanguage('&lang=my_ZG')">မြန်မာ</a></li>
+                        <li class="ar_AE"><a href="javascript:void(0)" onclick="cutLanguage('&lang=ar_AE')">العربية</a></li>
+                        <li class="zh_TW"><a href="javascript:void(0)" onclick="cutLanguage('&lang=zh_TW')">繁體中文</a></li>
+                        <li class="zh_CN" style="border-bottom: 0;"><a href="javascript:void(0)" onclick="cutLanguage('&lang=zh_CN')">简体中文</a></li>
+                    </ul>
+                </div>
+            </div>
+            <a href="/user/login.html" class="login" data-cont="Login"></a>
+            <a href="/user/register.html" class="login" data-cont="Sign Up"></a>
+            <a href="/finance/finance.html">
+                <p class="top-user-email jy-email sj_bd"></p>
+            </a>
+            <div id="userinfo" class="userinfo">
+                <div class="userinfo-all">
+                    <div class="userinfo-t">
+                        <div class="userinfo-top">
+                            <p><i>ID：</i><span></span><a onclick="logOut()" class="blue" data-cont="Logout"></a></p>
+                            <p><i data-cont="Total assets"></i><i>：</i>
+                                <font class="is_num" id="balance_total"></font> BTC</p>
+                        </div>
+                        <div class="userinfo-title">
+                            <div class="userinfo-Coin" data-cont="COIN"></div>
+                            <div class="userinfo-available" data-cont="Available"></div>
+                            <div class="userinfo-frozen" data-cont="In use"></div>
+                        </div>
+                    </div>
+                    <ul id="user-balance">
+                        <div class="listscoll" id="userinfo-list">
+                        </div>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- middle content -->
+    <div class="main">
+        <div class="contain">
+            <!--New start-->
+            <div class="index_banner po_re">
+                <div id="myCarousel" class="my-carousel">
+                    <ol class="my-carousel-indicators">
+                        <!-- <li data-slide-to="0" class="active"></li> -->
+                    </ol>
+                    <div class="my-carousel-inner" id="indexBannerBox">
+                        <!-- <div class="item active" style="background-image: url('/static/customer/images/banner/banner2.jpg')"></div> -->
+                    </div>
+                </div>
+                <div class="index_login">
+                    <div class="w_1200 po_re">
+                        <div class="well" id="index_well" style="display:none;">
+                            <form id="login-form">
+                                <div class="login_box_1">
+                                    <p class="login_title" data-cont="Login"></p>
+                                    <div class="login_text">
+                                        <input type="text" onblur="loginga('-i')" onkeydown="if(event.keyCode==13){login()}" id="login-email-i" name="email" placeholder="" data-placeholder="Please enter account">
+                                        <p id="email-error" class="err"></p>
+                                    </div>
+                                    <div class="login_text">
+                                        <input type="password" id="pw" name="pw" onkeydown="if(event.keyCode==13){login('i')}" autocomplete="off" value="" placeholder="" data-placeholder="Enter password">
+                                    </div>
+                                    <div id="ga-i" class="login_text" style="display: none;">
+                                        <input type="text" name="ga" onkeydown="if(event.keyCode==13){login('i')}" autocomplete="off" placeholder="" data-placeholder="GA authentication code">
+                                    </div>
+                                    <div class="login_text clear" id="code"></div>
+                                    <div class="login_button">
+                                        <input type="button" value="" data-cont="Login" onclick="login('i')">
+                                    </div>
+                                    <div class="login_link">
+                                        <a href="/user/register.html" data-cont="Sign Up"></a>|<a style="margin-right: 0;" href="/user/forgetPw.html" data-cont="Forgot Password"></a><a href="">?</a>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                        <div class="well" id="index_well2" style="display:none;">
+                            <div id="login-bar" class="login_box_2">
+                                <div class="login_title" data-cont="Welcome to BTC98"></div>
+                                <dl>
+                                    <dd><span class="user-email"></span></dd>
+                                    <dd>ID：<span class="user-id red"></span></dd>
+                                    <dd style="font-weight: 600;font-size: 14px;">
+                                        <font data-cont="Total assets"></font>
+                                        <font>:</font><span style="font-size: 14px;" class="user-finance is_num"></span> BTC</dd>
+                                </dl>
+                                <div class="login_box_2_btn">
+                                    <a class="adarasi-line-button" href="/finance/recharge.html" data-cont="Deposit"></a>
+                                    <a class="adarasi-line-button" href="/finance/withdraw.html" data-cont="Withdraw"></a>
+                                    <a class="adarasi-line-button w82" href="/finance/entrust.html" data-cont="Order History"></a>
+                                </div>
+                                <div class="login_button">
+                                    <input type="button" value="" data-cont="Balance" onclick="doLogin('finance')">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <section class="xt_top_notice">
+                <div class="container po_re">
+                    <a href="" id="noticeId">
+                        <p class="gfs center"></p>
+                    </a>
+                    <span><strong class="dollarOrRmbNotice"></strong><strong>/BTC ≈ </strong><strong class="currencySymbol"></strong> <strong class="btcPrice"></strong></span>
+                    <!-- <a onclick="$(this).parents('.xt_top_notice').hide();" class="fork po_ab">✕</a> -->
+                </div>
+            </section>
+            <!--New end-->
+        </div>
+        <div class="index_market">
+            <!--trade-->
+            <div style="overflow: hidden;">
+                <ul class="market-type">
+                </ul>
+                <div class="search_box">
+                    <i class="search_img"></i>
+                    <input id="searchCoinInp" type="text" data-placeholder="Search" placeholder="" onkeyup="searchCoin()">
+                </div>
+            </div>
+            <div class="price_today">
+                <div class="autobox">
+                    <ul class="price_today_ull">
+                        <li data-sort="0" style="width: 180px"><span data-cont="COIN"></span></li>
+                        <li class="click-sort" data-sort="" data-flaglist="0" data-toggle="0"><span data-cont="LAST PRICE"></span><i class="cagret cagret-down"></i><i class="cagret cagret-up"></i></li>
+                        <li class="click-sort" style="width: 130px" data-sort="" data-flaglist="0" data-toggle="0"><span class="dollarOrRmb"></span><i class="cagret cagret-down"></i><i class="cagret cagret-up"></i></li>
+                        <li class="click-sort" style="width: 135px;cursor: pointer;" data-sort="increase" data-flaglist="1" data-toggle="1" style="color:#ff6767;"><span data-cont="CHANGE"></span><i class="cagret cagret-down" style="display: block;"></i><i class="cagret cagret-up" style="display: block;"></i></li>
+                        <li class="click-sort" data-sort="" data-flaglist="0" data-toggle="0"><span data-cont="24HR HIGH"></span><i class="cagret cagret-down"></i><i class="cagret cagret-up"></i></li>
+                        <li class="click-sort" data-sort="" data-flaglist="0" data-toggle="0"><span data-cont="24HR LOW"></span><i class="cagret cagret-down"></i><i class="cagret cagret-up"></i></li>
+                        <li style="width: 130px;cursor:pointer;" class="click-sort" data-sort="OneDayTotalNum" data-flaglist="0" data-toggle="0"><span data-cont="24HR VOLUME"></span><i class="cagret cagret-down" style="display: block;"></i><i class="cagret cagret-up" style="display: block;"></i></li>
+                        <li data-sort="0" class="center_text"><span data-cont="PRICE TREND(3DAY)"></span></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="show_content">
+                <!-- <ul class="price_today_ul show_favorite_data">
+                </ul>
+                <ul class="price_today_ul show_BTC_data isShow">
+                </ul>
+                <ul class="price_today_ul show_ETH_data">
+                    <div class="usdtcont">OPEN SOON</div>
+                </ul>
+                <ul class="price_today_ul show_USDT_data">
+                    <div class="usdtcont">OPEN SOON</div>
+                </ul>
+                <ul class="price_today_ul show_BITCNY_data">
+                    <div class="usdtcont">OPEN SOON</div>
+                </ul> -->
+            </div>
+        </div>
+        <div class="showUs" style="">
+            <div class="feature_us">
+                <div class="show_animate">
+                    <div class="show_1 show"></div>
+                    <div class="show_2 show"></div>
+                    <div class="show_3 show"></div>
+                    <div class="show_4 show"></div>
+                    <div class="cent">
+                        <span><i data-cont="The world`s leading digital asset trading platform"></i></span>
+                    </div>
+                </div>
+                <div class="text">
+                    <dl class="tiyan">
+                        <dt data-cont="The ultimate user experience"></dt>
+                        <dd data-cont="Intentions carving user habits, multi-terminal timely grasp of the trading market"></dd>
+                        <dd data-cont="100,000 units per second high-performance trading engine, to ensure fast and convenient transaction process"></dd>
+                    </dl>
+                    <div class="lingxian">
+                        <dl class="left_anquan">
+                            <dt data-cont="Bank-level security"></dt>
+                            <dd data-cont="Using bank-level user data encryption, multiple signatures cold wallet"></dd>
+                            <dd data-cont="Risk multi-level control to protect the safety of user assets"></dd>
+                        </dl>
+                    </div>
+                    <div class="anquan">
+                        <dl class="right_anquan">
+                            <dt data-cont="Top technical team to create"></dt>
+                            <dd data-cont="Gathered in many industry elite, first-class technical team to create professional"></dd>
+                            <dd data-cont="Ten years of experience in financial security team, escort the whole process for you"></dd>
+                        </dl>
+                    </div>
+                    <dl class="allAlong">
+                        <dt data-cont="24/7 online service"></dt>
+                        <dd data-cont="7 * 24-hour customer service throughout the year, 5 minutes to respond to requests for work orders"></dd>
+                        <dd data-cont="Response within 1 hour mail service, uphold the supremacy of customers"></dd>
+                    </dl>
+                </div>
+            </div>
+        </div>
+        <div class="downLoad">
+            <div class="w1080">
+                <div class="left bigImg">
+                    <img src="static/customer/images/03.phone.png" alt="">
+                </div>
+                <div class="left downLoad_box">
+                    <h4>
+                        <span data-cont="Anytime, anywhere"></span><br>
+                        <span data-cont="Do not miss any chance"></span>
+                    </h4>
+                    <ul>
+                        <li data-cont="Real-time trading：buy, sell"></li>
+                        <li data-cont="Divergent conditioning：fullness, presentation"></li>
+                        <li data-cont="Real-time reminder：Quotes reminder, event reminder"></li>
+                    </ul>
+                    <div class="downBox">
+                        <div id="down_qrcode">
+                            
+                        </div>
+                        <div class="iphoneBtn left">
+                            <!-- <span>iPhone</span> -->
+                            <span class=""><i></i>iPhone 版</span>
+                        </div>
+                        <div class="andBtn left">
+                            <!-- <span>Android</span> -->
+                            <span><i></i>Android 版</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script type="text/javascript" src="/static/customer/js/common/websocket.min.js"></script>
+    <script type="text/javascript" src="/static/customer/js/plugin/jquery.flot.js"></script>
+    <script type="text/javascript" src="/static/customer/js/coinmarketnew.min.js"></script>
+    <footer>
+        <div class="footerCore">
+            <div class="introduceUs">
+                <div class="logo_box">
+                    <ul class="foot2">
+                        <li>
+                            <span>
+                                <img src="/static/customer/images/logo_gda.png" class="foot_logo">
+                            </span>
+                            <img src="/static/customer/images/logosub.png" class="foot_logo">
+                        </li>
+                    </ul>
+                </div>
+                <div class="introduce_list">
+                    <ul class="CompanyIntroduction">
+                        <li class="first">
+                            <h2><span data-cont="Company Profile"></span></h2>
+                        </li>
+                        <li><a href="/other/aboutUs.html" data-cont="About Us"></a></li>
+                        <li><a href="/other/notice.html" data-cont="Official announcement"></a></li>
+                        <li><a href="/other/news.html" data-cont="News information"></a></li>
+                        <li><a href="/other/coinApplication.html" data-cont="Coin application"></a></li>
+                    </ul>
+                    <ul class="UserAgreement">
+                        <li class="first">
+                            <h2><span data-cont="User Agreement"></span></h2>
+                        </li>
+                        <li><a href="/other/TermsService.html" data-cont="Terms of service"></a></li>
+                        <li><a href="/other/PrivacyPolicy.html" data-cont="Privacy policy"></a></li>
+                        <li><a href="/other/policy.html" data-cont="AML/CTF Policy"></a></li>
+                    </ul>
+                    <ul class="HelpCenter">
+                        <li class="first">
+                            <h2><span data-cont="Help Center"></span></h2>
+                        </li>
+                        <li><a href="/other/rate.html" data-cont="Fee description"></a></li>
+                        <li><a href="/other/question.html" data-cont="Common problem"></a></li>
+                        <li><a href="/other/apiExplain.html" data-cont="API specification"></a></li>
+                        <li><a href="/other/contactService.html" data-cont="Customer Service"></a></li>
+                    </ul>
+                    <ul class="ContactUs">
+                        <li class="first">
+                            <h2><span data-cont="Contact Us"></span></h2>
+                        </li>
+                        <li><span data-cont="Customer Service Email"></span><span>:</span><span>btc98com@gmail.com</span></li>
+                        <li><span data-cont="Business"></span><span>:</span><span>imbtcmaster@gmail.com</span></li>
+                        <li class="share_area">
+                            <span class="share">
+                                <a href="http://shang.qq.com/wpa/qunwpa?idkey=8cf2665d6e2be61c43b5f063b40bb8dc3ccea65b2b89ae881793a5f821afee1a" target="_blank" class="qq"></a>
+                                <a href="https://twitter.com/BTC98com" target="_blank" class="twitter"></a>
+                                <a href="https://www.facebook.com/btc.li.7" target="_blank" class="fb"></a>
+                                <a href="http://t.me/btc98" target="_blank" class="tg"></a>
+                                <a href="https://btc98.slack.com/messages" target="_blank" class="slack"></a>
+                            </span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="friendLink">
+                <span data-cont="Links"></span>
+                <div>
+                </div>
+            </div>
+            <div class="fbottom">
+                <p class="copyrighthui">Copyright © 2017 BTC98. All rights reserved. <span data-cont="Technical support by 6EX"></span></p>
+            </div>
+        </div>
+    </footer>
+    <script type="text/javascript" src="/static/customer/js/common/common.min.js?v=1.0"></script>
+    <script type="text/javascript" src="/static/customer/js/plugin/qr.js"></script>
+    <script type="text/javascript" src="/static/customer/js/index.min.js"></script>
+</body>
+
+</html>

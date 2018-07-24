@@ -1,0 +1,452 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="viewport" content="width=device-width">
+    <link rel="icon" href="/static/customer/images/favicon.ico" />
+    <title data-cont="比特酒吧| BTC98 - The most professional and safe virtual digital currency trading platform [official website]"></title>
+    <link rel="stylesheet" href="/static/customer/css/global.css" type="text/css">
+    <link rel="stylesheet" href="/static/customer/css/main.css?v=1.0" type="text/css">
+    <script type="text/javascript" src="/static/customer/js/plugin/jquery.1.11.0.min.js"></script>
+    <script type="text/javascript" src="/static/customer/js/common/webHelper.min.js"></script>
+    <script type="text/javascript" src="/static/customer/js/locale/ts.min.js"></script>
+    <script type="text/javascript" src="/static/customer/js/coinuni.min.js?v=1.0"></script>
+    <script type="text/javascript" src="/static/customer/js/common/os.js"></script>
+    <script type="text/javascript" src="/static/customer/js/plugin/clipboard.min.js"></script>
+    <script type="text/javascript" src="/static/customer/js/plugin/jquery.qrcode.min.js"></script>
+    <script type="text/javascript" src="/static/customer/js/plugin/tmpl.js"></script>
+    <style>
+        .blu{color:#3DADD9;}
+        .top-fixed-nav{background-color: rgba(0,0,0,0.1)}/*首页单独控制背景*/
+        .active_time{position: absolute;bottom: 150px;width: 100%;text-align: center;z-index: 1;letter-spacing: 0.06px;}
+        .active_time .active_yellow{color: #FFDE00;font-size: 54px;font-family: FZLTZHK--GBK1-0;}
+        .active_time .active_yellow .marginr{margin-right: 15px}
+        .active_time .active_yellow .big{font-size: 68px;font-family: FZLTTHK--GBK1-0;font-weight: bold}
+        .active_time .active_yellow .active_blue{color:#4BCCFF;}
+        .reason{height: 128px;padding-top: 40px;}
+        .reason p{font-family: FZLTXHK--GBK1-0;font-size: 16px;color: #282828;letter-spacing: 0.02px;line-height: 24px;text-align: center;}
+        .page_con{background: #fafafa;overflow: hidden;margin: 0 auto;text-align: center;}
+        .prize{padding-top: 40px;margin: 0 auto;width: 800px;padding-bottom: 30px;border-bottom: 1px solid #eee}
+        .prize h4{margin-bottom: 30px; padding-left: 50px;padding-right: 18px;display: inline-block;color:#fff; border-radius: 100px;font-size: 18px;line-height: 40px;background: url(/static/customer/images/prize01.png) no-repeat 15px #3DADD9;}
+        .prize h4.sun{background-image: url(/static/customer/images/prize02.png);}
+        .prize .prize_type{margin-bottom: 30px;}
+        .prize .prize_type ul{display: flex;}
+        .prize .prize_type ul.ul_tit{background: #223141;color:#fff;font-size: 16px;line-height: 2.5;}
+        .prize .prize_type ul li{flex:1;}
+        .prize .prize_type ul.ul_tit li{background:url() no-repeat 25px;border-right: 1px solid #fff}
+        .prize .prize_type ul.ul_tit li.first{background-image:url(/static/customer/images/first.png); }
+        .prize .prize_type ul.ul_tit li.second{background-image:url(/static/customer/images/second.png);}
+        .prize .prize_type ul.ul_tit li.third{background-image:url(/static/customer/images/third.png);}
+        .prize .prize_type ul.ul_data{background: #fff;padding:15px 0 26px;}
+        .prize .prize_type ul.ul_data li{line-height: 21px;font-size: 14px}
+        .prize .prize_type ul.ul_data li div{display: flex;}
+        .prize .prize_type ul.ul_data li div span{flex:1;text-align: left}
+        .prize .prize_type ul.ul_data li div span:first-child{padding-right: 10px;text-align: right;}
+        .replenish p{font-size: 16px;line-height: 1.25}
+        .time{background: #fff;height: 255px;padding: 60px 0;font-size: 16px;line-height: 1.5}
+        .time_item{margin-bottom: 40px;}
+        .ranking{padding:30px 0 55px}
+        .ranking .tit{font-size: 16px;line-height: 1.5}
+        .ranking>.tit{margin-bottom: 15px}
+        .ranking .tit .blu{margin-right: 10px;}
+        .ranking .ranking_data{ width: 800px;margin: 0 auto;}
+        .ranking .ranking_data .tit{ display: flex;background: #223141;color:#fff;font-size: 16px;line-height: 2.5;padding: 0 80px}
+        .ranking .ranking_data .tit li{text-align: left;flex:1;}
+        .ranking .ranking_data .tit li.right{text-align: right;}
+        .ranking .ranking_data .data{max-height: 820px;overflow: auto;}
+        .ranking .ranking_data .data li{display: flex;padding: 0 80px;line-height: 40px;border-bottom: 1px solid #eee}
+        .ranking .ranking_data .data li>div{flex: 1;text-align: left;background: url() no-repeat left;}
+        .ranking .ranking_data .data li>div.right{text-align: right;}
+        .ranking .ranking_data .data li>div.margin_{margin-left: -20px;}
+        .ranking .ranking_data .data li>div.paddleft{padding-left: 20px}
+        .ranking .ranking_data .data li>div.first{background-image: url(/static/customer/images/first.png)}
+        .ranking .ranking_data .data li>div.second{background-image: url(/static/customer/images/second.png)}
+        .ranking .ranking_data .data li>div.third{background-image: url(/static/customer/images/third.png)}
+        .remind{padding-bottom: 40px;text-align: left;width: 800px;margin: 0 auto;}
+        .remind .tit{font-size: 16px;line-height: 26px;color: #808080;}
+        .remind li{font-size: 16px;line-height: 25px;color: #808080}
+        .remind li.blu{color:#3DADD9;}
+        .remind li em{display: inline-block;width: 6px;height: 6px;background: #808080;border-radius: 50%;position: relative;top: -2px;margin-right: 5px;}
+
+
+        #crcodeBox{cursor: pointer;}
+        .pop-dialog{display: none; z-index: 10; position: fixed;top:0;right:0;left:0;bottom:0;width: 393px;height: 700px;margin: 100px auto;color: #fff;text-align: center;}
+        .pop-dialog .bg_shade{z-index: 9; background: rgba(0,0,0,0.5);position: fixed;top: 0;left: 0;right: 0;bottom: 0;}
+        .pop-dialog .close_dialog{cursor: pointer;position: absolute;right: -50px;top: 0;z-index: 10;width: 50px;height: 50px;font-size: 40px; }
+        .pop-dialog .content{z-index: 10;background: url(/static/customer/images/qr_bg.png) no-repeat;background-size: contain;height: 100%;position: relative;padding: 100px 0}
+        .pop-dialog .content h4{font-size: 36px;letter-spacing: 3px;font-weight: 500}
+        .pop-dialog .content .qr_img{height: 200px;margin-bottom: 130px;padding-top: 47px;}
+        .pop-dialog .content .qr_img .qr_code{height: 120px;display: inline-block;}
+        .pop-dialog .content h5{color: #edf3f8;font-size: 16px;margin-bottom: 20px;line-height: 30px}
+        .pop-dialog .content h5.download_qr{cursor: pointer;}
+        #indexBannerBox .item{ display: block;background: url(/static/customer/images/banner/of_banner0.jpg) no-repeat center;background-size: auto 400px;}
+    </style>
+</head>
+
+<body>
+    <!-- 头部导航 -->
+    <div class="top-fixed-nav">
+        <a href="/index.html" class="logo"></a>
+        <ul class="left nav">
+            <li><a href="/index.html" data-cont="首页"></a></li>
+            <li><a href="/trade/coinTrade.html" data-cont="交易"></a></li>
+            <li><a href="/other/news.html" data-cont="资讯"></a></li>
+            <li><a href="/active/promotion.html" data-cont="福利"></a></li>
+            <li><a href="/active/inviteRebate.html" data-cont="邀请"></a></li>
+            <li><a class="valid-login" onclick="doLogin('finance')" data-cont="财务"></a></li>
+            <li><a class="valid-login" onclick="doLogin('security')" data-cont="安全"></a></li>
+        </ul>
+        <div class="top-login right top-user">
+            <div id="lang" class="right">
+                <span class="lang"><em class="flag"></em><em class="flagName"></em></span>
+                <div class="lanague">
+                    <ul>
+                        <li class="en_US"><a href="javascript:void(0)" onclick="cutLanguage('&lang=en_US')">English</a></li>
+                        <li class="ko_KR"><a href="javascript:void(0)" onclick="cutLanguage('&lang=ko_KR')">한국어</a></li>
+                        <li class="ja_JP"><a href="javascript:void(0)" onclick="cutLanguage('&lang=ja_JP')">日本語</a></li>
+                        <li class="fr_FR"><a href="javascript:void(0)" onclick="cutLanguage('&lang=fr_FR')">Français</a></li>
+                        <li class="es_AR"><a href="javascript:void(0)" onclick="cutLanguage('&lang=es_AR')">Espagnol</a></li>
+                        <li class="ru_RU"><a href="javascript:void(0)" onclick="cutLanguage('&lang=ru_RU')">русский </a></li>
+                        <li class="my_ZG"><a href="javascript:void(0)" onclick="cutLanguage('&lang=my_ZG')">မြန်မာ</a></li>
+                        <li class="ar_AE"><a href="javascript:void(0)" onclick="cutLanguage('&lang=ar_AE')">العربية</a></li>
+                        <li class="zh_TW"><a href="javascript:void(0)" onclick="cutLanguage('&lang=zh_TW')">繁體中文</a></li>
+                        <li class="zh_CN" style="border-bottom: 0;"><a href="javascript:void(0)" onclick="cutLanguage('&lang=zh_CN')">简体中文</a></li>
+                    </ul>
+                </div>
+            </div>
+            <a href="/user/login.html" class="login" data-cont="登录"></a>
+            <a href="/user/register.html" class="login" data-cont="注册"></a>
+            <a href="/finance/finance.html">
+                <p class="top-user-email jy-email sj_bd"></p>
+            </a>
+            <div id="userinfo" class="userinfo">
+                <div class="userinfo-all">
+                    <div class="userinfo-t">
+                        <div class="userinfo-top">
+                            <p><i>ID：</i><span></span><a onclick="logOut()" class="blue" data-cont="退出"></a></p>
+                            <p><i data-cont="总资产："></i>
+                                <font class="is_num" id="balance_total"></font> BTC</p>
+                        </div>
+                        <div class="userinfo-title">
+                            <div class="userinfo-Coin" data-cont="币种"></div>
+                            <div class="userinfo-available" data-cont="可用"></div>
+                            <div class="userinfo-frozen" data-cont="冻结"></div>
+                        </div>
+                    </div>
+                    <ul id="user-balance">
+                        <div class="listscoll" id="userinfo-list">
+                        </div>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- 中部内容 -->
+    <div class="main">
+        <div class="contain">
+            <!--New start-->
+            <div class="index_banner po_re">
+                <div id="myCarousel" class="my-carousel">
+                    <ol class="my-carousel-indicators">
+                        <!-- <li data-slide-to="0" class="active"></li> -->
+                    </ol>
+                    <div class="my-carousel-inner" id="indexBannerBox">
+                        <div class="item active"></div>
+                    </div>
+                    <!-- <div class="active_time">
+                        <span class="active_yellow">
+                            <span class="marginr"><span class="active_blue big">OF</span><span class="font54">新交易对上线</span></span>
+                            <span class="marginr"><span class="big">千万豪奖</span><span class="font54">送不停</span></span>
+                        </span>
+                    </div> -->
+                </div>
+            </div>
+        </div>
+        <div class="reason">
+            <p>为庆祝<span class="blu">OF/BTC、OF/ETH、OF/USDT</span>交易对上线，在<span class="blu">BTC98</span>官网参与<span class="blu">OF</span>交易的用户</p>
+            <p>将根据交易量（买入+卖出）进行排名并奖励</p>
+        </div>
+        <div class="page_con">
+            <div class="prize">
+                <div class="prize_type">
+                    <h4>实力奖：500万OF + 70万GCS + 50万CAN</h4>
+                    <ul class="ul_tit">
+                        <li class="first">第1名</li>
+                        <li class="second">第2名</li>
+                        <li class="third">第3名</li>
+                        <li>第4-10名</li>
+                        <li>第11-20名</li>
+                    </ul>
+                    <ul class="ul_data">
+                        <li>
+                            <div>
+                                <span class="bold blu">150万</span> <span class="bold">OF</span>
+                            </div>
+                            <div>
+                                <span class="bold blu">30万</span> <span class="bold">GCS</span>
+                            </div>
+                            <div>
+                                <span class="bold blu">15万</span> <span class="bold">CAN</span>
+                            </div>
+                        </li>
+                        <li>
+                            <div>
+                                <span class="bold blu">70万</span> <span class="bold">OF</span>
+                            </div>
+                            <div>
+                                <span class="bold blu">20万</span> <span class="bold">GCS</span>
+                            </div>
+                            <div>
+                                <span class="bold blu">7万</span> <span class="bold">CAN</span>
+                            </div>
+                        </li>
+                        <li>
+                            <div>
+                                <span class="bold blu">40万</span> <span class="bold">OF</span>
+                            </div>
+                            <div>
+                                <span class="bold blu">10万</span> <span class="bold">GCS</span>
+                            </div>
+                            <div>
+                                <span class="bold blu">4万</span> <span class="bold">CAN</span>
+                            </div>
+                        </li>
+                        <li>
+                            <div>
+                                <span class="bold blu">20万</span> <span class="bold">OF</span>
+                            </div>
+                            <div>
+                                <span class="bold blu">8571</span> <span class="bold">GCS</span>
+                            </div>
+                            <div>
+                                <span class="bold blu">2万</span> <span class="bold">CAN</span>
+                            </div>
+                        </li>
+                        <li>
+                            <div>
+                                <span class="bold blu">10万</span> <span class="bold">OF</span>
+                            </div>
+                            <div>
+                                <span class="bold blu">4000</span> <span class="bold">GCS</span>
+                            </div>
+                            <div>
+                                <span class="bold blu">1万</span> <span class="bold">CAN</span>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+                <div class="replenish">
+                    <h4 class="sun">阳光奖：500万OF</h4>
+                    <p>活动期间交易 <span class="blu">OF</span> 满 <span class="blu">5万OF</span> 及以上的用户平分 <span class="blu">500万OF</span></p>
+                </div>
+            </div>
+           <!--  <div class="time">
+                <div class="time_item">
+                    <p>活动时间</p>
+                    <p class="blu">2018年3月29日12:00-2018年4月5日12:00</p>
+                </div>
+                <div class="">
+                    <p>兑奖时间</p>
+                    <p>奖励将于活动结束后的5个工作日内发放，请在<span class="blu">【财务中心】-【分发记录】</span></p>
+                </div>
+            </div> -->
+            <div class="ranking">
+                <div class="tit">
+                    <p>OF交易量（买入+卖出）排行榜</p>
+                    <p>您的排名：<span class="blu rank">？</span>     您的交易量：<span class="blu Volume">？</span>  <a href="/finance/ofdispense.html" class="blu a_btn"></a></p>
+                </div>
+                <div class="ranking_data">
+                    <ul class="tit">
+                        <li>排名</li>
+                        <li>邮箱</li>
+                        <li class="right">交易量</li>
+                    </ul>
+                    <ul class="data">
+                        <!-- <li>
+                            <div class="paddleft">1</div>
+                            <div class="margin_">oa***@***.com</div>
+                            <div class="right">9066.34639263 OF</div>
+                        </li> -->
+                    </ul>
+                </div>
+            </div>
+            <ul class="remind">
+                <p class="tit">活动说明：</p>
+                <li><em></em>活动时间：2018年3月31日20:00-2018年4月7日20:00</li>
+                <li><em></em>奖励将于活动结束后的5个工作日内发放，请在<span>【财务中心】-【分发记录】</span>查看</li>
+                <li><em></em>活动期间，如有恶意刷量行为，将取消参赛资格</li>
+                <li><em></em>活动最终解释权归BTC98所有</li>
+            </ul>
+        </div>
+    </div>
+    <script type="text/html" id="ranking_data_tmpl">
+        <li>
+            <div class="{{if sort==1}}first{{else sort==2}}second{{else sort==3}}third{{/if}} paddleft">${sort}</div>
+            <div class="margin_">${getHiddenEmail(fuser.femail)}</div>
+            <div class="right">${getDeleteDot(count)} OF</div>
+        </li>
+    </script>
+    <script type="text/javascript" src="/static/customer/js/common/websocket.js"></script>
+    <script type="text/javascript" src="/static/customer/js/plugin/jquery.flot.js"></script>
+    <footer>
+        <div class="footerCore">
+            <div class="introduceUs">
+                <div class="logo_box">
+                    <ul class="foot2">
+                        <li>
+                            <span>
+                                <img src="/static/customer/images/logo_gda.png" class="foot_logo">
+                            </span>
+                                <img src="/static/customer/images/logosub.png" class="foot_logo">
+                        </li>
+                    </ul>
+                </div>
+                <div class="introduce_list">
+                    <ul class="CompanyIntroduction">
+                        <li class="first">
+                            <h2><span data-cont="公司介绍"></span></h2>
+                        </li>
+                        <li><a href="/other/aboutUs.html" data-cont="关于我们"></a></li>
+                        <li><a href="/other/notice.html" data-cont="官方公告"></a></li>
+                        <li><a href="/other/news.html" data-cont="新闻资讯"></a></li>
+                        <li><a href="/other/coinApplication.html" data-cont="上币申请"></a></li>
+                    </ul>
+                    <ul class="UserAgreement">
+                        <li class="first">
+                            <h2><span data-cont="用户协议"></span></h2>
+                        </li>
+                        <li><a href="/other/TermsService.html" data-cont="服务条款"></a></li>
+                        <li><a href="/other/PrivacyPolicy.html" data-cont="隐私政策"></a></li>
+                        <li><a href="/other/policy.html" data-cont="AML/CTF政策"></a></li>
+                    </ul>
+                    <ul class="HelpCenter">
+                        <li class="first">
+                            <h2><span data-cont="帮助中心"></span></h2>
+                        </li>
+                        <li><a href="/other/rate.html" data-cont="费率说明"></a></li>
+                        <li><a href="/other/question.html" data-cont="常见问题"></a></li>
+                        <li><a href="/other/apiExplain.html" data-cont="API说明"></a></li>
+                        <li><a href="/other/contactService.html" data-cont="联系客服"></a></li>
+                    </ul>
+                    <ul class="ContactUs">
+                        <li class="first">
+                            <h2><span data-cont="联系我们"></span></h2>
+                        </li>
+                        <li><span data-cont="客服邮箱:"></span><span>btc98com@gmail.com</span></li>
+                        <li><span data-cont="商务合作:"></span><span>imbtcmaster@gmail.com</span></li>
+                        <li class="share_area">
+                            <span class="share">
+                                <a href="http://shang.qq.com/wpa/qunwpa?idkey=8cf2665d6e2be61c43b5f063b40bb8dc3ccea65b2b89ae881793a5f821afee1a" target="_blank" class="qq"></a>
+                                <a href="https://twitter.com/BTC98com" target="_blank" class="twitter"></a>
+                                <a href="https://www.facebook.com/btc.li.7" target="_blank" class="fb"></a>
+                                <a href="http://t.me/btc98" target="_blank" class="tg"></a>
+                                <a href="https://btc98.slack.com/messages" target="_blank" class="slack"></a>
+                            </span>
+                        </li>
+                    </ul>
+                </div>
+            </div>            
+            <div class="fbottom">
+                <p class="copyrighthui">Copyright © 2017 BTC98. All rights reserved. <span data-cont="由6EX提供技术支持"></span></p>
+            </div>
+        </div>
+    </footer>
+    <script type="text/javascript" src="/static/customer/js/common/common.min.js?v=1.0"></script>
+    <script type="text/javascript">
+        $(function(){
+            // doLogin('active');
+            if(!USER){
+                $('.ranking .a_btn').html('登录').attr('href','/user/login.html')
+                $('.invite_info .total .shade').show();
+                $('.total_cont').addClass('filt');
+            }else{
+                $('.ranking .a_btn').html('查看').attr('href','/finance/ofdispense.html')
+            }
+        })
+        $('.lang,.lanague').hover(
+            function() {
+                $('.lang').addClass('selected');
+                $('.lanague').addClass('selected');
+                $('.header').css('z-index', -120);
+            },
+            function() {
+                $('.header').css('z-index', 19);
+                $('.lanague').removeClass('selected');
+                $('.lang').removeClass('selected');
+            }
+        );
+        $('.total-con').hover(function() { $('.total-con-list').show() }, function() { $('.total-con-list').hide() });
+        $('.jy-email,#userinfo').hover(
+            function() {
+                $('.jy-email').addClass('isHover');
+                $('#userinfo').addClass('selected');
+                // $('.header').css('z-index', -100);
+                $('.hdslide').css('z-index', -100);
+                $('.page').css('z-index', -100);
+            },
+            function() {
+                $('.header').css('z-index', 19);
+                $('.jy-email').removeClass('isHover');
+                $('.email').removeClass('selected');
+                $('#userinfo').removeClass('selected');
+                $('.hdslide').css('z-index', 0);
+                $('.page').css('z-index', 'auto');
+            }
+        );
+        //顶部导航背景渐变
+        $(document).scroll(function () {
+            var _top=$(this).scrollTop()
+            if(_top<350){
+                $('.top-fixed-nav').css('background-color','rgba(33,48,65,0)')
+            }else{
+                $('.top-fixed-nav').css('background-color','rgba(33,48,65,1)')
+            }
+        })
+        //获取基本数据,排名
+        $(function () {
+            var params={
+                "pageNum":1,
+                "numPerPage":20
+            }
+
+            $.ajax({
+                type:'POST',
+                url:WebHelper.findactivityTradeSort,
+                contentType : 'application/json',
+                data : JSON.stringify(params),
+                // dataType:'json',
+                success:function(res){
+                    if(res.status==1){
+                        var d=res.data;
+                        if(USER){
+                            $('.ranking .rank').html('第'+(d.mysort['sort']||0)+'名') 
+                            $('.ranking .Volume').html(getDeleteDot(d.mysort['count']||0)+' OF') 
+                        }
+                        $('#ranking_data_tmpl').tmpl(d.sortList).htm($('.ranking_data .data'))
+                    }
+                }
+            })
+        })
+        function getHiddenEmail(str){
+            if(str.indexOf('@')==-1){
+                return str;
+            }else{
+                var arr=str.split('@');
+                arr[0]=arr[0].replace(arr[0].substring(2),'***');
+                arr[1]=arr[1].replace(arr[1].substring(0,arr[1].indexOf('.')),'***');
+                return arr.join('@');
+            }
+        }
+        function getDeleteDot(str){
+            str=String(str)
+            if(str.indexOf('.')>-1){
+                return str.split('.')[0];
+            }else{
+                return str
+            }
+        }
+    </script>
+</body>
+
+</html>

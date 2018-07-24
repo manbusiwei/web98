@@ -1,0 +1,546 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="viewport" content="width=device-width">
+    <link rel="icon" href="/static/customer/images/favicon.ico" />
+    <title data-cont="比特酒吧| BTC98 - The most professional and safe virtual digital currency trading platform [official website]"></title>
+    <link rel="stylesheet" href="/static/customer/css/global.css" type="text/css">
+    <link rel="stylesheet" href="/static/customer/css/main.css?v=1.0" type="text/css">
+    <script type="text/javascript" src="/static/customer/js/plugin/jquery.1.11.0.min.js"></script>
+    <script type="text/javascript" src="/static/customer/js/common/webHelper.min.js"></script>
+    <script type="text/javascript" src="/static/customer/js/locale/ts.min.js"></script>
+    <script type="text/javascript" src="/static/customer/js/coinuni.min.js?v=1.0"></script>
+    <script type="text/javascript" src="/static/customer/js/common/os.js"></script>
+    <script type="text/javascript" src="/static/customer/js/plugin/clipboard.min.js"></script>
+    <script type="text/javascript" src="/static/customer/js/plugin/jquery.qrcode.min.js"></script>
+    <script type="text/javascript" src="/static/customer/js/plugin/tmpl.js"></script>
+    <style>
+        .top-fixed-nav{background-color: rgba(0,0,0,0.1)}/*首页单独控制背景*/
+        .active_time{position: absolute;bottom: 115px;width: 100%;text-align: center;z-index: 1;}
+        .active_time span{color: #F2E5A8;font-size: 16px;}
+        .invite_info .ranking{height: 140px;width: 1200px;margin: 0 auto;display: flex}
+        .invite_info .ranking .ranking_item{width: 380px;height: 60px;justify-content: center;margin-top: 40px;padding-left: 75px;}
+        .invite_info .ranking .ranking_item dl{float: left;line-height: initial}
+        .invite_info .ranking .ranking_item .first_dl{width: 155px;}
+        .invite_info .ranking .ranking_item dt{line-height: 30px;color: #505050;margin-top: 2px}
+        .invite_info dl{overflow: hidden;line-height: 42px;font-size: 14px;position: relative;}
+        .invite_info .info_box dl .clipboardPop{position: absolute;right: 38px;display: none;text-align: center;padding:  0 5px;border-radius: 3px;box-shadow: 0 0 18px #ddd;background: #000;color: #fff;}
+        .invite_info .info_box dt{float: left;width: 120px;}
+        .invite_info .info_box dd{float: left;position: relative;}
+        .invite_info .info_box dd #recommend_input{padding-left: 5px;}
+        .invite_info .info_box .share a{display: inline-block;float:left;width: 28px;height: 28px;margin:0 12px 0 0;position: relative;top: 5px;background: url() no-repeat center;}
+        .invite_info .info_box .share .fb{background-image: url(/static/customer/images/03.share_to0101.png);}
+        .invite_info .info_box .share .fb:hover{background-image: url(/static/customer/images/03.share_to0102.png);}
+        .invite_info .info_box .share .tt{background-image: url(/static/customer/images/03.share_to0201.png);}
+        .invite_info .info_box .share .tt:hover{background-image: url(/static/customer/images/03.share_to0202.png);}
+        .invite_info .info_box .share .in{background-image: url(/static/customer/images/03.share_to0301.png);}
+        .invite_info .info_box .share .in:hover{background-image: url(/static/customer/images/03.share_to0302.png);}
+        .invite_info .info_box .share .sina{background-image: url(/static/customer/images/03.share_to0401.png);}
+        .invite_info .info_box .share .sina:hover{background-image: url(/static/customer/images/03.share_to0402.png);}
+        .invite_info .info_box .share .qq{background-image: url(/static/customer/images/03.share_to0501.png);}
+        .invite_info .info_box .share .qq:hover{background-image: url(/static/customer/images/03.share_to0502.png);}
+        .invite_info .ranking .first{background: url(/static/customer/images/02.first.png);}
+        .invite_info .ranking .second{margin: 40px 30px;background: url(/static/customer/images/02.second.png);}
+        .invite_info .ranking .third{background: url(/static/customer/images/02.third.png);}
+        .invite_info .total{height: 188px;background: #f9f9f9;padding: 20px 0;position: relative;overflow: hidden;}
+        .invite_info .total .shade{display: none; font-size: 14px;color: #fff; position: absolute;top:
+            0;left:0;right:0;bottom:0;z-index: 9;background-color: rgba(0,0,0,0.65);}
+        .invite_info .total .shade .text{margin: 48px auto 36px;text-align: center;}
+        .invite_info .total .shade .login_in{text-align: center;}
+        .invite_info .total .shade .login_in a{display: inline-block; color: #fff;}
+        .invite_info .total .shade .login_in .login_btn{ min-width: 120px;height: 43px;line-height: 43px;border-radius: 4px;background: url(/static/customer/images/button01.png);margin-right: 20px;}
+        .invite_info .total .shade .login_in .login_btn:hover{text-decoration: none;background: url(/static/customer/images/button02.png)}
+        .invite_info .total .shade .login_in .reg_btn{color:#3AA5CF}
+        .invite_info .info_box dt{text-align: right;padding-right: 5px;}
+        .invite_info .total_cont dd input{width: 355px;outline: 0;height: 36px;border:1px solid #dedede;background: #fff;}
+        .invite_info .total_cont{width: 1200px;margin: 0 auto;}
+        .invite_info .total_cont.filt{-webkit-filter: blur(4px);-moz-filter: blur(4px);-ms-filter: blur(4px);filter: blur(4px);}
+        .invite_info .total_cont dd span{cursor: pointer; float: right;margin: 5px 0 0 10px; width: 46px;height: 36px;background: url(/static/customer/images/03.copy_button01.png);}
+        .invite_info .total_cont dd span:hover{background: url(/static/customer/images/03.copy_button02.png);}
+        .invite_info .total .total_cont .mine{float:left;height: 148px;padding: 14px 0; width: 700px; border-right: 1px solid #e8e8e8;}
+        .invite_info .total .total_cont .mine .crcode{float: left;width: 120px;height: 120px;margin-right:15px;}
+        .invite_info .mine_total{float: left;width: 500px;padding-top: 30px;}
+        .invite_info .mine_total dl{float: left;width: 32%;text-align: center;color: #505050;}
+        .invite_info .mine_total dl.long{width: 36%;}
+        .invite_info .mine_total dt em{display: inline-block;width: 26px;height: 26px;margin-right: 5px;background-repeat: no-repeat;position: relative;top: 9px}
+        .invite_info .mine_total dd{font-size: 22px;color:#3DADD9;overflow: hidden;text-overflow: ellipsis;}
+        .invite_info .mine_total dt .directFriends{background-image: url(/static/customer/images/directFriends.png);}
+        .invite_info .mine_total dt .indirectFriends{background-image: url(/static/customer/images/indirectFriends.png);}
+        .invite_info .mine_total dt .commission{background-image: url(/static/customer/images/03.commission.png);}
+        .invite_info .history{height: 243px;margin: 0 auto;width: 1200px;padding: 40px 0;}
+        .invite_info .history ul{float: left;width: 580px;}
+        .invite_info .history .history_friends{margin-right: 40px;}
+        .invite_info .history h3{color: #000;margin-bottom: 10px;font-weight: normal;}
+        .invite_info .history li{text-align: center;}
+        .invite_info .history .noRecord{color: #0c1e38;background: #f9f9f9;line-height: 104px;}
+        .invite_info .history li.first{background: #223041;color: #fff;line-height: 34px;}
+        .invite_info .history li span{display: inline-block;width: 19%;}
+        .invite_info .history .dataBox{height: 104px;background:#f9f9f9;line-height: 18px; overflow-y: scroll;}
+        .invite_info .history .dataBox div{border-bottom: 1px solid #a0a0a0}
+        .invite_info .history .dataBox span{text-overflow: ellipsis;overflow: hidden;white-space: nowrap;height: 28px; padding-top: 5px;}
+        .invite_info .history .history_friends li span{display: inline-block;width: 32%;}
+        .invite_info .rule{background:#f9f9f9;padding: 40px 0;}
+        .invite_info .rule h4{width: 1200px;margin: 0 auto 30px; font-weight: normal; line-height: 16px;text-align: center;background: url(/static/customer/images/05.line.png) repeat-x left;}
+        .invite_info .rule h4 span{display: inline-block;width: 160px;font-size: 16px;background: #f9f9f9;}
+        .invite_info .rule p em{display: inline-block;width: 6px;height: 6px;margin-right: 8px; border-top: 6px solid transparent;border-right: 6px solid #505050;transform: rotateZ(-45deg);position: relative;top: -1px;}
+        .invite_info .rule p{text-align: left;width: 600px;margin: 0 auto; line-height: 22px;font-size: 14px;color: #505050;}
+        #crcodeBox{cursor: pointer;}
+        .pop-dialog{display: none; z-index: 10; position: fixed;top:0;right:0;left:0;bottom:0;width: 393px;height: 700px;margin: 100px auto;color: #fff;text-align: center;}
+        .pop-dialog .bg_shade{z-index: 9; background: rgba(0,0,0,0.5);position: fixed;top: 0;left: 0;right: 0;bottom: 0;}
+        .pop-dialog .close_dialog{cursor: pointer;position: absolute;right: -50px;top: 0;z-index: 10;width: 50px;height: 50px;font-size: 40px; }
+        .pop-dialog .content{z-index: 10;background: url(/static/customer/images/qr_bg.png) no-repeat;background-size: contain;height: 100%;position: relative;padding: 100px 0}
+        .pop-dialog .content h4{font-size: 36px;letter-spacing: 3px;font-weight: 500}
+        .pop-dialog .content .qr_img{height: 200px;margin-bottom: 130px;padding-top: 47px;}
+        .pop-dialog .content .qr_img .qr_code{height: 120px;display: inline-block;}
+        .pop-dialog .content h5{color: #edf3f8;font-size: 16px;margin-bottom: 20px;line-height: 30px}
+        .pop-dialog .content h5.download_qr{cursor: pointer;}
+    </style>
+</head>
+
+<body>
+    <!-- 头部导航 -->
+    <div class="top-fixed-nav">
+        <a href="/index.html" class="logo"></a>
+        <ul class="left nav">
+            <li><a href="/index.html" data-cont="首页"></a></li>
+            <li><a href="/trade/coinTrade.html" data-cont="交易"></a></li>
+            <li><a href="/other/news.html" data-cont="资讯"></a></li>
+            <li><a href="/active/promotion.html" data-cont="福利"></a></li>
+            <li><a href="/active/inviteRebate.html" data-cont="邀请" class="white"></a></li>
+            <li><a class="valid-login" onclick="doLogin('finance')" data-cont="财务"></a></li>
+            <li><a class="valid-login" onclick="doLogin('security')" data-cont="安全"></a></li>
+        </ul>
+        <div class="top-login right top-user">
+            <div id="lang" class="right">
+                <span class="lang"><em class="flag"></em><em class="flagName"></em></span>
+                <div class="lanague">
+                    <ul>
+                        <li class="en_US"><a href="javascript:void(0)" onclick="cutLanguage('&lang=en_US')">English</a></li>
+                        <li class="ko_KR"><a href="javascript:void(0)" onclick="cutLanguage('&lang=ko_KR')">한국어</a></li>
+                        <li class="ja_JP"><a href="javascript:void(0)" onclick="cutLanguage('&lang=ja_JP')">日本語</a></li>
+                        <li class="fr_FR"><a href="javascript:void(0)" onclick="cutLanguage('&lang=fr_FR')">Français</a></li>
+                        <li class="es_AR"><a href="javascript:void(0)" onclick="cutLanguage('&lang=es_AR')">Espagnol</a></li>
+                        <li class="ru_RU"><a href="javascript:void(0)" onclick="cutLanguage('&lang=ru_RU')">русский </a></li>
+                        <li class="my_ZG"><a href="javascript:void(0)" onclick="cutLanguage('&lang=my_ZG')">မြန်မာ</a></li>
+                        <li class="ar_AE"><a href="javascript:void(0)" onclick="cutLanguage('&lang=ar_AE')">العربية</a></li>
+                        <li class="zh_TW"><a href="javascript:void(0)" onclick="cutLanguage('&lang=zh_TW')">繁體中文</a></li>
+                        <li class="zh_CN" style="border-bottom: 0;"><a href="javascript:void(0)" onclick="cutLanguage('&lang=zh_CN')">简体中文</a></li>
+                    </ul>
+                </div>
+            </div>
+            <a href="/user/login.html" class="login" data-cont="登录"></a>
+            <a href="/user/register.html" class="login" data-cont="注册"></a>
+            <a href="/finance/finance.html">
+                <p class="top-user-email jy-email sj_bd"></p>
+            </a>
+            <div id="userinfo" class="userinfo">
+                <div class="userinfo-all">
+                    <div class="userinfo-t">
+                        <div class="userinfo-top">
+                            <p><i>ID：</i><span></span><a onclick="logOut()" class="blue" data-cont="退出"></a></p>
+                            <p><i data-cont="总资产："></i>
+                                <font class="is_num" id="balance_total"></font> BTC</p>
+                        </div>
+                        <div class="userinfo-title">
+                            <div class="userinfo-Coin" data-cont="币种"></div>
+                            <div class="userinfo-available" data-cont="可用"></div>
+                            <div class="userinfo-frozen" data-cont="冻结"></div>
+                        </div>
+                    </div>
+                    <ul id="user-balance">
+                        <div class="listscoll" id="userinfo-list">
+                        </div>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- 中部内容 -->
+    <div class="main">
+        <div class="contain">
+            <!--New start-->
+            <div class="index_banner po_re">
+                <div id="myCarousel" class="my-carousel">
+                    <ol class="my-carousel-indicators">
+                        <!-- <li data-slide-to="0" class="active"></li> -->
+                    </ol>
+                    <div class="my-carousel-inner" id="indexBannerBox">
+                        <div class="item active" style="display:block;"></div>
+                    </div>
+                    <div class="active_time" style="display: none">
+                        <span data-cont="活动时间: "></span>
+                        <span>OPEN SOON</span>&nbsp;
+                        <span></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="invite_info">
+            <div class="ranking">
+                <script type="text/html" id="ranking_tmpl">
+                    {{each(i,user) data}}
+                    <div class="{{if i==0}}first{{else i==1}}second{{else}}third{{/if}} ranking_item">
+                        <dl class="first_dl">
+                            <dt>{{if i==0}}${lang('第一名')}{{else i==1}}${lang('第二名')}{{else}}${lang('第三名')}{{/if}}</dt>
+                            <dd>${encryptUserNamefive(fnickName)}</dd>
+                        </dl>
+                        <dl>
+                            <dt>${lang('获得佣金')}</dt>
+                            <dd>${brokerageCount} BTC</dd>
+                        </dl>
+                    </div>
+                    {{/each}}
+                </script>
+            </div>
+            <div class="total">
+                <div class="shade">
+                    <div class="text" data-cont="您尚未登录，请登录并与您的朋友分享。"></div>
+                    <div class="login_in">
+                        <a href="/user/login.html" class="login_btn" data-cont="登录"></a>
+                        <span data-cont="还没有账户？"></span>
+                        <a href="/user/register.html" class="reg_btn" data-cont="注册"></a>
+                    </div>
+                </div>
+                <div class="total_cont">
+                    <div class="mine">
+                        <div class="crcode" id="crcodeBox">
+
+                        </div>
+                        <div class="info_box">
+                            <dl>
+                                <dt data-cont="我的推荐id:"></dt>
+                                <dd id="recommendId"></dd>
+                                <span class="clipboardPop" style="">复制成功</span>
+                            </dl>
+                            <dl>
+                                <dt data-cont="推荐链接:"></dt>
+                                <dd>
+                                    <input type="text" id="recommend_input" readonly>
+                                    <span class="recommend_a" data-clipboard-target="#recommend_input" title="复制链接"></span>
+                                </dd>
+                            </dl>
+                            <dl>
+                                <dt data-cont="分享到:"></dt>
+                                <dd class="share">
+                                    <a href="" class="fb" target="_blank"></a>
+                                    <a href="" class="tt" target="_blank"></a>
+                                    <a href="" class="in" target="_blank"></a>
+                                    <a href="" class="sina" target="_blank"></a>
+                                    <a href="" class="qq" target="_blank"></a>
+                                </dd>
+                            </dl>
+                        </div>
+                    </div>
+                    <div class="mine_total">
+                        <dl>
+                            <dt><em class="directFriends"></em><span data-cont="直接邀请人数"></span></dt>
+                            <dd id="directUser">**</dd>
+                        </dl>
+                        <dl>
+                            <dt><em class="indirectFriends"></em><span data-cont="间接邀请人数"></span></dt>
+                            <dd id="indirectUser">**</dd>
+                        </dl>
+                        <dl class="long">
+                            <dt><em class="commission"></em><span data-cont="获得佣金预估"></span></dt>
+                            <dd id="brokerage">***********BTC</dd>
+                        </dl>
+                    </div>
+                </div>
+            </div>
+            <div class="history">
+                <ul class="history_friends">
+                    <h3 data-cont="推荐的朋友"></h3>
+                    <li class="first">
+                        <span data-cont="邮箱"></span>
+                        <span data-cont="时间"></span>
+                        <span data-cont="类型"></span>
+                    </li>
+                    <li class="friendData dataBox">
+                        <script type="text/html" id="friendData_tmpl">
+                            <div>
+                                <span>${femail}</span>
+                                <span>${jsonDateFormat(fregisterTime,'yyyy/MM/dd')}</span>
+                                <span>{{if invitationType==0}}${lang('直接')}{{else}}${lang('间接')}{{/if}}</span>
+                            </div>
+                        </script>
+                    </li>
+                </ul>
+                <ul>
+                    <h3 data-cont="最近返佣记录"></h3>
+                    <li class="first">
+                        <span data-cont="时间"></span>
+                        <span data-cont="邮箱"></span>
+                        <span data-cont="资产种类"></span>
+                        <span data-cont="获赠数量"></span>
+                        <span data-cont="获赠原因"></span>
+                    </li>
+                    <li class="rebateData dataBox">
+                        <script id="rebateData_tmpl" type="text/html">
+                            <div>
+                                <span>${jsonDateFormat(createTime,'yyyy/MM/dd')}</span>
+                                <span title="${fuser.femail}">${fuser.femail}</span>
+                                <span>${fvirtualcointypeByfViFId.fShortName}</span>
+                                <span>${to_num(quantity,12)}</span>
+                                <span title="{{if type==0}}${lang('好友交易')}{{else}}${lang('邀请注册')}{{/if}}">{{if type==0}}${lang('好友交易')}{{else}}${lang('邀请注册')}{{/if}}</span>
+                            </div>
+                        </script>
+                    </li>
+                </ul>
+            </div>
+            <div class="rule">
+                <h4>
+                    <span data-cont="活动细则"></span>
+                </h4>
+                <p>
+                    <em></em><span data-cont="活动期间可获得直接推荐人手续费的50%，间接推荐人的10%。"></span>
+                </p>
+                <p>
+                    <em></em><span data-cont="一旦您推荐的人成功完成交易，佣金就会立刻返到您的账户。"></span>
+                </p>
+                <p>
+                    <em></em><span data-cont="我们保留随时对返佣活动规则进行调整的权利，但是对您推荐的好友数量没有限制。"></span>
+                </p>
+                <p>
+                    <em></em><span data-cont="被推荐人必须使用您的推荐链接、二维码或者推荐ID注册才可以。"></span>
+                </p>
+            </div>
+        </div>
+    </div>
+    <script type="text/javascript" src="/static/customer/js/common/websocket.js"></script>
+    <script type="text/javascript" src="/static/customer/js/plugin/jquery.flot.js"></script>
+    <footer>
+        <div class="footerCore">
+            <div class="introduceUs">
+                <div class="logo_box">
+                    <ul class="foot2">
+                        <li>
+                            <span>
+                                <img src="/static/customer/images/logo_gda.png" class="foot_logo">
+                            </span>
+                                <img src="/static/customer/images/logosub.png" class="foot_logo">
+                        </li>
+                    </ul>
+                </div>
+                <div class="introduce_list">
+                    <ul class="CompanyIntroduction">
+                        <li class="first">
+                            <h2><span data-cont="公司介绍"></span></h2>
+                        </li>
+                        <li><a href="/other/aboutUs.html" data-cont="关于我们"></a></li>
+                        <li><a href="/other/notice.html" data-cont="官方公告"></a></li>
+                        <li><a href="/other/news.html" data-cont="新闻资讯"></a></li>
+                        <li><a href="/other/coinApplication.html" data-cont="上币申请"></a></li>
+                    </ul>
+                    <ul class="UserAgreement">
+                        <li class="first">
+                            <h2><span data-cont="用户协议"></span></h2>
+                        </li>
+                        <li><a href="/other/TermsService.html" data-cont="服务条款"></a></li>
+                        <li><a href="/other/PrivacyPolicy.html" data-cont="隐私政策"></a></li>
+                        <li><a href="/other/policy.html" data-cont="AML/CTF政策"></a></li>
+                    </ul>
+                    <ul class="HelpCenter">
+                        <li class="first">
+                            <h2><span data-cont="帮助中心"></span></h2>
+                        </li>
+                        <li><a href="/other/rate.html" data-cont="费率说明"></a></li>
+                        <li><a href="/other/question.html" data-cont="常见问题"></a></li>
+                        <li><a href="/other/apiExplain.html" data-cont="API说明"></a></li>
+                        <li><a href="/other/contactService.html" data-cont="联系客服"></a></li>
+                    </ul>
+                    <ul class="ContactUs">
+                        <li class="first">
+                            <h2><span data-cont="联系我们"></span></h2>
+                        </li>
+                        <li><span data-cont="客服邮箱:"></span><span>btc98com@gmail.com</span></li>
+                        <li><span data-cont="商务合作:"></span><span>imbtcmaster@gmail.com</span></li>
+                        <li class="share_area">
+                            <span class="share">
+                                <a href="http://shang.qq.com/wpa/qunwpa?idkey=8cf2665d6e2be61c43b5f063b40bb8dc3ccea65b2b89ae881793a5f821afee1a" target="_blank" class="qq"></a>
+                                <a href="https://twitter.com/BTC98com" target="_blank" class="twitter"></a>
+                                <a href="https://www.facebook.com/btc.li.7" target="_blank" class="fb"></a>
+                                <a href="http://t.me/btc98" target="_blank" class="tg"></a>
+                                <a href="https://btc98.slack.com/messages" target="_blank" class="slack"></a>
+                            </span>
+                        </li>
+                    </ul>
+                </div>
+            </div>            
+            <div class="fbottom">
+                <p class="copyrighthui">Copyright © 2017 BTC98. All rights reserved. <span data-cont="由6EX提供技术支持"></span></p>
+            </div>
+        </div>
+    </footer>
+    <div class="pop-dialog">
+        <div class="close_dialog">×</div>
+        <div class="bg_shade"></div>
+        <div class="content" id="content">
+            <h4 data-cont="比特酒吧"></h4>
+            <h4 data-cont="邀请返佣重磅来袭"></h4>
+            <div class="qr_img"></div>
+            <h5 data-cont="安全可靠的区块链资产交易平台"></h5>
+            <h5 class="download_qr" onclick="downloadqr()" data-cont="保存图片"></h5>
+        </div>
+    </div>
+    <script type="text/javascript" src="/static/customer/js/common/common.min.js?v=1.0"></script>
+    <script type="text/javascript" src="/static/customer/js/plugin/htmlToCanvas.min.js?v=1.0"></script>
+    <script type="text/javascript" src="/static/customer/js/plugin/canvasToimage.js?v=1.0"></script>
+    <script type="text/javascript">
+        $(function(){
+            doLogin('index');
+            if(!USER){
+                $('.invite_info .total .shade').show();
+                $('.total_cont').addClass('filt');
+            }
+            $('.my-carousel-inner .item').css('background-image','url(/static/customer/images/banner/active_'+($.cookie('lang')=='zh_CN'?'zh':'en')+'.jpg)');
+            $('.active_time').css('bottom',$.cookie('lang')=='zh_CN'?'115px':'175px');
+        })
+        $(function () {
+            //复制部分
+            var _host=location.host.indexOf('vip')>-1?'https://www.btc98.vip':'https://www.btc98.com';
+            var cliText=_host+'/user/register.html?referrerId='+$('#recommendId').html()
+            var wapCliText=_host+'/wap/register?referrerId='+$('#recommendId').html()
+            $('#recommend_input').val(cliText)
+            $('.recommend_a').attr('href',cliText);
+            $('#crcodeBox').qrcode({
+                text: wapCliText,
+                render    : 'canvas',
+                // foreground: "#333",
+                // background: "#FFF",
+                width:112,
+                height:112,
+            });
+            $('#crcodeBox').attr('title',lang('点击查看大图'))
+            $('#crcodeBox').click(function(){
+                $('.pop-dialog').show();
+                $('.pop-dialog .qr_img').html('').qrcode({
+                    text:wapCliText,
+                    render:'canvas',
+                    width:130,
+                    height:130
+                })
+            })
+            $('.close_dialog').click(function(){
+                $('.pop-dialog').hide()
+            })
+            $('.recommend_a').attr('title','复制链接');
+            var clipboard = new Clipboard('.recommend_a');
+            clipboard.on('success', function(e) {
+                $('.clipboardPop').fadeIn(500).delay(1000).fadeOut(500);
+            });
+            $('.info_box .fb').attr('href','https://www.facebook.com/sharer/sharer.php?u='+cliText+'&t=超级返利')
+            $('.info_box .tt').attr('href','https://twitter.com/intent/tweet?text= 邀请拿佣金，实时返佣！&url='+cliText)
+            $('.info_box .in').attr('href','http://www.linkedin.com/shareArticle?mini=true&ro=true&title=超级返利&summary= 邀请拿佣金，实时返佣！&source= 邀请拿佣金，实时返佣！&armin=armin&url='+cliText)
+            $('.info_box .sina').attr('href','http://service.weibo.com/share/share.php?url='+cliText+'&title= 邀请拿佣金，实时返佣！&pic=#_loginLayer_1508918957506')
+            $('.info_box .qq').attr('href','http://connect.qq.com/widget/shareqq/index.html?url='+cliText+'&title=超级返利&desc= 邀请拿佣金，实时返佣！')
+        })
+        $('.lang,.lanague').hover(
+            function() {
+                $('.lang').addClass('selected');
+                $('.lanague').addClass('selected');
+                $('.header').css('z-index', -120);
+            },
+            function() {
+                $('.header').css('z-index', 19);
+                $('.lanague').removeClass('selected');
+                $('.lang').removeClass('selected');
+            }
+        );
+        $('.total-con').hover(function() { $('.total-con-list').show() }, function() { $('.total-con-list').hide() });
+        $('.jy-email,#userinfo').hover(
+            function() {
+                $('.jy-email').addClass('isHover');
+                $('#userinfo').addClass('selected');
+                // $('.header').css('z-index', -100);
+                $('.hdslide').css('z-index', -100);
+                $('.page').css('z-index', -100);
+            },
+            function() {
+                $('.header').css('z-index', 19);
+                $('.jy-email').removeClass('isHover');
+                $('.email').removeClass('selected');
+                $('#userinfo').removeClass('selected');
+                $('.hdslide').css('z-index', 0);
+                $('.page').css('z-index', 'auto');
+            }
+        );
+        //顶部导航背景渐变
+        $(document).scroll(function () {
+            var _top=$(this).scrollTop()
+            if(_top<350){
+                $('.top-fixed-nav').css('background-color','rgba(33,48,65,0)')
+            }else{
+                $('.top-fixed-nav').css('background-color','rgba(33,48,65,1)')
+            }
+        })
+        //获取基本数据,排名
+        $(function () {
+            $.get(WebHelper.findSortBrokerage,function(d){
+                if(d.status==1){
+                    $('#ranking_tmpl').tmpl(d).htm('.ranking')
+                }else{
+                    alert(d.msg)
+                }
+            })
+            //部分数据需登录
+            if(USER){
+                //邀请人数
+                $.post(WebHelper.countBrokerageByuserId,function(d){
+                    if(d.status==1){
+                        $('#directUser').html(d.data.directUserCount)
+                        $('#indirectUser').html(d.data.indirectUserCount)
+                        $('#brokerage').html(d.data.brokerageCount+'BTC')
+                        $('#brokerage').attr('title',d.data.brokerageCount+'BTC')
+                    }else{
+                        alert(d.msg)
+                    }
+                })
+                //推荐的朋友
+                $.post(WebHelper.referrerIdUser,function(d){
+                    if(d.status==1){
+                        if(d.data.length>0){
+                            $('#friendData_tmpl').tmpl(d.data).htm('.friendData')
+                        }else{
+                            $('.friendData').html('<p class="noRecord">'+lang('暂无记录')+'</p>')
+                        }
+                    }else{
+                        $('.friendData').html('<p class="noRecord">'+lang('暂无记录')+'</p>')
+                        alert(d.msg)
+                    }
+                })
+                //返佣记录
+                $.post(WebHelper.brokerageByuser,function(d){
+                    if(d.status==1){
+                        if(d.data.length>0){
+                            $('#rebateData_tmpl').tmpl(d.data).htm('.rebateData')
+                        }else{
+                            $('.rebateData').html('<p class="noRecord">'+lang('暂无记录')+'</p>')
+                        }
+                    }else{
+                        $('.rebateData').html('<p class="noRecord">'+lang('暂无记录')+'</p>')
+                        alert(d.msg)
+                    }
+                })
+            }
+        })
+        function downloadqr(){
+            var con=document.getElementById('content')
+            html2canvas(con, {
+                onrendered: function(canvas) {
+                    var img_data = Canvas2Image.saveAsPNG(canvas, true).getAttribute('src');
+                    var _a = document.createElement('a');
+                    _a.setAttribute("href", img_data);
+                    _a.setAttribute("download", "myqrcode.png");
+                    _a.click();
+                    // var evObj = document.createEvent('MouseEvents');
+                    // evObj.initMouseEvent( 'click', true, true, window, 0, 0, 0, 0, 0, false, false, true, false, 0, null);
+                    // _a.dispatchEvent(evObj);
+                }
+            })
+        }
+    </script>
+</body>
+
+</html>

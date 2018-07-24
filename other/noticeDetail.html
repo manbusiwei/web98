@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="viewport" content="width=device-width">
+	<link rel="icon" href="/static/customer/images/favicon.ico"/>
+    <title data-cont="比特酒吧| BTC98 - The most professional and safe virtual digital currency trading platform [official website]"></title>
+    <link rel="stylesheet" href="/static/customer/css/global.css" type="text/css">
+    <link rel="stylesheet" href="/static/customer/css/main.css" type="text/css">
+    <script type="text/javascript" src="/static/customer/js/plugin/jquery.1.11.0.min.js"></script>
+    <script src="/static/customer/js/common/webHelper.min.js"></script>
+    <script type="text/javascript" src="/static/customer/js/locale/ts.min.js"></script>
+    <script type="text/javascript" src="/static/customer/js/coinuni.min.js"></script>
+    <script type="text/javascript" src="/static/customer/js/common/os.js"></script>
+</head>
+
+<body>
+    <div class="top-fixed-nav">
+        <a href="/index.html" class="logo"></a>
+        <ul class="left nav">
+	        <li><a class="" href="/index.html" data-cont="首页"></a></li>
+	        <li><a class="" href="/trade/coinTrade.html" data-cont="交易"></a></li>
+            <li><a href="/other/news.html" data-cont="资讯"></a></li>
+            <li><a href="/active/promotion.html" data-cont="福利"></a></li>
+            <li><a href="/active/inviteRebate.html" data-cont="邀请"></a></li>
+            <li><a class="valid-login" onclick="doLogin('finance')" data-cont="财务"></a></li>
+            <li><a class="valid-login" onclick="doLogin('security')" data-cont="安全"></a></li>
+	    </ul>
+        <div class="top-login right top-user">
+            <div id="lang" class="right">
+                <span class="lang"><em class="flag"></em><em class="flagName"></em></span>
+	            <div class="lanague">
+                    <ul>
+                        <li class="en_US"><a href="javascript:void(0)" onclick="cutLanguage('&lang=en_US')">English</a></li>
+                        <li class="ko_KR"><a href="javascript:void(0)" onclick="cutLanguage('&lang=ko_KR')">한국어</a></li>
+                        <li class="ja_JP"><a href="javascript:void(0)" onclick="cutLanguage('&lang=ja_JP')">日本語</a></li>
+                        <li class="fr_FR"><a href="javascript:void(0)" onclick="cutLanguage('&lang=fr_FR')">Français</a></li>
+                        <li class="es_AR"><a href="javascript:void(0)" onclick="cutLanguage('&lang=es_AR')">Espagnol</a></li>
+                        <li class="ru_RU"><a href="javascript:void(0)" onclick="cutLanguage('&lang=ru_RU')">русский </a></li>
+                        <li class="my_ZG"><a href="javascript:void(0)" onclick="cutLanguage('&lang=my_ZG')">မြန်မာ</a></li>
+                        <li class="ar_AE"><a href="javascript:void(0)" onclick="cutLanguage('&lang=ar_AE')">العربية</a></li>
+                        <li class="zh_TW"><a href="javascript:void(0)" onclick="cutLanguage('&lang=zh_TW')">繁體中文</a></li>
+                        <li class="zh_CN" style="border-bottom: 0;"><a href="javascript:void(0)" onclick="cutLanguage('&lang=zh_CN')">简体中文</a></li>
+                    </ul>
+	            </div>
+        	</div>
+            <a href="/user/login.html" class="login" data-cont="登录"></a>
+            <a href="/user/register.html" class="login" data-cont="注册"></a>
+            <a href="/finance/finance.html">
+                <p class="top-user-email jy-email sj_bd user_name"></p>
+            </a>
+            <div id="userinfo" class="userinfo">
+                <div class="userinfo-all">
+                    <div class="userinfo-t">
+                        <div class="userinfo-top">
+                            <p><i>ID：</i><span></span><a onclick="logOut()" class="blue" data-cont="退出"></a></p>
+                            <p><i data-cont="总资产："></i>
+                                <font class="is_num" id="balance_total">0</font> BTC</p>
+                        </div>
+                        <div class="userinfo-title">
+                            <div class="userinfo-Coin" data-cont="币种"></div>
+                            <div class="userinfo-available" data-cont="可用"></div>
+                            <div class="userinfo-frozen" data-cont="冻结"></div>
+                        </div>
+                    </div>
+                    <ul id="user-balance">
+                        <div class="listscoll" id="userinfo-list">
+
+                        </div>
+                    </ul>
+                </div>
+            </div>
+            <div class="clear"></div>
+        </div>
+        <div class="clear"></div>
+    </div>
+    <div class="body">
+        <div class="left">
+            <a href="/other/notice.html" data-cont="官方公告" class="cur"></a>
+            <a href="/other/news.html" data-cont="新闻资讯"></a>
+            <a href="/other/question.html" data-cont="常见问题"></a>
+            <a href="/other/aboutUs.html" data-cont="关于我们"></a>
+            <a href="/other/contactService.html" data-cont="联系客服"></a>
+            <a href="/other/TermsService.html" data-cont="服务条款"></a>
+            <a href="/other/PrivacyPolicy.html" data-cont="隐私政策"></a>
+            <a href="/other/policy.html" data-cont="AML/CTF政策"></a>
+            <a href="/other/rate.html" data-cont="费率说明"></a>
+            <a href="/other/apiExplain.html" data-cont="API说明"></a>
+            <a href="/other/coinApplication.html" data-cont="上币申请"></a>
+        </div>
+        <div class="right gonggao">
+	        <p class="p1"></p>
+	        <p class="p2"></p>
+	        <div class="gonggao-con"></div>
+	        <!-- <div class="gonggao-con">
+	            <p style="line-height: 1.5em;"><span style="background-color: rgb(255, 255, 255); font-family: &quot;pingfang sc&quot;, &quot;Microsoft YaHei&quot;, Arial, tahoma, &quot;hiragino sans gb&quot;, stheiti, &quot;wenquanyi micro hei&quot;, 微软雅黑, 宋体, sans-serif;">尊敬的用户：</span><br></p>
+	            <p></p>
+	            <p style="line-height: 1.5em;">自2009年比特币出现以来，一直受到来自社区内外开发者和用户的支持。但是随着用户量和交易数据的增长，比特币面临着扩容分叉的风险，他们称之为segwit2x。此次分叉预计发生在区块高度494784，准确时间CoinEgg将会在临近分叉的时候后再次进行公告。</p>
+	            <p style="line-height: 1.5em;">CoinEgg作为一家专业的数字资产交易平台，一直以为用户提供专业极致的数字资产交易服务为追求。CoinEgg平台并没有权力代替用户选择哪一种分叉后的币种，因此我们把选择权交给市场和用户。CoinEgg将在比特币可能出现分叉期间采取如下措施：</p><p><br></p>
+	            <p style="line-height: 1.5em;">1.&nbsp; 自2017年10月25日14:00起至分叉成功或结束，CoinEgg将支持BTC转换为BT1和BT2，支持双向转换，即1BTC兑换1BT1+1BT2，1BT1+1BT2亦可兑换1BTC，其中BT1和BT2分别为可能分叉为1M和2M的比特币；</p><p><br></p>
+	            <p style="line-height: 1.5em;">2.&nbsp; 2017年10月25日14：00，CoinEgg将上线BT1/BTC和BT2/BTC的交易；</p><p><br></p><p style="line-height: 1.5em;">3.&nbsp; 为了防止比特币在分叉期间的充值或提现被回滚和重放攻击，我们将在分叉期间（即从分叉开始前24小时至区块链网络稳定）停止比特币的充值和提现业务；</p><p><br></p>
+	            <p style="line-height: 1.5em;">4.&nbsp; CoinEgg将于分叉发生后尽快开放BT1和BT2的充值和提现业务；</p><p><br></p><p style="line-height: 1.5em;">5.&nbsp; 如果分叉成功，CoinEgg将做如下处理：</p><p style="line-height: 1.5em;">（1）停止并下线BT1/BTC和BT2/BTC交易，暂停BTC计价交易区的所有交易对，并系统撤销所有未成交订单；</p>
+	            <p style="line-height: 1.5em;">（2）如您的账户在分叉发生前持有BTC资产，我们会在分叉成功且区块链网络稳定后按照1:1等比例发放另一种分叉后的数字资产，具体的领取时间和领取形式我们会以公告形式另行通知；</p><p style="line-height: 1.5em;">（3）BTC交易区重新开盘，并上线新的分叉币兑BTC的交易。</p><p><br></p>
+	            <p style="line-height: 1.5em;">6. 如分叉没发生或分叉失败（其中一条链失败，仅有一条链存活），CoinEgg将做如下处理：</p>
+	            <p style="line-height: 1.5em;">（1）确定归零处理时间，以公告形式另行通知；</p>
+	            <p style="line-height: 1.5em;">（2）停止BT1/BTC和BT2/BTC交易； 如果BT1被选定为BTC，则将BT1资产转为BTC，将BT2资产做归零处理；如果BT2被选定为BTC，则将BT2资产转为BTC，将BT1资产做归零处理。</p>
+	            <p style="line-height: 1.5em;">温馨提示：数字资产是创新的投资产品，价格波动较大，且本次分叉产生的数字资产有归零风险，请您理性判断自己的投资能力，审慎做出投资决策。</p>
+	            <p style="line-height: 1.5em;">CoinEgg平台将持续完善平台功能为用户提供专业、安全、高效的区块链资产交易服务，希望未来一路有您的相伴与支持！</p><p><br></p>
+	            <p style="text-align: right;">CoinEgg</p><p style="text-align: right;">2017年10月20日<br></p>
+	         </div> -->
+        </div>
+	</div>
+    <footer>
+        <div class="footerCore">
+            <div class="introduceUs">
+                <div class="logo_box">
+                    <ul class="foot2">
+                        <li>
+                            <span>
+                                <img src="/static/customer/images/logo_gda.png" class="foot_logo">
+                            </span>
+                                <img src="/static/customer/images/logosub.png" class="foot_logo">
+                        </li>
+                    </ul>
+                </div>
+                <div class="introduce_list">
+                    <ul class="CompanyIntroduction">
+                        <li class="first">
+                            <h2><span data-cont="公司介绍"></span></h2>
+                        </li>
+                        <li><a href="/other/aboutUs.html" data-cont="关于我们"></a></li>
+                        <li><a href="/other/notice.html" data-cont="官方公告"></a></li>
+                        <li><a href="/other/news.html" data-cont="新闻资讯"></a></li>
+                        <li><a href="/other/coinApplication.html" data-cont="上币申请"></a></li>
+                    </ul>
+                    <ul class="UserAgreement">
+                        <li class="first">
+                            <h2><span data-cont="用户协议"></span></h2>
+                        </li>
+                        <li><a href="/other/TermsService.html" data-cont="服务条款"></a></li>
+                        <li><a href="/other/PrivacyPolicy.html" data-cont="隐私政策"></a></li>
+                        <li><a href="/other/policy.html" data-cont="AML/CTF政策"></a></li>
+                    </ul>
+                    <ul class="HelpCenter">
+                        <li class="first">
+                            <h2><span data-cont="帮助中心"></span></h2>
+                        </li>
+                        <li><a href="/other/rate.html" data-cont="费率说明"></a></li>
+                        <li><a href="/other/question.html" data-cont="常见问题"></a></li>
+                        <li><a href="/other/apiExplain.html" data-cont="API说明"></a></li>
+                        <li><a href="/other/contactService.html" data-cont="联系客服"></a></li>
+                    </ul>
+                    <ul class="ContactUs">
+                        <li class="first">
+                            <h2><span data-cont="联系我们"></span></h2>
+                        </li>
+                        <li><span data-cont="客服邮箱:"></span><span>btc98com@gmail.com</span></li>
+                        <li><span data-cont="商务合作:"></span><span>imbtcmaster@gmail.com</span></li>
+                        <li class="share_area">
+                            <span class="share">
+                                <a href="http://shang.qq.com/wpa/qunwpa?idkey=8cf2665d6e2be61c43b5f063b40bb8dc3ccea65b2b89ae881793a5f821afee1a" target="_blank" class="qq"></a>
+                                <a href="https://twitter.com/BTC98com" target="_blank" class="twitter"></a>
+                                <a href="https://www.facebook.com/btc.li.7" target="_blank" class="fb"></a>
+                                <a href="http://t.me/btc98" target="_blank" class="tg"></a>
+                                <a href="https://btc98.slack.com/messages" target="_blank" class="slack"></a>
+                            </span>
+                        </li>
+                    </ul>
+                </div>
+            </div>            
+            <div class="fbottom">
+                <p class="copyrighthui">Copyright © 2017 BTC98. All rights reserved. <span data-cont="由6EX提供技术支持"></span></p>
+            </div>
+        </div>
+    </footer>
+    <script type="text/javascript" src="/static/customer/js/common/common.min.js?v=1.0"></script>
+    <script>
+		doLogin(null);
+		// user();
+        $(function(){
+            var str=location.search.split('?')[1];
+            var la=str.split('&')[0];
+        	$.get(WebHelper.noticeDetail,la+'&lang='+getLang_notice(),function(d){
+        		if(d.status==1){
+        			$('.p1').html(d.data.ftitle);
+        			$('.p2').html(jsonDateFormat(d.data.fcreateDate,'yyyy-MM-dd hh:mm:ss'))
+        			$('.gonggao-con').html(d.data.fcontent);
+        		}
+        	})
+        })
+        $('.foot-con4_all').hover(function() { $('.foot-connectus').show() }, function() { $('.foot-connectus').hide() });
+        $('.lang,.lanague').hover(
+            function() { $('.lang').addClass('selected');
+                $('.lanague').addClass('selected');
+                $('.header').css('z-index', -120); },
+            function() { $('.header').css('z-index', 19);
+                $('.lanague').removeClass('selected');
+                $('.lang').removeClass('selected'); }
+        );
+        $('.total-con').hover(function() { $('.total-con-list').show() }, function() { $('.total-con-list').hide() });
+        $('.jy-email,#userinfo').hover(
+            function() {
+	        	$('.jy-email').addClass('isHover');
+   	    		$('#userinfo').show();
+                $('.header').css('z-index', -100);
+                $('.hdslide').css('z-index', -100);
+                $('.page').css('z-index', -100); },
+            function() {
+   	    		$('#userinfo').hide();
+   	        	$('.jy-email').removeClass('isHover');
+                $('.header').css('z-index', 19);
+                $('.email').removeClass('selected');
+                $('.hdslide').css('z-index', 0);
+                $('.page').css('z-index', 'auto'); }
+        );
+        balance();
+    </script>
+</body>
+
+</html>

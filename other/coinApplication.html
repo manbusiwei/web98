@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="viewport" content="width=device-width">
+	<link rel="icon" href="/static/customer/images/favicon.ico"/>
+    <title data-cont="比特酒吧| BTC98 - The most professional and safe virtual digital currency trading platform [official website]"></title>
+    <link rel="stylesheet" href="/static/customer/css/global.css" type="text/css">
+    <link rel="stylesheet" href="/static/customer/css/main.css" type="text/css">
+    <script type="text/javascript" src="/static/customer/js/plugin/jquery.1.11.0.min.js"></script>
+    <script type="text/javascript" src="/static/customer/js/plugin/tmpl.js"></script>
+    <script src="/static/customer/js/common/webHelper.min.js"></script>
+    <script type="text/javascript" src="/static/customer/js/locale/ts.min.js"></script>
+    <script type="text/javascript" src="/static/customer/js/coinuni.min.js"></script>
+    <script type="text/javascript" src="/static/customer/js/common/os.js"></script>
+    <style>
+        #notice_list{padding: 20px 0;font-size: 14px;}
+        #notice_list a{margin-right: 30px;color: #3eadd9}
+        .detail_cont{padding-top: 20px; line-height: 24px;font-size: 14px;display: none;}
+        .detail_cont h4{font-size: 16px;margin-bottom: 10px;}
+        .detail_cont p{margin-bottom: 10px;}
+    </style>
+</head>
+
+<body>
+    <div class="top-fixed-nav">
+        <a href="/index.html" class="logo"></a>
+        <ul class="left nav">
+	        <li><a class="" href="/index.html" data-cont="首页"></a></li>
+	        <li><a class="" href="/trade/coinTrade.html" data-cont="交易"></a></li>
+            <li><a href="/other/news.html" data-cont="资讯" class="white"></a></li>
+            <li><a href="/active/promotion.html" data-cont="福利"></a></li>
+            <li><a href="/active/inviteRebate.html" data-cont="邀请"></a></li>
+            <li><a class="valid-login" onclick="doLogin('finance')" data-cont="财务"></a></li>
+            <li><a class="valid-login" onclick="doLogin('security')" data-cont="安全"></a></li>
+	    </ul>
+        <div class="top-login right top-user">
+            <div id="lang" class="right">
+                <span class="lang"><em class="flag"></em><em class="flagName"></em></span>
+	            <div class="lanague">
+                    <ul>
+                        <li class="en_US"><a href="javascript:void(0)" onclick="cutLanguage('&lang=en_US')">English</a></li>
+                        <li class="ko_KR"><a href="javascript:void(0)" onclick="cutLanguage('&lang=ko_KR')">한국어</a></li>
+                        <li class="ja_JP"><a href="javascript:void(0)" onclick="cutLanguage('&lang=ja_JP')">日本語</a></li>
+                        <li class="fr_FR"><a href="javascript:void(0)" onclick="cutLanguage('&lang=fr_FR')">Français</a></li>
+                        <li class="es_AR"><a href="javascript:void(0)" onclick="cutLanguage('&lang=es_AR')">Espagnol</a></li>
+                        <li class="ru_RU"><a href="javascript:void(0)" onclick="cutLanguage('&lang=ru_RU')">русский </a></li>
+                        <li class="my_ZG"><a href="javascript:void(0)" onclick="cutLanguage('&lang=my_ZG')">မြန်မာ</a></li>
+                        <li class="ar_AE"><a href="javascript:void(0)" onclick="cutLanguage('&lang=ar_AE')">العربية</a></li>
+                        <li class="zh_TW"><a href="javascript:void(0)" onclick="cutLanguage('&lang=zh_TW')">繁體中文</a></li>
+                        <li class="zh_CN" style="border-bottom: 0;"><a href="javascript:void(0)" onclick="cutLanguage('&lang=zh_CN')">简体中文</a></li>
+                    </ul>
+	            </div>
+        	</div>
+            <a href="/user/login.html" class="login" data-cont="登录"></a>
+            <a href="/user/register.html" class="login" data-cont="注册"></a>
+            <a href="/finance/finance.html">
+                <p class="top-user-email jy-email sj_bd user_name"></p>
+            </a>
+            <div id="userinfo" class="userinfo">
+                <div class="userinfo-all">
+                    <div class="userinfo-t">
+                        <div class="userinfo-top">
+                            <p><i>ID：</i><span></span><a onclick="logOut()" class="blue" data-cont="退出"></a></p>
+                            <p><i data-cont="总资产："></i>
+                                <font class="is_num" id="balance_total">0</font> BTC</p>
+                        </div>
+                        <div class="userinfo-title">
+                            <div class="userinfo-Coin" data-cont="币种"></div>
+                            <div class="userinfo-available" data-cont="可用"></div>
+                            <div class="userinfo-frozen" data-cont="冻结"></div>
+                        </div>
+                    </div>
+                    <ul id="user-balance">
+                        <div class="listscoll" id="userinfo-list">
+
+                        </div>
+                    </ul>
+                </div>
+            </div>
+            <div class="clear"></div>
+        </div>
+        <div class="clear"></div>
+    </div>
+    <div class="body">
+        <div class="left">
+            <a href="/other/notice.html" data-cont="官方公告"></a>
+            <a href="/other/news.html" data-cont="新闻资讯"></a>
+            <a href="/other/question.html" data-cont="常见问题"></a>
+            <a href="/other/aboutUs.html" data-cont="关于我们"></a>
+            <a href="/other/contactService.html" data-cont="联系客服"></a>
+            <a href="/other/TermsService.html" data-cont="服务条款"></a>
+            <a href="/other/PrivacyPolicy.html" data-cont="隐私政策"></a>
+            <a href="/other/policy.html" data-cont="AML/CTF政策"></a>
+            <a href="/other/rate.html" data-cont="费率说明"></a>
+            <a href="/other/apiExplain.html" data-cont="API说明"></a>
+            <a href="/other/coinApplication.html" data-cont="上币申请" class="cur"></a>
+        </div>
+        <div class="right gonggao">
+        	<p class="t" data-cont="上币申请"></p>
+        	<div class="detail_cont detail_cont_cn">
+                <p>
+                    BTC98.COM比特酒吧区块链资产交易平台，由Grand Group和全球数字资产公司联合开发运营。
+                </p>
+                <p>
+                    BTC98.COM目前支持BTC与其他资产的撮合交易，平台支持9种国际化语言：英语、简体中文、繁体中文、日语、韩语、法语、西班牙语、俄罗斯语、阿拉伯语。网站使用GlobalSign认证授权的128位SSL加密通信技术和Google Authenticator双重验证系统保障用户信息安全，使用成熟的多层签名冷热分离架构保障用户资产安全。
+                </p>
+                <h4>
+                    一、虚拟币要求
+                </h4>
+                <p>
+                    申请上BTC98平台的虚拟币资产，要求源代码完全公开；有完整发展规划和白皮书；区块链网络节点超过3个并连接顺畅；有币种独立官网；必须有区块链钱包；有独立社群；在发起国家未发生法律纠纷。
+                </p>
+                <p>
+                    虚拟币运营方承诺，该虚拟币资产和团队核心成员未参与洗钱等金融违法活动，该虚拟币和团队核心成员绝对没参与和涉及恐怖组织活动。
+                </p>
+                <h4>
+                    二、上币流程
+                </h4>
+                <p>
+                    1、币方申请团队填写上币申请表后，平台方做币种背景和尽职调查，一周内出结果。
+                </p>
+                <p>
+                    2、商定好币方同意上币条件，平台方安排技术人员执行上币。
+                </p>
+                <p>
+                    3、上币成功后，按照和币方约定时间，开通充值、提现、交易。
+                </p>
+                <h4>
+                    三、平台权利
+                </h4>
+                <p>
+                    1、平台有权利根据市场环境变化和平台发展需求调整虚拟币的交易手续费和提现手续费。
+                </p>
+                <p>
+                    2、该虚拟币如有重大事件发生，平台可以采取暂停交易、暂停充值提现等手段保障投资人权益。无论平台采取任务手段，最终将应许投资人资产提现。
+                </p>
+                <h4>
+                    四、文档下载
+                </h4>
+                <p>
+                    上币申请文档填写好后，发送至 king@btc98.com 审核
+                </p>
+            </div>
+            <div class="detail_cont detail_cont_en">
+                <p>
+                    BTC98.COM Bit bar block asset trading platform, jointly developed by Grand Group and Global Digital Asset Management.
+                </p>
+                <p>
+                    BTC98.COM currently supports brokerages trading in BTC and other assets. The platform supports 9 international languages: English, Simplified Chinese, Traditional Chinese, Japanese, Korean, French, Spanish, Russian, Arabic. GlobalSign Certification 128-bit SSL encrypted communication technology and Google Authenticator dual authentication system to protect user information, the use of sophisticated multi-signature hot and cold separation architecture to protect the safety of user assets.
+                </p>
+                <h4>
+                    First, the virtual currency requirements
+                </h4>
+                <p>
+                    Apply for virtual coin assets on the BTC98 platform, require the source code to be completely open; have a complete development plan and white paper; block network nodes with more than 3 nodes and smooth connection; have independent official website; have blockchain wallet; Group; there is no legal dispute in the initiating country.
+                </p>
+                <p>
+                    The virtual coin operator promised that the virtual coin assets and the core members of the team did not participate in financial illegal activities such as money laundering. The virtual coin and the core members of the team absolutely did not participate in and involved terrorist organization activities.
+                </p>
+                <h4>
+                    Second, the currency process
+                </h4>
+                <p>
+                    As shown in Figure 1, after the coin application team fills in the application form of the top currency, the platform side to do the currency background and due diligence, the results within a week.
+                </p>
+                <p>
+                    2, Agreed to agree with the coin currency conditions on the currency, the platform to arrange technical staff to perform on the currency.
+                </p>
+                <p>
+                    3, after the success of the currency, in accordance with the currency and the agreed time, opening up, withdrawals, transactions.
+                </p>
+                <h4>
+                    Third, the platform rights
+                </h4>
+                <p>
+                    As shown in Figure 1, the platform has the right to adjust the transaction fees and withdrawal fees of virtual currency according to the changes of the market environment and the platform development needs.
+                </p>
+                <p>
+                    2, the virtual currency in the event of a major event, the platform can take the suspension of trading, to suspend top-up and other means to protect the interests of investors. Regardless of the mission to take the platform, investors will eventually promised to withdraw assets.
+                </p>
+                <h4>
+                    Fourth, the document download
+                </h4>
+                <p>
+                    After the application documents on the coin fill, sent to michael@btc98.com review.
+                </p>
+            </div>
+        	<div id="notice_list">
+                <a href="http://btc98.com/upload/carouselFigure/english.docx">BTC98 on the currency application document English version. Docx</a>
+                <a href="http://btc98.com/upload/carouselFigure/chinese.docx">BTC98上币申请文档.docx</a>
+        	</div>
+
+        </div>
+	</div>
+    <footer>
+        <div class="footerCore">
+            <div class="introduceUs">
+                <div class="logo_box">
+                    <ul class="foot2">
+                        <li>
+                            <span>
+                                <img src="/static/customer/images/logo_gda.png" class="foot_logo">
+                            </span>
+                                <img src="/static/customer/images/logosub.png" class="foot_logo">
+                        </li>
+                    </ul>
+                </div>
+                <div class="introduce_list">
+                    <ul class="CompanyIntroduction">
+                        <li class="first">
+                            <h2><span data-cont="公司介绍"></span></h2>
+                        </li>
+                        <li><a href="/other/aboutUs.html" data-cont="关于我们"></a></li>
+                        <li><a href="/other/notice.html" data-cont="官方公告"></a></li>
+                        <li><a href="/other/news.html" data-cont="新闻资讯"></a></li>
+                        <li><a href="/other/coinApplication.html" data-cont="上币申请"></a></li>
+                    </ul>
+                    <ul class="UserAgreement">
+                        <li class="first">
+                            <h2><span data-cont="用户协议"></span></h2>
+                        </li>
+                        <li><a href="/other/TermsService.html" data-cont="服务条款"></a></li>
+                        <li><a href="/other/PrivacyPolicy.html" data-cont="隐私政策"></a></li>
+                        <li><a href="/other/policy.html" data-cont="AML/CTF政策"></a></li>
+                    </ul>
+                    <ul class="HelpCenter">
+                        <li class="first">
+                            <h2><span data-cont="帮助中心"></span></h2>
+                        </li>
+                        <li><a href="/other/rate.html" data-cont="费率说明"></a></li>
+                        <li><a href="/other/question.html" data-cont="常见问题"></a></li>
+                        <li><a href="/other/apiExplain.html" data-cont="API说明"></a></li>
+                        <li><a href="/other/contactService.html" data-cont="联系客服"></a></li>
+                    </ul>
+                    <ul class="ContactUs">
+                        <li class="first">
+                            <h2><span data-cont="联系我们"></span></h2>
+                        </li>
+                        <li><span data-cont="客服邮箱:"></span><span>btc98com@gmail.com</span></li>
+                        <li><span data-cont="商务合作:"></span><span>imbtcmaster@gmail.com</span></li>
+                        <li class="share_area">
+                            <span class="share">
+                                <a href="http://shang.qq.com/wpa/qunwpa?idkey=8cf2665d6e2be61c43b5f063b40bb8dc3ccea65b2b89ae881793a5f821afee1a" target="_blank" class="qq"></a>
+                                <a href="https://twitter.com/BTC98com" target="_blank" class="twitter"></a>
+                                <a href="https://www.facebook.com/btc.li.7" target="_blank" class="fb"></a>
+                                <a href="http://t.me/btc98" target="_blank" class="tg"></a>
+                                <a href="https://btc98.slack.com/messages" target="_blank" class="slack"></a>
+                            </span>
+                        </li>
+                    </ul>
+                </div>
+            </div>            
+            <div class="fbottom">
+                <p class="copyrighthui">Copyright © 2017 BTC98. All rights reserved. <span data-cont="由6EX提供技术支持"></span></p>
+            </div>
+        </div>
+    </footer>
+    <script type="text/javascript" src="/static/customer/js/common/common.min.js?v=1.0"></script>
+    <script>
+        if($.cookie('lang')=='zh_CN'){
+            $('.detail_cont_cn').show();
+        }else{
+            $('.detail_cont_en').show()
+        }
+    </script>
+    <script>
+        $(function(){
+            doLogin(null);
+        });
+        $('.foot-con4_all').hover(function() { $('.foot-connectus').show() }, function() { $('.foot-connectus').hide() });
+        $('.lang,.lanague').hover(
+            function() { $('.lang').addClass('selected');
+                $('.lanague').addClass('selected');
+                $('.header').css('z-index', -120); },
+            function() { $('.header').css('z-index', 19);
+                $('.lanague').removeClass('selected');
+                $('.lang').removeClass('selected'); }
+        );
+        $('.total-con').hover(function() { $('.total-con-list').show() }, function() { $('.total-con-list').hide() });
+        $('.jy-email,#userinfo').hover(
+            function() {
+	        	$('.jy-email').addClass('isHover');
+   	    		$('#userinfo').show();
+                $('.header').css('z-index', -100);
+                $('.hdslide').css('z-index', -100);
+                $('.page').css('z-index', -100); },
+            function() {
+   	    		$('#userinfo').hide();
+   	        	$('.jy-email').removeClass('isHover');
+                $('.header').css('z-index', 19);
+                $('.email').removeClass('selected');
+                $('.hdslide').css('z-index', 0);
+                $('.page').css('z-index', 'auto'); }
+        );
+        balance();
+
+    </script>
+</body>
+
+</html>

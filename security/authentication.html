@@ -1,0 +1,436 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="viewport" content="width=device-width">
+    <link rel="icon" href="/static/customer/images/favicon.ico" />
+    <title data-cont="比特酒吧| BTC98 - The most professional and safe virtual digital currency trading platform [official website]"></title>
+    <link rel="stylesheet" href="/static/customer/css/global.css" type="text/css">
+    <link rel="stylesheet" href="/static/customer/css/main.css" type="text/css">
+    <script type="text/javascript" src="/static/customer/js/plugin/jquery.1.11.0.min.js"></script>
+    <script type="text/javascript" src="/static/customer/js/locale/ts.min.js"></script>
+    <script src="/static/customer/js/common/webHelper.min.js"></script>
+    <script type="text/javascript" src="/static/customer/js/coinuni.min.js"></script>
+    <script type="text/javascript" src="/static/customer/js/common/os.js"></script>
+    <script type="text/javascript">
+    /* $(function(){
+    	doLogin();
+    });
+     */
+    </script>
+</head>
+
+<body>
+    <div class="top-fixed-nav">
+        <a href="/index.html" class="logo"></a>
+        <ul class="left nav">
+            <li><a class="" href="/index.html" data-cont="首页"></a></li>
+            <li><a class="" href="/trade/coinTrade.html" data-cont="交易"></a></li>
+            <li><a href="/other/news.html" data-cont="资讯"></a></li>
+            <li><a href="/active/promotion.html" data-cont="福利"></a></li>
+            <li><a href="/active/inviteRebate.html" data-cont="邀请"></a></li>
+            <li><a class="valid-login" href-html="/finance/finance.html" data-cont="财务"></a></li>
+            <li><a class="valid-login white" onclick="doLogin('security')" data-cont="安全"></a></li>
+        </ul>
+        <div class="top-login right top-user">
+            <div id="lang" class="right">
+                <span class="lang"><em class="flag"></em><em class="flagName"></em></span>
+                <div class="lanague">
+                    <ul>
+                        <li class="en_US"><a href="javascript:void(0)" onclick="cutLanguage('&lang=en_US')">English</a></li>
+                        <li class="ko_KR"><a href="javascript:void(0)" onclick="cutLanguage('&lang=ko_KR')">한국어</a></li>
+                        <li class="ja_JP"><a href="javascript:void(0)" onclick="cutLanguage('&lang=ja_JP')">日本語</a></li>
+                        <li class="fr_FR"><a href="javascript:void(0)" onclick="cutLanguage('&lang=fr_FR')">Français</a></li>
+                        <li class="es_AR"><a href="javascript:void(0)" onclick="cutLanguage('&lang=es_AR')">Espagnol</a></li>
+                        <li class="ru_RU"><a href="javascript:void(0)" onclick="cutLanguage('&lang=ru_RU')">русский </a></li>
+                        <li class="my_ZG"><a href="javascript:void(0)" onclick="cutLanguage('&lang=my_ZG')">မြန်မာ</a></li>
+                        <li class="ar_AE"><a href="javascript:void(0)" onclick="cutLanguage('&lang=ar_AE')">العربية</a></li>
+                        <li class="zh_TW"><a href="javascript:void(0)" onclick="cutLanguage('&lang=zh_TW')">繁體中文</a></li>
+                        <li class="zh_CN" style="border-bottom: 0;"><a href="javascript:void(0)" onclick="cutLanguage('&lang=zh_CN')">简体中文</a></li>
+                    </ul>
+                </div>
+            </div>
+            <a href="/finance/finance.html">
+                <p class="top-user-email jy-email sj_bd user_name"></p>
+            </a>
+            <div id="userinfo" class="userinfo">
+                <div class="userinfo-all">
+                    <div class="userinfo-t">
+                        <div class="userinfo-top">
+                            <p>
+                                <i>ID：</i><span></span><a onclick="logOut()" class="blue" data-cont="退出"></a>
+                            </p>
+                            <p>
+                                <i data-cont="总资产："></i>
+                                <font class="is_num" id="balance_total">0</font> BTC
+                            </p>
+                        </div>
+                        <div class="userinfo-title">
+                            <div class="userinfo-Coin" data-cont="币种"></div>
+                            <div class="userinfo-available" data-cont="可用"></div>
+                            <div class="userinfo-frozen" data-cont="冻结"></div>
+                        </div>
+                    </div>
+                    <ul id="user-balance">
+                        <div class="listscoll" id="userinfo-list"></div>
+                    </ul>
+                </div>
+            </div>
+            <div class="clear"></div>
+        </div>
+        <div class="clear"></div>
+    </div>
+    <div class="body">
+        <div class="left">
+            <a href="/security/security.html" data-cont="安全中心"></a>
+            <a href="/security/updatePassword.html" data-cont="登录密码"></a>
+            <a href="/security/updateTradePw.html" data-cont="交易密码"></a>
+            <a onclick="doLogin('authentication')" class="cur" data-cont="身份认证"></a>
+            <a onclick="doLogin('certification')" data-cont="双重认证"></a>
+            <a href="/security/apiRegulate.html" data-cont="API申请"></a>
+        </div>
+        <div class="right chongzhi change_pwd auth">
+            <p class="t" data-cont="身份认证"></p>
+            <p class="warn red" style="border-bottom: none;">
+                <img src="/static/customer/images/warn.png">
+                <span data-cont="根据国家相关规定，需要您上传证件信息，请如实上传，感谢您的理解与支持！"></span>
+            </p>
+            <form method="post" enctype="multipart/form-data" id="upload_idimg">
+                <div class="pay_manage lm_manage" id="step_2">
+                    <div class="verified">
+                        <div class="img_box">
+                            <div class="center inner">
+                                <p class="t">
+                                    <span class="gh" data-cont="上传"></span><span data-cont="证件正面照"></span>
+                                </p>
+                                <p class="img">
+                                    <img src="/static/customer/images/sfz_z.png">
+                                </p>
+                                <a class="radius upload_original"><span class="cx" data-cont="点击上传"></span></a>
+                                <input type="file" class="file" name="photoz" style="display: none;">
+                            </div>
+                            <div class="center inner">
+                                <p class="t">
+                                    <span class="gh" data-cont="上传"></span><span data-cont="证件反面照"></span>
+                                </p>
+                                <p class="img">
+                                    <img src="/static/customer/images/sfz_f.png">
+                                </p>
+                                <a class="radius upload_original"><span class="cx" data-cont="点击上传"></span></a>
+                                <input type="file" class="file" name="photof" style="display: none;">
+                            </div>
+                            <div class="center inner">
+                                <p class="t">
+                                    <span class="gh" data-cont="上传"></span><span data-cont="手持证件照"></span>
+                                </p>
+                                <p class="img">
+                                    <img src="/static/customer/images/sfz_sc.png">
+                                </p>
+                                <a class="radius upload_original"><span class="cx" data-cont="点击上传"></span></a>
+                                <input type="file" class="file" name="photosc" style="display: none;">
+                            </div>
+                            <div class="clear"></div>
+                        </div>
+                    </div>
+                    <div class="auth_box">
+                        <table width="700" border="0" cellpadding="0" cellspacing="0">
+                            <tbody>
+                                <tr>
+                                    <td width="131" align="right" data-cont="国籍："></td>
+                                    <td class="textleft" width="556">
+                                        <select id="country" name="intl" class="select">
+                                            <option value="86">China</option>
+                                            <option value="853">Macao</option>
+                                            <option value="886">Taiwan,Province of China</option>
+                                            <option value="852">Hong Kong</option>
+                                            <option value="61">Australia</option>
+                                            <option value="49">Germany</option>
+                                            <option value="7">Russian Federation</option>
+                                            <option value="33">France</option>
+                                            <option value="63">Philippines</option>
+                                            <option value="82">Korea</option>
+                                            <option value="1">Canada</option>
+                                            <option value="52">Mexico</option>
+                                            <option value="81">Japan</option>
+                                            <option value="66">Thailand</option>
+                                            <option value="65">Singapore</option>
+                                            <option value="91">India</option>
+                                            <option value="44">United Kingdom</option>
+                                            <option value="45">Saudi Arabia</option>
+                                            <option value="46">USA</option>
+                                        </select>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td align="right" data-cont="真实姓名："></td>
+                                    <td class="textleft">
+                                        <input type="text" name="realname" class="input" id="realname" />
+                                        <span data-cont="请填写您的真实姓名"></span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td width="131" align="right" data-cont="证件类型："></td>
+                                    <td class="textleft" width="556" style="position: relative;">
+                                        <select name="idtype" class="select" id="vtype">
+                                            <option value="0" data-cont="身份证"></option>
+                                            <option value="2" data-cont="护照"></option>
+                                            <option value="5" data-cont="驾驶证"></option>
+                                        </select>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td align="right" data-cont="证件号码："></td>
+                                    <td class="textleft">
+                                        <input type="text" id="idcard" name="idcard" class="input">
+                                        <span id="idcard_text" data-cont="请填写您的证件号码"></span>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <!-- <p class="note red" data-cont="手持证件照片要求: 一手手持证件照片，另一手手持写有当天日期纸条的照片"></p> -->
+                    <p class="note" style="color: #999;" data-cont="证件必须是清晰彩色原件电子版，证件上文字清晰可见，可以是扫描件或者数码拍摄照片"></p>
+                    <p class="note" style="color: #999;" data-cont="请上传后缀名为jpg jpeg png的照片，每张照片最大不能超过2M"></p>
+                    <!-- <p class="note" style="color: #999;" data-cont="18时前提交的认证申请会在当日完成审核，18时后提交的申请在24小时内完成审核，节假日会审核会有延迟，请您耐心等待审核结果"></p> -->
+                    <input type="button" value="" data-cont="确认提交" onclick="upload_idimg(this)" class="submit btn">
+                </div>
+            </form>
+            <script type="text/javascript" src="/static/customer/js/common/common.min.js"></script>
+            <script>
+                doLogin()
+            // var submitFlag=false;//开关
+            function upload_idimg(_this) {
+                var formData = new FormData(document.getElementById("upload_idimg")); //表单id
+                var idcard = $('#idcard').val();
+                var realname = $('input[name=realname]').val();
+                var photoz = $('input[name=photoz]').val();
+                var photof = $('input[name=photof]').val();
+                var photosc = $('input[name=photosc]').val();
+
+                //if(idcard == ''){
+                //	$('#idcard').next('span').show();
+                //	return false;
+                //}
+                if(/<|>|@|#|%|&|\/|\\/g.test(realname)){
+                    alert(lang('不能包含非法字符'))
+                    return;
+                }
+                if (realname == '' || idcard == '') {
+                    //$('#realname').next('span').show();
+                    alert(lang('请输入完整'))
+                    return;
+                }
+
+                if (photoz == '' || photof == '' || photosc == '') {
+                    alert(lang("请上传证件图片"));
+                    return false;
+                }
+                if($(_this).hasClass('forbidClick'))return;
+                allowOrForbidSubmit(_this,true);
+                $.ajax({
+                    url: WebHelper.Authentication,
+                    type: "POST",
+                    data: formData,
+                    // async: false,
+                    cache: false,
+                    contentType: false,
+                    processData: false,
+                    success: function(data) {
+                        allowOrForbidSubmit(_this,false);
+                        $(_this).val(lang('确认提交'));
+                        if (data.status == 1) {
+                            alert(lang('提交成功'));
+                            location.href = '/security/authenticationPass.html?flag=0';
+                        }else{
+                            alert(lang(data.msg));
+                        }
+                    },
+                    error: function(e) {
+                        alert(lang("提交失败"));
+                    }
+                });
+            }
+
+            function next() {
+                var agree = 1;
+                for (var i = 1; i <= 3; i++) {
+                    var n = "radio_" + i;
+                    var yorn = $("input[name='" + n + "']:checked").val();
+                    if (yorn != 1) {
+                        agree = 0;
+                        break;
+                    }
+                }
+                $.post('/user_safe/agree/', { "is_agree": agree }, function(d) {
+                    if (d.status) {
+                        if (d.msg == 'ok') {
+                            location.href = '/user_exchange/coinout/coin/btc/';
+                            return false;
+                        }
+                        $('#step_1').hide();
+                        $('#step_2').show();
+                    } else {
+                        location.reload();
+                    }
+                }, 'json');
+            }
+            $(function() {
+                //图片/原图
+                upload_original();
+            })
+            </script>
+            <script>
+            function upload(obj) {
+                var file = obj.files[0];
+                var photoExt = obj.value.substr(obj.value.lastIndexOf(".")).toLowerCase(); //获得文件后缀名
+                if (photoExt != '.jpg' && photoExt != '.png' && photoExt != '.jpeg') {
+                    alert(lang("请上传后缀名为jpg jpeg png的照片"));
+                    sign = null;
+                    return;
+                }
+                var fileSize = 0;
+                var isIE = /msie/i.test(navigator.userAgent) && !window.opera;
+                if (isIE && !obj.files) {
+                    var filePath = obj.value;
+                    var fileSystem = new ActiveXObject("Scripting.FileSystemObject");
+                    var file = fileSystem.GetFile(filePath);
+                    fileSize = file.Size;
+                } else {
+                    fileSize = obj.files[0].size;
+                }
+                fileSize = Math.round(fileSize / 2048 * 100) / 100; //单位为KB
+                if (fileSize < 2048) {
+                    sign = 1
+                } else {
+                    alert(lang('照片最大尺寸为2M，请重新上传!'));
+                    sign = null;
+                    return;
+                }
+                var reader = new FileReader();
+                reader.readAsDataURL(file);
+                reader.onload = function(e) {
+                    $('.upload_original_on').parent().find('img').attr('src', this.result);
+                    $('.upload_original_on').parent().find('.gh').html('更换');
+                    $('.upload_original_on').parent().find('.cx').html('重新');
+                }
+            }
+
+            function upload_original() {
+                var input = $(".file");
+                var original = $(".upload_original");
+                if (typeof(FileReader) === 'undefined') {
+                    result.innerHTML = lang("抱歉，你的浏览器不支持 FileReader，请使用现代浏览器操作！");
+                    input.attr('disabled', 'disabled');
+                } else {
+                    input.on('change', function() {
+                        upload(this);
+                    })
+                    original.on('click', function() {
+                        $('.upload_original').removeClass('upload_original_on');
+                        $(this).addClass('upload_original_on');
+                        $(this).parent().find('.file').click();
+                    })
+                }
+            }
+
+            // inputFC();
+            </script>
+        </div>
+    </div>
+    <footer>
+        <div class="footerCore">
+            <div class="introduceUs">
+                <div class="logo_box">
+                    <ul class="foot2">
+                        <li>
+                            <span>
+                                <img src="/static/customer/images/logo_gda.png" class="foot_logo">
+                            </span>
+                                <img src="/static/customer/images/logosub.png" class="foot_logo">
+                        </li>
+                    </ul>
+                </div>
+                <div class="introduce_list">
+                    <ul class="CompanyIntroduction">
+                        <li class="first">
+                            <h2><span data-cont="公司介绍"></span></h2>
+                        </li>
+                        <li><a href="/other/aboutUs.html" data-cont="关于我们"></a></li>
+                        <li><a href="/other/notice.html" data-cont="官方公告"></a></li>
+                        <li><a href="/other/news.html" data-cont="新闻资讯"></a></li>
+                        <li><a href="/other/coinApplication.html" data-cont="上币申请"></a></li>
+                    </ul>
+                    <ul class="UserAgreement">
+                        <li class="first">
+                            <h2><span data-cont="用户协议"></span></h2>
+                        </li>
+                        <li><a href="/other/TermsService.html" data-cont="服务条款"></a></li>
+                        <li><a href="/other/PrivacyPolicy.html" data-cont="隐私政策"></a></li>
+                        <li><a href="/other/policy.html" data-cont="AML/CTF政策"></a></li>
+                    </ul>
+                    <ul class="HelpCenter">
+                        <li class="first">
+                            <h2><span data-cont="帮助中心"></span></h2>
+                        </li>
+                        <li><a href="/other/rate.html" data-cont="费率说明"></a></li>
+                        <li><a href="/other/question.html" data-cont="常见问题"></a></li>
+                        <li><a href="/other/apiExplain.html" data-cont="API说明"></a></li>
+                        <li><a href="/other/contactService.html" data-cont="联系客服"></a></li>
+                    </ul>
+                    <ul class="ContactUs">
+                        <li class="first">
+                            <h2><span data-cont="联系我们"></span></h2>
+                        </li>
+                        <li><span data-cont="客服邮箱:"></span><span>btc98com@gmail.com</span></li>
+                        <li><span data-cont="商务合作:"></span><span>imbtcmaster@gmail.com</span></li>
+                        <li class="share_area">
+                            <span class="share">
+                                <a href="http://shang.qq.com/wpa/qunwpa?idkey=8cf2665d6e2be61c43b5f063b40bb8dc3ccea65b2b89ae881793a5f821afee1a" target="_blank" class="qq"></a>
+                                <a href="https://twitter.com/BTC98com" target="_blank" class="twitter"></a>
+                                <a href="https://www.facebook.com/btc.li.7" target="_blank" class="fb"></a>
+                                <a href="http://t.me/btc98" target="_blank" class="tg"></a>
+                                <a href="https://btc98.slack.com/messages" target="_blank" class="slack"></a>
+                            </span>
+                        </li>
+                    </ul>
+                </div>
+            </div>            
+            <div class="fbottom">
+                <p class="copyrighthui">Copyright © 2017 BTC98. All rights reserved. <span data-cont="由6EX提供技术支持"></span></p>
+            </div>
+        </div>
+    </footer>
+    <script type="text/javascript">
+        $('.foot-con4_all').hover(function() { $('.foot-connectus').show() }, function() { $('.foot-connectus').hide() });
+        $('.lang,.lanague').hover(
+            function() { $('.lang').addClass('selected');
+                $('.lanague').addClass('selected');
+                $('.header').css('z-index', -120); },
+            function() { $('.header').css('z-index', 19);
+                $('.lanague').removeClass('selected');
+                $('.lang').removeClass('selected'); }
+        );
+        $('.total-con').hover(function() { $('.total-con-list').show() }, function() { $('.total-con-list').hide() });
+        $('.jy-email,#userinfo').hover(
+            function() {
+                $('.jy-email').addClass('isHover');
+                $('#userinfo').show();
+                $('.header').css('z-index', -100);
+                $('.hdslide').css('z-index', -100);
+                $('.page').css('z-index', -100);
+            },
+            function() {
+                $('#userinfo').hide();
+                $('.jy-email').removeClass('isHover');
+                $('.header').css('z-index', 19);
+                $('.email').removeClass('selected');
+                $('.hdslide').css('z-index', 0);
+                $('.page').css('z-index', 'auto');
+            }
+        );
+        balance();
+    </script>
+</body>
+
+</html>

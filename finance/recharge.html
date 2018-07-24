@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html>
+	<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<meta name="viewport" content="width=device-width">
+    <link rel="icon" href="/static/customer/images/favicon.ico"/>
+	<title data-cont="比特酒吧| BTC98 - The most professional and safe virtual digital currency trading platform [official website]"></title>
+	<link rel="stylesheet" href="/static/customer/css/global.css" type="text/css">
+	<link rel="stylesheet" href="/static/customer/css/main.css" type="text/css">
+	<script type="text/javascript" src="/static/customer/js/plugin/jquery.1.11.0.min.js"></script>
+	<script type="text/javascript" src="/static/customer/js/common/webHelper.min.js"></script>
+	<script type="text/javascript" src="/static/customer/js/locale/ts.min.js"></script>
+	<script type="text/javascript" src="/static/customer/js/coinuni.min.js"></script>
+	<script type="text/javascript" src="/static/customer/js/common/os.js"></script>
+	<style>
+		#qrcode-wallet{
+			position:absolute;
+			right:-100px;
+			top:-5px;
+		}
+	</style>
+</head>
+<body>
+<div class="top-fixed-nav">
+	<a href="/index.html" class="logo"></a>
+	<ul class="left nav">
+        <li><a class="" href="/index.html" data-cont="首页"></a></li>
+        <li><a class="" href="/trade/coinTrade.html" data-cont="交易"></a></li>
+		<li><a href="/other/news.html" data-cont="资讯"></a></li>
+        <li><a href="/active/promotion.html" data-cont="福利"></a></li>
+        <li><a href="/active/inviteRebate.html" data-cont="邀请"></a></li>
+        <li><a class="valid-login white" onclick="doLogin('finance')" data-cont="财务"></a></li>
+        <li><a class="valid-login" onclick="doLogin('security')" data-cont="安全"></a></li>
+    </ul>
+		<div class="top-login right top-user">
+            <div id="lang" class="right">
+                <span class="lang"><em class="flag"></em><em class="flagName"></em></span>
+	            <div class="lanague">
+                    <ul>
+                        <li class="en_US"><a href="javascript:void(0)" onclick="cutLanguage('&lang=en_US')">English</a></li>
+                        <li class="ko_KR"><a href="javascript:void(0)" onclick="cutLanguage('&lang=ko_KR')">한국어</a></li>
+                        <li class="ja_JP"><a href="javascript:void(0)" onclick="cutLanguage('&lang=ja_JP')">日本語</a></li>
+                        <li class="fr_FR"><a href="javascript:void(0)" onclick="cutLanguage('&lang=fr_FR')">Français</a></li>
+                        <li class="es_AR"><a href="javascript:void(0)" onclick="cutLanguage('&lang=es_AR')">Espagnol</a></li>
+                        <li class="ru_RU"><a href="javascript:void(0)" onclick="cutLanguage('&lang=ru_RU')">русский </a></li>
+                        <li class="my_ZG"><a href="javascript:void(0)" onclick="cutLanguage('&lang=my_ZG')">မြန်မာ</a></li>
+                        <li class="ar_AE"><a href="javascript:void(0)" onclick="cutLanguage('&lang=ar_AE')">العربية</a></li>
+                        <li class="zh_TW"><a href="javascript:void(0)" onclick="cutLanguage('&lang=zh_TW')">繁體中文</a></li>
+                        <li class="zh_CN" style="border-bottom: 0;"><a href="javascript:void(0)" onclick="cutLanguage('&lang=zh_CN')">简体中文</a></li>
+                    </ul>
+	            </div>
+        	</div>
+			<a href="/finance/finance.html">
+				<p class="top-user-email jy-email selected sj_bd"></p>
+			</a>
+			<div id="userinfo" class="userinfo">
+				<div class="userinfo-all">
+					<div class="userinfo-t">
+						<div class="userinfo-top">
+							<p><i>ID：</i><span></span><a onclick="logOut()" class="blue" data-cont="退出"></a></p>
+							<p><i data-cont="总资产："></i><font class="is_num" id="balance_total">0</font> BTC</p>
+						</div>
+						<div class="userinfo-title">
+							<div class="userinfo-Coin" data-cont="币种"></div>
+							<div class="userinfo-available" data-cont="可用"></div>
+							<div class="userinfo-frozen" data-cont="冻结"></div>
+						</div>
+					</div>
+					<ul id="user-balance">
+						<div class="listscoll" id="userinfo-list">
+						</div>
+					</ul>
+				</div>
+			</div>
+			<div class="clear"></div>
+		</div>
+		<div class="clear"></div>
+	</div><div class="body">
+	<div class="left">
+		<a href="/finance/finance.html" data-cont="财务中心"></a>
+		<a href="/finance/recharge.html" class="cur" data-cont="充值"></a>
+		<a onclick="doLogin('withdraw');" class="valid-login" data-cont="提现"></a>
+		<a href="/finance/entrust.html" data-cont="委托管理"></a>
+		<a href="/finance/transaction.html" data-cont="成交记录"></a>
+        <a href="/finance/ofdispense.html" data-cont="分发记录"></a>
+	</div>
+	<script src="/static/customer/js/plugin/tmpl.js"></script>
+<div class="right chongzhi">
+	<p class="t" data-cont="充值"></p>
+	<div class="total">
+		<div class="total-con">
+			<p class="total-con-t"></p>
+			<div class="total-con-list" style="display: none;">
+				<div class="total-con-list-c">
+					<span class="all_coin_box_jian"></span>
+					<div class="all_coin_box all_coinM">
+						<ul id="all_coin" style="display: block;">
+							<!-- <li>
+                               <a href="/finance/recharge.html?id=1&shortName=btc">
+	                               <i class="coin coin_19 coin_btc_19"></i>
+	                               <div class="all_coin_name all_coinMoney">
+	                                   <p>BTC</p>
+	                               </div>
+	                           </a>
+                           </li> -->
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+		<dl>
+			<dd data-cont="可用:"></dd>
+			<dt style="color:#1bc676;" class="is_num" id="coin_balance"></dt>
+		</dl>
+		<dl>
+			<dd data-cont="冻结:"></dd>
+			<dt style="color:#e55600;" class="is_num" id="coin_lock"></dt>
+		</dl>
+		<div class="clear"></div>
+	</div>
+	<dl class="ewm">
+		<dd><span data-cont="这是钱包地址，请将您的"></span> <span class='coin-name'></span> <span data-cont="转入到此地址:"></span>
+		</dd>
+		<dt>
+		<p><input type="text" id="address" value="Loading..." readonly="readonly"></p>
+		<p id="qrcode-wallet"></p>
+		</dt>
+		<dt id="memoDt" style="display: none;">
+		<p>Memo:<input type="text" id="memo" value="Loading..." readonly="readonly"></p>
+		</dt>
+		<dt id="bitcny_exchange">
+			<span><span data-cont="第三方承兑商"></span><span>:</span></span>
+			<span class="assets" data-clipboard-target="content">
+				<a href="http://bitassets.cc" target="_blank" data-cont="大象承兑"></a><em style="margin: 0 8px">|</em>
+				<a href="http://www.54163.com" target="_blank" data-cont="承兑宝"></a><em style="margin: 0 8px">|</em>
+				<a href="https://m.magicw.net" target="_blank" data-cont="鼓鼓钱包"></a>
+				<div class="accept-icon">
+					<div class="tips_box">
+						<h4><span data-cont="声明"></span><span>：</span></h4>
+						<div data-cont="承兑商与平台无合作关系，平台不做任何背书，请在风险自担前提下进行充值和提现"></div>
+					</div>
+				</div>
+            </span>
+			<span class="exchange-rate"><span data-cont="市场汇率"></span><span> : 1BitCNY=</span><strong class="exchange-rate-num-hook">1.1670</strong>CNY
+			</span>
+		</dt>
+
+	</dl>
+	<script type="text/javascript" src="/static/customer/js/plugin/jquery.qrcode.min.js"></script>
+	<dl class="text">
+		<dt><span data-cont="转入说明"></span></dt>
+		<dd><span data-cont="1. 虚拟币的转入是自动入账，网络确认达到"></span><span id="networkConfirmationNumber" class="red"></span><span data-cont="个确认后自动入账"></span></dd>
+		<dd data-cont="2. 该地址是您专有的转入地址，可以同时进行多次充值"></dd>
+		<dd data-cont="3. 为了资金安全，我们可能随时更换地址，请以最新的地址为准"></dd>
+	</dl>
+	<dl class="text">
+		<dt><span data-cont="转入记录"></span></dt>
+	</dl>
+	<table width="100%" border="0" cellpadding="0" cellspacing="0">
+		<thead><tr>
+			<th scope="col" width="10%">ID</th>
+			<th scope="col" width="30%" data-cont="钱包地址"></th>
+			<th scope="col" width="20%" data-cont="转入数量"></th>
+			<th scope="col" width="15%" data-cont="发送时间"></th>
+			<th scope="col" width="10%" data-cont="状态"></th>
+		</tr>
+		<script id="tmpl-deposit" type="text/html">
+		<tr>
+			<td>${fid}</td>
+			<!-- <td><p target="_blank" href="https://blockchain.info/zh-cn/tx/${ftradeUniqueNumber}">${recharge_virtual_address}</p></td> -->
+			<td>${recharge_virtual_address}</td>
+			<td>${to_num(famount,pointData(coinName,'numberPre',1))}</td>
+			<td style="min-width:170px">${jsonDateFormat(fcreateTime,'yyyy-MM-dd hh:mm:ss')}</td>
+			<td class="{{if fstatus == 200}}orage{{else}}green_l{{/if}}" >${lang(fstatus_s)}</td>
+		</tr>
+		</script>
+		</thead><tbody id="grid-deposit" class="po_re"></tbody>
+	</table>
+	<ul id="page-deposit" class="pagination"></ul>
+
+</div>
+</div>
+    <footer>
+        <div class="footerCore">
+            <div class="introduceUs">
+                <div class="logo_box">
+                    <ul class="foot2">
+                        <li>
+                            <span>
+                                <img src="/static/customer/images/logo_gda.png" class="foot_logo">
+                            </span>
+                                <img src="/static/customer/images/logosub.png" class="foot_logo">
+                        </li>
+                    </ul>
+                </div>
+                <div class="introduce_list">
+                    <ul class="CompanyIntroduction">
+                        <li class="first">
+                            <h2><span data-cont="公司介绍"></span></h2>
+                        </li>
+                        <li><a href="/other/aboutUs.html" data-cont="关于我们"></a></li>
+                        <li><a href="/other/notice.html" data-cont="官方公告"></a></li>
+                        <li><a href="/other/news.html" data-cont="新闻资讯"></a></li>
+                        <li><a href="/other/coinApplication.html" data-cont="上币申请"></a></li>
+                    </ul>
+                    <ul class="UserAgreement">
+                        <li class="first">
+                            <h2><span data-cont="用户协议"></span></h2>
+                        </li>
+                        <li><a href="/other/TermsService.html" data-cont="服务条款"></a></li>
+                        <li><a href="/other/PrivacyPolicy.html" data-cont="隐私政策"></a></li>
+                        <li><a href="/other/policy.html" data-cont="AML/CTF政策"></a></li>
+                    </ul>
+                    <ul class="HelpCenter">
+                        <li class="first">
+                            <h2><span data-cont="帮助中心"></span></h2>
+                        </li>
+                        <li><a href="/other/rate.html" data-cont="费率说明"></a></li>
+                        <li><a href="/other/question.html" data-cont="常见问题"></a></li>
+                        <li><a href="/other/apiExplain.html" data-cont="API说明"></a></li>
+                        <li><a href="/other/contactService.html" data-cont="联系客服"></a></li>
+                    </ul>
+                    <ul class="ContactUs">
+                        <li class="first">
+                            <h2><span data-cont="联系我们"></span></h2>
+                        </li>
+                        <li><span data-cont="客服邮箱:"></span><span>btc98com@gmail.com</span></li>
+                        <li><span data-cont="商务合作:"></span><span>imbtcmaster@gmail.com</span></li>
+                        <li class="share_area">
+                            <span class="share">
+                                <a href="http://shang.qq.com/wpa/qunwpa?idkey=8cf2665d6e2be61c43b5f063b40bb8dc3ccea65b2b89ae881793a5f821afee1a" target="_blank" class="qq"></a>
+                                <a href="https://twitter.com/BTC98com" target="_blank" class="twitter"></a>
+                                <a href="https://www.facebook.com/btc.li.7" target="_blank" class="fb"></a>
+                                <a href="http://t.me/btc98" target="_blank" class="tg"></a>
+                                <a href="https://btc98.slack.com/messages" target="_blank" class="slack"></a>
+                            </span>
+                        </li>
+                    </ul>
+                </div>
+            </div>            
+            <div class="fbottom">
+                <p class="copyrighthui">Copyright © 2017 BTC98. All rights reserved. <span data-cont="由6EX提供技术支持"></span></p>
+            </div>
+        </div>
+    </footer>
+    <script type="text/javascript" src="/static/customer/js/common/common.min.js?v=1.0"></script>
+	<script>
+		var coinName = getRequestByName("shortName") || 'btc';
+		var coinId = getRequestByName("id") || 1;
+		$('.coin-name').html(coinName.toLowerCase()=='bitcny'?'BitCNY':coinName.toUpperCase());
+		;(function(){
+			doLogin();
+			$.ajax({
+				type:'GET',
+				url:WebHelper.QueryCoinWallet,
+				data:{shortName:coinName},
+				dataType:'json',
+				success:function(result){
+					if (!ltcb(result))  return loginpop();
+					if (!result.status || result.status != 1) {
+						return $('#address').val(result.msg);
+					}else{
+						var realAddr;
+                        if(coinName=='bitcny'){
+                            $('#bitcny_exchange').show()
+                        }
+						$('#qrcode-wallet').qrcode({
+							text: result.data,
+							width:100,
+							height:100
+						});
+						if ("tv" == coinName || "bts" == coinName || "bitcny" == coinName) {
+	                        var addr = result.data;
+	                        var mainAddr = addr.substring(0, addr.length-32);
+	                        realAddr = mainAddr;
+	                        var memo = addr.substring(addr.length-32, addr.length);
+	                        $('#memoDt').show();
+	                        $('#memo').val(memo);
+	                        return $('#address').val(mainAddr);
+	                    } else {
+	                    	realAddr = result.data;
+	                    	$('#memoDt').hide();
+	                        return $('#address').val(result.data);
+	                    }
+					}
+				}
+			});
+			// if(!$.cookie('allCoin1')){
+			// 	initAllCoin(1);
+			// }else{
+			// 	var coinArr=$.cookie('allCoin1').split(',');
+			// 	for(var o in coinArr){
+			// 		if(coinName==coinArr[o].split('__')[0]){
+			// 			$('#networkConfirmationNumber').html(coinArr[o].split('__')[4])
+			// 			return;
+			// 		}
+			// 	}
+			// }
+		})();
+		function balance_cb() {
+			// console.log("coinName="+coinName);
+			$('.total-con-t').html('<span class="coin coin_40 coin_'+coinName.toLowerCase()+'_40"></span>'+(coinName.toLowerCase()=='bitcny'?'BitCNY':coinName.toUpperCase())+'<i class="jian"></i>');
+			$('.coin-name').val(coinName.toUpperCase());
+			goods_num();
+		}
+        $('.foot-con4_all').hover(function(){$('.foot-connectus').show()},function(){$('.foot-connectus').hide()});
+        $('.lang,.lanague').hover(
+            function(){$('.lang').addClass('selected');$('.lanague').addClass('selected');$('.header').css('z-index',-120);},
+            function(){$('.header').css('z-index',19);$('.lanague').removeClass('selected');$('.lang').removeClass('selected');}
+        );
+        $('.total-con').hover(function(){$('.total-con-list').show()},function(){$('.total-con-list').hide()});
+
+    	$('.jy-email,#userinfo').hover(function(){
+    		$('#userinfo').show();
+        	$('.jy-email').addClass('isHover');
+    	},function(){
+    		$('#userinfo').hide();
+        	$('.jy-email').removeClass('isHover');
+    	})
+        balance();
+		deposit(1);
+		//查询充值记录
+		function deposit(p) {
+			$.ajax({
+				type:'POST',
+				url:WebHelper.QueryDepositRecords,
+				contentType : 'application/json',
+		        data : JSON.stringify({symbol:coinId,currentPage:p,pageSize:10}),
+				dataType:'json',
+				success:function(result){
+					$('#grid-deposit').html('');
+	                TMPL.pages(result.page, 'deposit', p);
+		            $('.tableBox').next('.no-records').remove();
+		            if ('' == result.data || null == result.data) {
+		                $('table').after('<p class="no-records">'+lang('暂无记录')+'</p>');
+		            } else {
+		                $('#tmpl-deposit').tmpl(result.data).htm('#grid-deposit');
+		                TMPL.pages(result.page, 'deposit', p);
+			            TMPL.listcb(result);
+		            }
+				}
+			});
+		}
+		$.get(WebHelper.dealallcoin,function(d){
+			if(d.status==1){
+				renderAllcoinData('finance/recharge',d.data,'');
+				var _d=d.data;
+				for(var i=0;i<_d.length;i++){
+					if(coinName==_d[i][0].toLowerCase()){
+						$('#networkConfirmationNumber').html(_d[i][4]);
+						return;
+					}
+				}
+			}
+		})
+    </script>
+</body>
+</html>

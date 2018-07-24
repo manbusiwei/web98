@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="viewport" content="width=device-width">
+    <link rel="icon" href="/static/customer/images/favicon.ico" />
+    <title data-cont="比特酒吧| BTC98 - The most professional and safe virtual digital currency trading platform [official website]"></title>
+    <link rel="stylesheet" href="/static/customer/css/global.css" type="text/css">
+    <link rel="stylesheet" href="/static/customer/css/main.css?v=1.0" type="text/css">
+    <link rel="stylesheet" href="css/9coin.css" type="text/css">
+    <script type="text/javascript" src="/static/customer/js/plugin/jquery.1.11.0.min.js"></script>
+    <script type="text/javascript" src="/static/customer/js/common/webHelper.min.js"></script>
+    <script type="text/javascript" src="/static/customer/js/locale/ts.min.js"></script>
+    <script type="text/javascript" src="/static/customer/js/coinuni.min.js?v=1.0"></script>
+    <script type="text/javascript" src="/static/customer/js/common/os.js"></script>
+    <style>
+        .top-fixed-nav{
+            background: #183669
+        }
+    </style>
+</head>
+
+<body>
+    <!-- 头部导航 -->
+    <div class="xt_top_notice">
+        <div class="w">
+            <div class="left">
+                <a href="noticeDetail.html" id="noticeId">
+                    <p class="gfs center"></p>
+                </a>
+            </div>
+            <div class="right">
+                <div id="lang" class="right">
+                    <span class="lang"><em class="flag"></em><em class="flagName"></em></span>
+                    <div class="lanague">
+                        <ul>
+                            <li class="en_US"><a href="javascript:void(0)" onclick="cutLanguage('&lang=en_US')">English</a></li>
+                            <li class="zh_TW"><a href="javascript:void(0)" onclick="cutLanguage('&lang=zh_TW')">繁體中文</a></li>
+                            <li class="zh_CN"><a href="javascript:void(0)" onclick="cutLanguage('&lang=zh_CN')">简体中文</a></li>
+                            <li class="ko_KR"><a href="javascript:void(0)" onclick="cutLanguage('&lang=ko_KR')">한국어</a></li>
+                            <li class="ja_JP"><a href="javascript:void(0)" onclick="cutLanguage('&lang=ja_JP')">日本語</a></li>
+                            <li class="ru_RU"><a href="javascript:void(0)" onclick="cutLanguage('&lang=ru_RU')">русский </a></li>
+                            <li class="ar_AE" style="border-bottom: 0;"><a href="javascript:void(0)" onclick="cutLanguage('&lang=ar_AE')">العربية</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- 中部内容 -->
+    <div class="main">
+        <div class="contain">
+            <div class="top-fixed-nav">
+                <div class="w">
+                    <a href="/" class="logo"></a>
+                    <ul class="left nav">
+                        <li><a class="white" href="/index.html" data-cont="首页"></a></li>
+                        <li><a href="/trade/coinTrade.html" data-cont="交易"></a></li>
+                        <li><a class="valid-login" onclick="doLogin('security')" data-cont="安全"></a></li>
+                        <li><a href="/other/news.html">ICO</a></li>
+                        <li><a href="/active/promotion.html" data-cont="">ICO Calendar</a></li>
+                    </ul>
+                    <div class="top-login right top-user">
+                        <a href="/user/login.html" class="login" data-cont="登录"></a>
+                        <a href="/user/register.html" class="login" data-cont="注册"></a>
+                        <a href="/finance/finance.html">
+                            <p class="top-user-email jy-email sj_bd"></p>
+                        </a>
+                        <div id="userinfo" class="userinfo">
+                            <div class="userinfo-all">
+                                <div class="userinfo-t">
+                                    <div class="userinfo-top">
+                                        <p><i>ID：</i><span></span><a onclick="logOut()" class="blue" data-cont="退出"></a></p>
+                                        <p><i data-cont="总资产："></i>
+                                            <font class="is_num" id="balance_total"></font> BTC</p>
+                                    </div>
+                                    <div class="userinfo-title">
+                                        <div class="userinfo-Coin" data-cont="币种"></div>
+                                        <div class="userinfo-available" data-cont="可用"></div>
+                                        <div class="userinfo-frozen" data-cont="冻结"></div>
+                                    </div>
+                                </div>
+                                <ul id="user-balance">
+                                    <div class="listscoll" id="userinfo-list">
+                                    </div>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="allPro detail">
+            <div class="w">
+                <div class="sub_nav">
+                    <a href="9coin.html">首页 /</a>
+                    <a href="" class="hei">头条</a>
+                </div>
+                <div class="left">
+                    <div class="notice_list">
+                        <div class="tit">
+                            <h4>这1000人，控制着全球40%的比特币，被称为白鲸</h4>
+                            <p>
+                                <span class="date">2017-12-21 19:20</span>
+                                <span class="countBox">阅读<span>150</span>次</span>
+                            </p>
+                        </div>
+                        <dl>
+                            <dt>比特币简介
+                            </dt>
+                            <dd>
+                                <img src="images/detail.jpg" alt="">
+                            </dd>
+                            <dd>
+                                <p>
+                                   在2003年10月7日的特别选举中，加利福尼亚州55.4%的选民投票罢免戴维斯。同时，施瓦辛格赢得了48.6%的选票，成为新的州长一些观察家认为，选举结果反映了施瓦辛格的领袖气质及加利福尼亚州选民对明星的崇拜。另一些人指出，施瓦辛格获胜仅仅因为加利福尼亚州人民对戴维斯治理下的现状不满。
+                                </p>
+                                <p>
+                                    严峻的预算问题，而上任第二天他就提出了解决州财政危机的三项计划，并表示要向加州的博彩业收税。他还宣布了一个非常具体的环保计划，提倡使用清洁能源，推广燃料电池车的使用。同时，他也放弃了州长薪金。
+                                </p>
+                                <p>
+                                    2007年3月，他推出法案，严禁未满18岁的青年在驾车期间使用手提电话，希望减少因为使用手提电话而分散注意力酿成的交通意外。2008年的金融危机，让长期借债度日的加州财政出现问题。2008年12月1日，施瓦辛格正式宣布加州进入财政紧急状态，并要求推出经济刺激方案来解决加州入不敷出的窘境。2010年，施瓦辛格削减了74亿美元的政府支出，为了开源，2010年2月26日，加州政府公开出售11座政府机构办公楼，目的在于缩减财政赤字。
+                                </p>
+                            </dd>
+                        </dl>
+                        <dl>
+                            <dt>操盘手
+                            </dt>
+                            <dd>
+                                <p>
+                                   在2003年10月7日的特别选举中，加利福尼亚州55.4%的选民投票罢免戴维斯。同时，施瓦辛格赢得了48.6%的选票，成为新的州长一些观察家认为，选举结果反映了施瓦辛格的领袖气质及加利福尼亚州选民对明星的崇拜。另一些人指出，施瓦辛格获胜仅仅因为加利福尼亚州人民对戴维斯治理下的现状不满。
+                                </p>
+                                <p>
+                                    严峻的预算问题，而上任第二天他就提出了解决州财政危机的三项计划，并表示要向加州的博彩业收税。他还宣布了一个非常具体的环保计划，提倡使用清洁能源，推广燃料电池车的使用。同时，他也放弃了州长薪金。
+                                </p>
+                                <p>
+                                    2007年3月，他推出法案，严禁未满18岁的青年在驾车期间使用手提电话，希望减少因为使用手提电话而分散注意力酿成的交通意外。2008年的金融危机，让长期借债度日的加州财政出现问题。2008年12月1日，施瓦辛格正式宣布加州进入财政紧急状态，并要求推出经济刺激方案来解决加州入不敷出的窘境。2010年，施瓦辛格削减了74亿美元的政府支出，为了开源，2010年2月26日，加州政府公开出售11座政府机构办公楼，目的在于缩减财政赤字。
+                                </p>
+                            </dd>
+                        </dl>
+                    </div>
+                </div>
+                <div class="right">
+                    <div class="Rbox note">
+                        <h4 class="Rbox_tit">热门文章</h4>
+                        <ul>
+                            <li>
+                                <a href="">
+                                    <span class="dis">普特链(PUT)延长锁定时间</span>
+                                    <span class="date">12/06</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="">
+                                    <span class="dis">普特链(PUT)延长锁定时间</span>
+                                    <span class="date">12/06</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="">
+                                    <span class="dis">普特链(PUT)延长锁定时间</span>
+                                    <span class="date">12/06</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="">
+                                    <span class="dis">普特链(PUT)延长锁定时间</span>
+                                    <span class="date">12/06</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="">
+                                    <span class="dis">普特链(PUT)延长锁定时间</span>
+                                    <span class="date">12/06</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="">
+                                    <span class="dis">普特链(PUT)延长锁定时间</span>
+                                    <span class="date">12/06</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="Rbox note">
+                        <h4 class="Rbox_tit">文章排行</h4>
+                        <ul>
+                            <li>
+                                <a href="">
+                                    <span class="dis">关于支持Venus数字资产空投</span>
+                                    <span class="date">12/06</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="">
+                                    <span class="dis">关于支持Venus数字资产空投</span>
+                                    <span class="date">12/06</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="">
+                                    <span class="dis">关于支持Venus数字资产空投</span>
+                                    <span class="date">12/06</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="">
+                                    <span class="dis">关于支持Venus数字资产空投</span>
+                                    <span class="date">12/06</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="">
+                                    <span class="dis">关于支持Venus数字资产空投</span>
+                                    <span class="date">12/06</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="">
+                                    <span class="dis">关于支持Venus数字资产空投</span>
+                                    <span class="date">12/06</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        $(function() {
+            doLogin('index');
+            // user();
+        });
+        $(function() {
+            $('#wx_link').hover(function() { $('.wx_ma').show(); }, function() { $('.wx_ma').hide() });
+        })
+    </script>
+    <script type="text/javascript" src="/static/customer/js/common/websocket.js"></script>
+    <script type="text/javascript" src="/static/customer/js/plugin/jquery.flot.js"></script>
+    <footer>
+        <div class="footerCore">
+            <div class="introduce_list">
+                <ul class="">
+                    <li class="copyrighthui">Copyright © 2017 BTC98. All rights reserved.</li>
+                    <li class="share_area">
+                        <span class="share">
+                            <a href="http://t.me/btc98" target="_blank" class="tg"></a>
+                            <a href="http://shang.qq.com/wpa/qunwpa?idkey=" target="_blank" class="qq"></a>
+                            <a href="https://www.facebook.com/btc.li.7" target="_blank" class="fb"></a>
+                            <a href="https://twitter.com/BTC98com" target="_blank" class="twitter"></a>
+                        </span>
+                    </li>
+                </ul>
+                <ul class="conUs">
+                    <li><a href="/other/TermsService.html" data-cont="服务条款"></a></li>
+                    <li><a href="/other/rate.html" data-cont="费率说明"></a></li>
+                    <li><a href="/other/apiExplain.html" data-cont="API说明"></a></li>
+                    <li><a href="/other/contactService.html" data-cont="联系客服"></a></li>
+                    <li><a href="/other/aboutUs.html" data-cont="关于我们" class="last"></a></li>
+                </ul>
+            </div>
+        </div>
+    </footer>
+    <script type="text/javascript" src="/static/customer/js/common/common.min.js?v=1.0"></script>
+    <script type="text/javascript">
+    $('.lang,.lanague').hover(
+        function() {
+            $('.lang').addClass('selected');
+            $('.lanague').addClass('selected');
+            $('.header').css('z-index', -120);
+        },
+        function() {
+            $('.header').css('z-index', 19);
+            $('.lanague').removeClass('selected');
+            $('.lang').removeClass('selected');
+        }
+    );
+    $('.total-con').hover(function() { $('.total-con-list').show() }, function() { $('.total-con-list').hide() });
+    $('.jy-email,#userinfo').hover(
+        function() {
+            $('.jy-email').addClass('isHover');
+            $('#userinfo').addClass('selected');
+            // $('.header').css('z-index', -100);
+            $('.hdslide').css('z-index', -100);
+            $('.page').css('z-index', -100);
+        },
+        function() {
+            $('.header').css('z-index', 19);
+            $('.jy-email').removeClass('isHover');
+            $('.email').removeClass('selected');
+            $('#userinfo').removeClass('selected');
+            $('.hdslide').css('z-index', 0);
+            $('.page').css('z-index', 'auto');
+        }
+    );
+    $(function() {
+
+        //获取公告
+        $.get(WebHelper.notice + '?type=2&language=' + getLang_notice() + '&t=' + new Date().getTime(), function(d) {
+            //$.post('http://192.168.8.46:8081/api/aboutus/queryallannouncement.do','{type:2}',function(d){
+            if (d.data && d.data.length > 0) {
+                $('.xt_top_notice').find('.center').html(d.data[0]['ftitle']);
+                $('#noticeId').attr('href', '/other/noticeDetail.html?groupId=' + d.data[0]['groupId']+'&lang='+$.cookie('lang'))
+            }
+        })
+    })
+    </script>
+</body>
+
+</html>

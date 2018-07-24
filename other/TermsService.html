@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="viewport" content="width=device-width">
+	<link rel="icon" href="/static/customer/images/favicon.ico"/>
+    <title data-cont="比特酒吧| BTC98 - The most professional and safe virtual digital currency trading platform [official website]"></title>
+    <link rel="stylesheet" href="/static/customer/css/global.css" type="text/css">
+    <link rel="stylesheet" href="/static/customer/css/main.css" type="text/css">
+    <script type="text/javascript" src="/static/customer/js/plugin/jquery.1.11.0.min.js"></script>
+    <script src="/static/customer/js/common/webHelper.min.js"></script>
+    <script type="text/javascript" src="/static/customer/js/locale/ts.min.js"></script>
+    <script type="text/javascript" src="/static/customer/js/coinuni.min.js"></script>
+    <script type="text/javascript" src="/static/customer/js/common/os.js"></script>
+</head>
+
+<body>
+    <div class="top-fixed-nav">
+        <a href="/index.html" class="logo"></a>
+        <ul class="left nav">
+	        <li><a class="" href="/index.html" data-cont="首页"></a></li>
+	        <li><a class="" href="/trade/coinTrade.html" data-cont="交易"></a></li>
+            <li><a href="/other/news.html" data-cont="资讯"></a></li>
+            <li><a href="/active/promotion.html" data-cont="福利"></a></li>
+            <li><a href="/active/inviteRebate.html" data-cont="邀请"></a></li>
+            <li><a class="valid-login" onclick="doLogin('finance')" data-cont="财务"></a></li>
+            <li><a class="valid-login" onclick="doLogin('security')" data-cont="安全"></a></li>
+	    </ul>
+        <div class="top-login right top-user">
+            <div id="lang" class="right">
+                <span class="lang"><em class="flag"></em><em class="flagName"></em></span>
+	            <div class="lanague">
+                    <ul>
+                        <li class="en_US"><a href="javascript:void(0)" onclick="cutLanguage('&lang=en_US')">English</a></li>
+                        <li class="ko_KR"><a href="javascript:void(0)" onclick="cutLanguage('&lang=ko_KR')">한국어</a></li>
+                        <li class="ja_JP"><a href="javascript:void(0)" onclick="cutLanguage('&lang=ja_JP')">日本語</a></li>
+                        <li class="fr_FR"><a href="javascript:void(0)" onclick="cutLanguage('&lang=fr_FR')">Français</a></li>
+                        <li class="es_AR"><a href="javascript:void(0)" onclick="cutLanguage('&lang=es_AR')">Espagnol</a></li>
+                        <li class="ru_RU"><a href="javascript:void(0)" onclick="cutLanguage('&lang=ru_RU')">русский </a></li>
+                        <li class="my_ZG"><a href="javascript:void(0)" onclick="cutLanguage('&lang=my_ZG')">မြန်မာ</a></li>
+                        <li class="ar_AE"><a href="javascript:void(0)" onclick="cutLanguage('&lang=ar_AE')">العربية</a></li>
+                        <li class="zh_TW"><a href="javascript:void(0)" onclick="cutLanguage('&lang=zh_TW')">繁體中文</a></li>
+                        <li class="zh_CN" style="border-bottom: 0;"><a href="javascript:void(0)" onclick="cutLanguage('&lang=zh_CN')">简体中文</a></li>
+                    </ul>
+	            </div>
+        	</div>
+            <a href="/user/login.html" class="login" data-cont="登录"></a>
+            <a href="/user/register.html" class="login" data-cont="注册"></a>
+            <a href="/finance/finance.html">
+                <p class="top-user-email jy-email sj_bd user_name"></p>
+            </a>
+            <div id="userinfo" class="userinfo">
+                <div class="userinfo-all">
+                    <div class="userinfo-t">
+                        <div class="userinfo-top">
+                            <p><i>ID：</i><span></span><a onclick="logOut()" class="blue" data-cont="退出"></a></p>
+                            <p><i data-cont="总资产："></i>
+                                <font class="is_num" id="balance_total">0</font> BTC</p>
+                        </div>
+                        <div class="userinfo-title">
+                            <div class="userinfo-Coin" data-cont="币种"></div>
+                            <div class="userinfo-available" data-cont="可用"></div>
+                            <div class="userinfo-frozen" data-cont="冻结"></div>
+                        </div>
+                    </div>
+                    <ul id="user-balance">
+                        <div class="listscoll" id="userinfo-list">
+
+                        </div>
+                    </ul>
+                </div>
+            </div>
+            <div class="clear"></div>
+        </div>
+        <div class="clear"></div>
+    </div>
+    <div class="body">
+        <div class="left">
+            <a href="/other/notice.html" data-cont="官方公告"></a>
+            <a href="/other/news.html" data-cont="新闻资讯"></a>
+            <a href="/other/question.html" data-cont="常见问题"></a>
+            <a href="/other/aboutUs.html" data-cont="关于我们"></a>
+            <a href="/other/contactService.html" data-cont="联系客服"></a>
+            <a href="/other/TermsService.html" data-cont="服务条款" class="cur"></a>
+            <a href="/other/PrivacyPolicy.html" data-cont="隐私政策"></a>
+            <a href="/other/policy.html" data-cont="AML/CTF政策"></a>
+            <a href="/other/rate.html" data-cont="费率说明"></a>
+            <a href="/other/apiExplain.html" data-cont="API说明"></a>
+            <a href="/other/coinApplication.html" data-cont="上币申请"></a>
+        </div>
+        <div class="right gonggao">
+		<p class="t">Terms of Service</p>
+		<div class="gonggao-con">
+			<p class="gonggao-con-t" style="font-weight: bold;"></p>
+			<p>These Terms of Service ("Terms") set out the conditions under which BTC98 PTY LTD (the "Company") offer the use of its trading and payment platform (the "Platform") to Users.</p>
+			<p>Please read these Terms carefully. Your use of the Platform indicates your acceptance of and agreement with these Terms.</p>
+			<p>The Platform, managed by the Company, is an electronic software service for trading cryptographic unique software Tokens ("Tokens") with other users of the Platform ("Users").</p>
+			<p>The Company reserves the right, at its sole discretion, to change, add or remove portions of these Terms, at any time. You will be notified of such changes two business days in advance through your Account and upon such notification it is your responsibility to review the amended Terms.</p>
+			<p>Your continued use of the Platform, including by giving Instructions or entering Transactions, following the posting of changes will mean that you accept and agree to the changes. You agree that all subsequent Instructions given by you and Transactions entered by you will be subject to the Terms then in effect. As long as you comply with these Terms as modified from time to time, the Company grants you a personal, non-exclusive, non- transferable, non-sublicensable, limited right to enter and use the Platform</p>
+			<p>Your acceptance of these Terms, as amended from time to time, gives the Company a mandate to bring together Users to trade on the Platform according to the following clauses as well as perform the functions described herein.</p>
+			<p>HIGH RISK INVESTMENT WARNING: Holding and trading Tokens carries a high level of risk and may not be suitable for all investors. Before deciding to hold or trade Tokens you should carefully consider your objectives, financial situation, needs and investment experience. The value of Tokens may rise or fall, and will be affected by matters outside of the Company's control. By trading or holding Tokens, you could sustain losses of all of your invested funds.</p>
+			<p class="gonggao-con-t" style="font-weight: bold;">1. Use of the Website and Platform: Jurisdictional Limits</p>
+			<p>The information in this website and the use of the Platform is not intended for any person who is not an Australian resident and is not made available to any person in any jurisdiction where its distribution or use would be contrary to any law or regulation. Nothing in this website or the Platform should be considered an offer or solicitation to buy or sell any service or product to any person in any jurisdiction where such offer or solicitation would be unlawful.</p>
+			<p class="gonggao-con-t" style="font-weight: bold;">2. Company's Authority</p>
+			<p>The Company is not a principal in any Transaction. In giving an Instruction, the User appoints the Company as its agent to match the User's Instructions to buy or sell the specified Tokens at the price nominated by the User against Instructions from other Users.</p>
+			<p>Upon matching, all Transactions will be subject to immediate settlement and delivery, and any Instruction is irrevocable authority from the User to the Company to access the User's Account to settle the Transaction and deduct any Commission or Fee or other amount owing to the Company under these Terms or for any other reason.</p>
+			<p>The Platform is available only to Australian Users and is not offered or available to any person who resides outside of Australia.</p>
+			<p>The Company is not licensed as an Australian Financial Services Licensee and it does not offer general or personal financial advice. Nothing in this website is intended to be or should be taken as financial, legal or taxation advice. Users should seek their own financial, legal, tax and accounting advice as to the likely outcomes for them of trading Tokens.</p>
+			<p class="gonggao-con-t" style="font-weight: bold;">3. Who May Be a User of the Platform</p>
+			<p>A User must be an Australian resident individual or business which has met the Company's Account opening procedures, including, if required, any client verification procedures, and which is authorized to use the Platform by the Company. The Company retains absolute discretion in determining who may be a User of the Platform and may cease to allow a User to transact through the Platform at any time without prior notification. The Company shall have absolute discretion in accepting or rejecting an application to be a User or any Instruction.</p>
+			<p>Users agree to provide the Company with accurate, current and complete information about themselves as prompted by the registration process, and keep such information updated.</p>
+			<p class="gonggao-con-t" style="font-weight: bold;">4. Users' Accounts</p>
+			<p>Users are responsible for maintaining the confidentiality of their Account information, including their password, and for all activity including Instructions and Transactions which occur on their Account. Users agree to notify the Company immediately by email of any unauthorized use of their Account or password, or any other breach of security. The Company will not be liable for any loss a User may incur as a result of unauthorized use of that User's Account's credentials. Users will be held liable for losses incurred by the Company or any other User of the Platform due to someone else's unauthorized use. Users shall not use any Account other than their own or access the Account of another User at any time. Users may not attempt to gain unauthorized access to the Platform, and any attempt to do so or to assist others (Users or otherwise) to do so, or distribution of instructions, software or tools for that purpose, will result in the accounts of such Users being terminated, and this does not limit the right of the Company to take any other action against you.</p>
+			<p>Users may not create or use any Account other than their own. For a User to be exempt from any of these rules, the User must request express and prior permission from the Company. The creation or use of multiple Accounts without obtaining such prior express permission from the Company will lead to the immediate suspension of all User Accounts on the Platform, as well as all pending trades.</p>
+			<p>A User's ability to deposit and withdraw into its Account may be regulated by applicable know-your-customer or anti-money laundering laws including the Anti-Money Laundering - Counter Terrorism Financing Act 2006 (Cth) and its rules and regulations. The Company may restrict Transactions that may violate those laws or its internal KYC-AML policies. The Company's KYC-AML policy is located on its website. The Company may restrict any Transaction that is flagged as a suspicious activity by the Company's internal processes and/or file suspicious activity reports on flagged Transactions.</p>
+			<p>All Deposited Currency credited to User's Account will be maintained in trust in a bank account with a reputable Australian deposit-taking institution under the Company's name or in the name of a custodian appointed by the Company. Such account may be segregated for each User or be a pooled account containing funds of multiple Users of the Company's products. The Company retains absolute discretion to determine whether to use segregated or pooled accounts and the Company retains the right to switch between segregated or pooled accounts without approval from a User. However, if the Company maintains User Accounts in a pooled account, it will ensure that proper procedures are maintained at all times to identify the assets of each User. Regardless of whether pooled or segregated accounts are used, at no time will the Company mix its own funds with assets held in a User Account.</p>
+			<p>All User Accounts denominated in Deposited Currency may be converted to Tokens upon a User's entering Transactions through the Platform. The Tokens in a User's Account may only be transferred to other Users through the procedures of the Platform's electronic trading platform or withdrawn according to the Company's procedures.</p>
+			<p>Although Tokens are held by the Company on User's behalf, the User remains the absolute beneficial owner of the number of Tokens which are identified in the User's Account. The Company will maintain strict procedures to ensure that the correct number of Tokens are recorded as the property of the relevant User, as well as adopting security measures to prevent Tokens being misused, misplaced, misappropriated or stolen.</p>
+			<p class="gonggao-con-t" style="font-weight: bold;">5. Account Transfers</p>
+			<p>Users acknowledge that:</p>
+			<p>(a)	The networks by which Token transfers occur are outside of the Platform. The Company gives no guarantee of and takes no liability for the security of the Token transfer network. Losses of Tokens may occur due to use of the Token transfer network which are outside of the control of the Company;</p>
+			<p>(b)	The speeds of the Token transfer networks are outside of the control of the Company. It may take some days for a transfer of Tokens to a User's Account (deposit) to be received by the Platform, or for a transfer of Tokens from a User's Account (withdrawal) to be effected. The Company is not liable for any consequences of failures of Token deposits or withdrawals to be effected in a timely manner.</p>
+			<p>The Company is not obliged to accept any deposit of Tokens or Deposited Currency to any Account.</p>
+			<p class="gonggao-con-t" style="font-weight: bold;">6. Execution Policy</p>
+			<p>In general, the Company will execute Transactions in the order in which they are placed by Users, but having regard to the price at which the Instructed Transaction is placed. However, the Company reserves the right to put Instructed Transactions on hold, or only fill them in part. This would usually occur where the Instructed Transaction is large and /or there is insufficient demand from other Users to transact in that volume or at that price.</p>
+			<p class="gonggao-con-t" style="font-weight: bold;">7. Fees and Commissions</p>
+			<p>The User acknowledges that the Company may charge Fees in respect of the Account and Commissions on Transactions. Such Fees and Commissions are set out in the Company's website and may be updated from time to time by the Company. Any updated Fees and Commissions apply from the date that the updated Fees and Commissions are set out on the Company's website. The Company will endeavor to notify Users through their User Accounts in advance of any changes to Fees or Commissions.</p>
+			<p>The Company is authorized to deduct from the proceeds of any Transaction or from a User's Account the Commission payable in respect of any Transaction and any other Fees levied upon the User's Account.</p>
+			<p class="gonggao-con-t" style="font-weight: bold;">8. Limitations on the Use of the Platform</p>
+			<p>The Company in its absolute and sole discretion may: 1) restrict the number of open Instructions a User may have on the Platform at any one time; 2) restrict the ability of a User to change or cancel a posted Instruction per any unit of time; 3) periodically define the incremental values for Instructions on the Platform; and 4) cancel in whole or in part Instructions that do not adhere to these limitations.</p>
+			<p class="gonggao-con-t" style="font-weight: bold;">9. The Company's Obligations</p>
+			<p>The Company warrants and represents:</p>
+			<p>-	it will use all reasonable care and skill in facilitating the matching of Instructions of the Users via the Platform to conclude Transactions.</p>
+			<p>-	the trading price for a Transaction is calculated on the basis of actual matched offers made by other Users participating in the bidding process on the Platform combined with the applicable Company's commission (if any).</p>
+			<p>-	it shall comply with the laws and regulations relating to offering the Platform in Australia.</p>
+			<p class="gonggao-con-t" style="font-weight: bold;">10. User's Obligations and Acknowledgements</p>
+			<p>The User acknowledges that once an Instruction is placed it is irrevocable, and once a Transaction is matched, it will proceed immediately to settlement and delivery through the Platform. The User acknowledges that, when a Transaction is entered, the Platform sends and receives the Tokens from the buyer's and the seller's respective Accounts.</p>
+			<p>It is the User's responsibility and the User undertakes to ensure that it holds sufficient Deposited Currency and/or Tokens in its Account to meet its settlement obligations and any other liabilities arising from any Transaction, including sufficient Deposited Currency to meet the Commission. In addition, the User undertakes to ensure that it retains in its Account sufficient Deposited Currency to meet any regular Fees payable on the Account.</p>
+			<p>The User represents and warrants that:</p>
+			<p>(i)	it will only operate an Account and use the Platform to perform trades of Tokens for the purposes and in accordance with the conditions set forth in these Terms</p>
+			<p>(ii) it is duly authorized and has the capacity to provide each Instruction and enter into each Transaction on the Platform</p>
+			<p>(iii) it is a resident of Australia</p>
+			<p>(iv) it will comply with all applicable laws of Australia and any other jurisdiction in which or from which it seeks to operate its Account, give Instructions or enter Transactions</p>
+			<p>(v)	all amounts deposited into its Account (other than through Transactions), whether as Tokens or Deposited Currency, come from legal sources which the User owns or otherwise has full legal authority to deal with</p>
+			<p>(vi) the User's use of the Platform, provision of Instructions or entering any Transaction does not infringe the rights of any third party or any applicable law.</p>
+			<p>The User will not:</p>
+			<p>(i)	use the Platform to perform any illegal activity of any sort, including, but not limited to, money laundering or terrorism financing; or</p>
+			<p>(ii) use the Platform to perform payment of any ransomware, including, but not limited to cryptolocker; or</p>
+			<p>(iii) give any Instruction or enter any Transaction or do or undertake any other activity, whether or not through the Platform, which would or may negatively affect the performance of the Platform or the reputation of the Company.</p>
+			<p>The User confirms that in using the Platform and holding and transacting in Tokens, it has considered the risks posed by such actions, including the risks that:</p>
+			<p>- The value of Tokens may rise or fall</p>
+			<p>- The value of Tokens will be affected by factors outside of the control of the Company</p>
+			<p>- The value of Tokens may be affected by new Tokens being created or developed or other forms of digital currencies or similar commodities being developed</p>
+			<p>- Tokens may not be transferrable or accepted for transfer by any third party</p>
+			<p>- Tokens may not be accepted as payment for goods and services by any person</p>
+			<p>The User is responsible for any tax liability arising from its holding or Transactions in Tokens and will indemnify the Company where the Company is obliged to pay tax on behalf of the User in respect of the User's Account or any Token held, or bought or sold by the User.</p>
+			<p class="gonggao-con-t" style="font-weight: bold;">11. Intellectual Property</p>
+			<p>All intellectual property rights vested in texts, images or any other content found on or related to the Platform are owned by the Company. Accordingly, Users may not copy, distribute, reproduce, republish, upload, transmit, modify, post, frame-in or otherwise use in any way any such content without the prior express authorization of the Company.</p>
+			<p>The Company's property or that of our vendors or licensors is protected by patent, trademark and/or copyright laws of Australia and may not be used without the Company's express written consent.</p>
+			<p>The Company may take any action available in law or equity to protect its intellectual property and to remedy any breach or potential breach of its rights, including by seeking an injunction to prevent a breach of its rights.</p>
+			<p class="gonggao-con-t" style="font-weight: bold;">12. Website Commentary</p>
+			<p>The website may include commentary and information on Tokens, the market for Tokens, uses for Tokens and other information, interactive tools, quotes, reports and data concerning Tokens and trading in Tokens and other subject matter. Some of this information may be supplied by entities not affiliated with the Company (Third Party Information). To the maximum extent possible, the Company will identify and attribute all information sourced from third parties. The Company does not explicitly or implicitly endorse or approve the Third Party Information. While the Company takes reasonable steps to ensure that the Third Party Information on its website is correct and up to date, the Company does not verify or validate such information and takes no responsibility for its content or any consequence of any person placing reliance on the Third Party Information. The Company is not obliged to remove or update such Third Party Information where it becomes aware that it is incorrect, misleading or incomplete.</p>
+			<p class="gonggao-con-t" style="font-weight: bold;">13. Liability</p>
+			<p>The User indemnifies the Company and each of its directors, officers, shareholders, advisers, consultants, agents and contractors (each a "Company Indemnitee") against all liabilities, claims, losses and expenses (Losses) which may be incurred or suffered by the Company Indemnitee directly or indirectly arising out of any failure by the User to maintain sufficient Deposited Currency or Tokens in its Account or otherwise for failing to meet its obligations under these Terms. Such Losses may include legal fees incurred in defending or responding to such Losses and consequential losses. This indemnity will apply regardless of whether a Transaction was entered in error, but will not apply to the extent that Losses were incurred or suffered by a Company Indemnitee due to its own fraud or willful default.</p>
+			<p>To the extent permitted by law, none of the Company or the Company Indemnitees will be held liable for any damages, losses, costs, loss of profit, loss of revenue, loss of business, loss of opportunity, loss of data, or any other direct, indirect or consequential loss to any person including the User arising out of use of the Platform, the Company acting on any Instruction, any Transaction, any failure of the Platform, any failure or lack of any security measures or for any other reason, except to the extent of the Company's fraud or willful default. The Company shall not be liable for any perceived loss as a result of cancelling in whole or in part a User's Instructions.</p>
+			<p>The Company will not be held liable for any malfunction, breakdown, delay or interruption to the Internet connection, or if for any reason the Platform is unavailable at any time or for any period. The Company makes no representation that its website or the Platform is free from errors, viruses, worms or other technical anomalies which may cause problems or damage to User's own computer hardware or software, and the Company accepts no liability for such errors, viruses or worms.</p>
+			<p>While the Company takes appropriate measures to ensure the website, the Platform and all of the Company's systems are properly secured and protected against attack, it gives no warranty that its security systems are impregnable and loss of Tokens and Deposited Currency held on behalf of Users and data referring to or belonging to Users may occur.</p>
+			<p>Where the Company's website contains links to other sites and resources provided by third parties, these links are provided for your information only. We have no control over the contents of those sites or resources, and accept no responsibility for them or for any loss or damage that may arise from your use of them.</p>
+			<p>In the case of fraud or other suspicious activities, the Company will report all necessary information, including names, addresses and all other requested information, to the relevant authorities dealing with fraud and breaches of the law. Users recognize that their Account may be frozen at any time at the request of any competent authority investigating a fraud or other suspicious activity.</p>
+			<p>Nothing in these terms excludes or limits the liability of either the Company or the User for fraud, or any other liability which may not by law be limited or excluded.</p>
+			<p>Subject to the foregoing, the Company's aggregate liability in respect of claims based on events arising out of or in connection with a User's use of the Platform, whether in contract or tort (including negligence) or otherwise, shall in no circumstances exceed the greater of either (a) the total amount held in the User's the Platform Account for the User making a claim less any amount of commission that may be due and payable to the Company in respect of such account; or (b) 125% of the value of the Transaction(s) that are the subject of the claim less any amount of commission that may be due and payable to the Company in respect of such Transaction(s).</p>
+			<p class="gonggao-con-t" style="font-weight: bold;">14. Termination</p>
+			<p>A User may close its Account at any time by notification to the Company in the form determined by the Company</p>
+			<p>The Company may suspend or terminate a User's Account at any time immediately upon written notice to the User for any reason, including without limitation: (1) attempts to gain unauthorized access to the Platform or another User's Account or providing assistance to others attempting to do so; (2) overcoming software security features limiting use of or protecting any content; (3) usage of the Platform to perform illegal activities such as money laundering, terrorism financing, paying of ransomware or other criminal activities, (4) violations of these Terms; (5) failure to pay or fraudulent payment for Transactions, (6) unexpected operational difficulties; or (7) requests by law enforcement or other government agencies.</p>
+			<p>The Company may by notice to Users discontinue or modify the Platform and/or revise or terminate these Terms at any time. Users are deemed to have accepted these revisions or termination to the extent that they continue using the Platform.</p>
+			<p>Subject to these Terms and applicable laws, within 60 days of closure of a User's Account, whether by the User or the Company, the Company must:</p>
+			<p>(a)	In respect of any Deposited Currency held in the User's Account, pay to the User's nominated bank account the amount of the Deposited Currency; and</p>
+			<p>(b)	in respect of any Token held in the User's Account, in its absolute discretion either:</p>
+			<p>(b) a.	transfer the Tokens to the User or a person nominated by the User (which may be another Token trading platform provider); or</p>
+			<p>(b) b.	sell the Tokens at the prevailing market price and pay the amount raised to the User's nominated bank account.</p>
+			<p>The Company is entitled to retain from any amounts (whether Token or Deposited Currency) which may otherwise be payable to the User on closure of its Account any amount payable by the User to the Company, including as fees or commissions on sale of Tokens under (b) b. above. The Company may be legally limited in the values it may refund over a certain period of time and a User shall not hold the Company liable for an inability to refund all values as expeditiously as the User may desire.</p>
+			<p>The User also agrees that the Company may, in its sole discretion by giving notice, terminate Users' access to the Platform, prohibit access to the Platform and its content, services and tools, delay or remove hosted content, and take technical and legal steps to prevent the User's access to the Platform if the Company - in its exclusive discretion - believes that the User has breached or may breach these Terms or is otherwise acting inconsistently with the intentions of these Terms.</p>
+			<p>The Company also reserves the right to terminate Accounts that have been inactive for a period of 6 months or more, or to modify or discontinue the System. Users agree that the Company will not be liable to them or to any third party for termination of their accounts or access to the System.</p>
+			<p>Notwithstanding any suspension or termination of a User's Account, the User remains liable for all fees and commissions payable in respect of the Account or any Transaction entered prior to the suspension or termination.</p>
+			<p class="gonggao-con-t" style="font-weight: bold;">15. Governing Law</p>
+			<p>These Terms and User's use of the website and the Platform will be governed by the laws of New South Wales Australia. All Users submit to the non-exclusive jurisdiction of the courts of New South Wales.</p>
+			<p class="gonggao-con-t" style="font-weight: bold;">16. Severability</p>
+			<p>If any provision of these Terms is deemed invalid or unenforceable by a court of competent jurisdiction, the provision will be enforceable to the maximum extent permissible and the remaining provisions remain in full force and effect.</p>
+			<p class="gonggao-con-t" style="font-weight: bold;">17. Definitions</p>
+			<p>In these Terms:</p>
+			<p>Deposited Currency means the authorized currency of Australia or such other sovereign nation as is acceptable to the Company and held in a User's Account.</p>
+			<p>Commission means an amount levied as payment to the Company for arranging and matching a Transaction. A Commission is generally levied as a percentage of the value of a Transaction.</p>
+			<p>Fee means an amount levied by the Company in relation to a User's Account. It may be levied against a particular User's Account or in respect of a class of Accounts or across all Accounts. Fees may also be levied in respect of specific services provided to Users.</p>
+			<p>Instruction means an offer to buy or offer to sell Tokens through the Platform at the price, if any, nominated in such Instruction plus any applicable Commission.</p>
+			<p>Transaction means the purchase or sale of Tokens arising from an Instruction.</p>
+			<p>Token means a cryptographic unique software token</p>
+		</div>
+	</div>
+</div>
+    <footer>
+        <div class="footerCore">
+            <div class="introduceUs">
+                <div class="logo_box">
+                    <ul class="foot2">
+                        <li>
+                            <span>
+                                <img src="/static/customer/images/logo_gda.png" class="foot_logo">
+                            </span>
+                                <img src="/static/customer/images/logosub.png" class="foot_logo">
+                        </li>
+                    </ul>
+                </div>
+                <div class="introduce_list">
+                    <ul class="CompanyIntroduction">
+                        <li class="first">
+                            <h2><span data-cont="公司介绍"></span></h2>
+                        </li>
+                        <li><a href="/other/aboutUs.html" data-cont="关于我们"></a></li>
+                        <li><a href="/other/notice.html" data-cont="官方公告"></a></li>
+                        <li><a href="/other/news.html" data-cont="新闻资讯"></a></li>
+                        <li><a href="/other/coinApplication.html" data-cont="上币申请"></a></li>
+                    </ul>
+                    <ul class="UserAgreement">
+                        <li class="first">
+                            <h2><span data-cont="用户协议"></span></h2>
+                        </li>
+                        <li><a href="/other/TermsService.html" data-cont="服务条款"></a></li>
+                        <li><a href="/other/PrivacyPolicy.html" data-cont="隐私政策"></a></li>
+                        <li><a href="/other/policy.html" data-cont="AML/CTF政策"></a></li>
+                    </ul>
+                    <ul class="HelpCenter">
+                        <li class="first">
+                            <h2><span data-cont="帮助中心"></span></h2>
+                        </li>
+                        <li><a href="/other/rate.html" data-cont="费率说明"></a></li>
+                        <li><a href="/other/question.html" data-cont="常见问题"></a></li>
+                        <li><a href="/other/apiExplain.html" data-cont="API说明"></a></li>
+                        <li><a href="/other/contactService.html" data-cont="联系客服"></a></li>
+                    </ul>
+                    <ul class="ContactUs">
+                        <li class="first">
+                            <h2><span data-cont="联系我们"></span></h2>
+                        </li>
+                        <li><span data-cont="客服邮箱:"></span><span>btc98com@gmail.com</span></li>
+                        <li><span data-cont="商务合作:"></span><span>imbtcmaster@gmail.com</span></li>
+                        <li class="share_area">
+                            <span class="share">
+                                <a href="http://shang.qq.com/wpa/qunwpa?idkey=8cf2665d6e2be61c43b5f063b40bb8dc3ccea65b2b89ae881793a5f821afee1a" target="_blank" class="qq"></a>
+                                <a href="https://twitter.com/BTC98com" target="_blank" class="twitter"></a>
+                                <a href="https://www.facebook.com/btc.li.7" target="_blank" class="fb"></a>
+                                <a href="http://t.me/btc98" target="_blank" class="tg"></a>
+                                <a href="https://btc98.slack.com/messages" target="_blank" class="slack"></a>
+                            </span>
+                        </li>
+                    </ul>
+                </div>
+            </div>            
+            <div class="fbottom">
+                <p class="copyrighthui">Copyright © 2017 BTC98. All rights reserved. <span data-cont="由6EX提供技术支持"></span></p>
+            </div>
+        </div>
+    </footer>
+    <script type="text/javascript" src="/static/customer/js/common/common.min.js?v=1.0"></script>
+    <script>
+        $(function(){
+			doLogin(null);
+			// user();
+		});
+        $('.foot-con4_all').hover(function() { $('.foot-connectus').show() }, function() { $('.foot-connectus').hide() });
+        $('.lang,.lanague').hover(
+            function() { $('.lang').addClass('selected');
+                $('.lanague').addClass('selected');
+                $('.header').css('z-index', -120); },
+            function() { $('.header').css('z-index', 19);
+                $('.lanague').removeClass('selected');
+                $('.lang').removeClass('selected'); }
+        );
+        $('.total-con').hover(function() { $('.total-con-list').show() }, function() { $('.total-con-list').hide() });
+        $('.jy-email,#userinfo').hover(
+            function() {
+	        	$('.jy-email').addClass('isHover');
+   	    		$('#userinfo').show();
+                $('.header').css('z-index', -100);
+                $('.hdslide').css('z-index', -100);
+                $('.page').css('z-index', -100); },
+            function() {
+   	    		$('#userinfo').hide();
+   	        	$('.jy-email').removeClass('isHover');
+                $('.header').css('z-index', 19);
+                $('.email').removeClass('selected');
+                $('.hdslide').css('z-index', 0);
+                $('.page').css('z-index', 'auto'); }
+        );
+        balance();
+    </script>
+</body>
+
+</html>

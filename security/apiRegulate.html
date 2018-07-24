@@ -1,0 +1,531 @@
+<!DOCTYPE html>
+<html>
+	<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<meta name="viewport" content="width=device-width">
+	<link rel="icon" href="/static/customer/images/favicon.ico"/>
+	<title data-cont="比特酒吧| BTC98 - The most professional and safe virtual digital currency trading platform [official website]"></title>
+	<link rel="stylesheet" href="/static/customer/css/global.css" type="text/css">
+	<link rel="stylesheet" href="/static/customer/css/main.css" type="text/css">
+	<script type="text/javascript" src="/static/customer/js/plugin/jquery.1.11.0.min.js"></script>
+	<script type="text/javascript" src="/static/customer/js/common/webHelper.min.js"></script>
+    <script type="text/javascript" src="/static/customer/js/locale/ts.min.js"></script>
+    <script type="text/javascript" src="/static/customer/js/coinuni.min.js"></script>
+    <script type="text/javascript" src="/static/customer/js/common/os.js"></script>
+    <script src="/static/customer/js/plugin/tmpl.js"></script>
+    <script src="/static/customer/js/plugin/jquery.qrcode.min.js"></script>
+    <style>
+        .tixian_box{
+            display: flex;
+            border-bottom: 1px solid #E7E7E7;
+        }
+        .tixian_box h4{
+            font-size: 16px;
+            padding-bottom: 15px;
+        }
+        .tixian_box .tip{
+            padding-left: 60px;
+        }
+        .tixian_box .tip li{
+            line-height: 20px;
+            list-style: disc;
+            margin-bottom: 10px;
+        }
+        .tixian_box .tip span,.tixian_box .tip a{
+            color: #3DADD9;
+        }
+        .newbox input{
+            height: 40px;
+            line-height: 40px;
+        }
+        .newbox .newKey_inp{
+            margin-bottom: 15px!important;
+        }
+        .newbox .btn{
+            margin-top: 30px!important;
+        }
+        .keyList{
+            padding-top: 40px;
+
+        }
+        .keyList .item{
+            border:1px solid #E7E7E7;
+            margin-bottom: 20px;
+        }
+        .keyList h3{
+            margin-bottom: 15px;
+            line-height: 16px;
+            font-weight: normal;
+        }
+        .keyList h3 span{
+            font-size: 16px;
+        }
+        .keyList h3 a{
+            font-size: 14px;
+            float: right;
+        }
+        .keyList h5{
+            background: #F4F7FA;
+            line-height: 38px;
+            padding: 0 13px;
+        }
+        .keyList .del{
+            float: right;
+            color: #FF4B4B;
+            cursor: pointer;
+            margin-right: 10px;
+        } 
+        .keyList .item .del{
+            font-size: 14px;
+        }
+        .keyList .delAll{
+            text-decoration: underline;
+            color: #0c1e38;
+        }
+        .keyList .content{
+            display: flex;
+            padding: 30px;
+        }
+        .keyList .content .imgBox{
+            flex: 1;
+            height: 158px;
+            background-size: 29px 39px;
+            background: url(../static/customer/images/07_10.secret.png) no-repeat center #F4F7FA;
+        }
+        .keyList .content .detail{
+            flex: 7;
+            padding-left: 30px;
+        }
+        .keyList figure{
+            margin-bottom: 20px;
+            line-height: 1;
+        }
+        .keyList figure p{
+            color: #808080;
+        }
+        .keyList figure .val{
+            margin-top: 10px;
+            color: #0c1e38
+        }
+        .keyList figure .val input{
+            display: none;
+        }
+        .keyList figure .val .checkSpan{
+            display: inline-block;
+            position: relative;
+            top: 3px;
+            width: 16px;
+            height: 16px;
+            background: no-repeat center;
+            background-image: url(../static/customer/images/07_10.tick02.png);
+        }
+        .keyList figure .val input:checked+.checkSpan{
+            background-image: url(../static/customer/images/07_10.tick03.png);
+        }
+        .keyList figure .val input:disabled:checked+.checkSpan{
+            background-image: url(../static/customer/images/07_10.tick01.png);
+        }
+        .keyList .detail .showSecret{
+            text-decoration: underline;
+            cursor: pointer;
+            line-height: 2;
+        }
+        .keyList .detail .secretBox .red{
+            color: red;
+            margin-top: 10px;
+        }
+        #dialog{
+            display: none;
+            position: fixed;
+            background: rgba(40,40,40,.66);
+            z-index: 10;
+            bottom: 0;
+            top: 0;
+            left: 0;
+            right: 0;
+        }
+        #dialog .content{
+            min-width: 500px;
+            min-height: 270px;
+            background: #fff;
+            position: absolute;
+            top: 50%;
+            left:50%;
+            margin-top: -145px;
+            margin-left: -250px;
+            text-align: center;
+            box-sizing: border-box;
+            padding: 60px;
+            box-shadow: 0 6px 8px 0 rgba(0,0,0,0.33);
+            border-radius: 2px;
+        }
+        #dialog h4{
+            font-size: 16px;
+            color: #282828;
+            margin-bottom: 30px;
+        }
+        #dialog .btns{
+            margin-top: 40px;
+        }
+        #dialog span{
+            display: inline-block;
+            box-sizing: border-box;
+            padding: 10px 45px;
+            color: #fff;
+            cursor: pointer;
+            border-radius: 4px;
+        }
+        #dialog span.cancel{
+            background: #dedede;
+            margin-right: 20px;
+        }
+        #dialog span.affirm{
+            background: #3DADD9;
+        }
+        .waitAudit{
+            font-size: 18px;
+            color: #aaa;
+            text-align: center;
+            height: 100%;
+            background: url(/static/customer/images/inAudit.png) no-repeat center 40px #F4F7FA;
+            padding-top: 90px;
+            display: none;
+        }
+        .waitAudit.showAudit{
+            display: block;
+        }
+    </style>
+</head>
+<body>
+<div class="top-fixed-nav">
+	<a href="/index.html" class="logo"></a>
+	<ul class="left nav">
+        <li><a class="" href="/index.html" data-cont="首页"></a></li>
+        <li><a class="" href="/trade/coinTrade.html" data-cont="交易"></a></li>
+        <li><a href="/other/news.html" data-cont="资讯"></a></li>
+        <li><a href="/active/promotion.html" data-cont="福利"></a></li>
+        <li><a href="/active/inviteRebate.html" data-cont="邀请"></a></li>
+        <li><a class="valid-login" href-html="/finance/finance.html" data-cont="财务"></a></li>
+        <li><a class="valid-login white" href-html="/security/security.html" data-cont="安全"></a></li>
+    </ul>
+		<div class="top-login right top-user">
+            <div id="lang" class="right">
+                <span class="lang"><em class="flag"></em><em class="flagName"></em></span>
+	            <div class="lanague">
+                    <ul>
+                        <li class="en_US"><a href="javascript:void(0)" onclick="cutLanguage('&lang=en_US')">English</a></li>
+                        <li class="ko_KR"><a href="javascript:void(0)" onclick="cutLanguage('&lang=ko_KR')">한국어</a></li>
+                        <li class="ja_JP"><a href="javascript:void(0)" onclick="cutLanguage('&lang=ja_JP')">日本語</a></li>
+                        <li class="fr_FR"><a href="javascript:void(0)" onclick="cutLanguage('&lang=fr_FR')">Français</a></li>
+                        <li class="es_AR"><a href="javascript:void(0)" onclick="cutLanguage('&lang=es_AR')">Espagnol</a></li>
+                        <li class="ru_RU"><a href="javascript:void(0)" onclick="cutLanguage('&lang=ru_RU')">русский </a></li>
+                        <li class="my_ZG"><a href="javascript:void(0)" onclick="cutLanguage('&lang=my_ZG')">မြန်မာ</a></li>
+                        <li class="ar_AE"><a href="javascript:void(0)" onclick="cutLanguage('&lang=ar_AE')">العربية</a></li>
+                        <li class="zh_TW"><a href="javascript:void(0)" onclick="cutLanguage('&lang=zh_TW')">繁體中文</a></li>
+                        <li class="zh_CN" style="border-bottom: 0;"><a href="javascript:void(0)" onclick="cutLanguage('&lang=zh_CN')">简体中文</a></li>
+                    </ul>
+	            </div>
+        	</div>
+            <a href="/finance/finance.html">
+                <p class="top-user-email jy-email sj_bd user_name"></p>
+            </a>
+            <div id="userinfo" class="userinfo">
+                <div class="userinfo-all">
+                    <div class="userinfo-t">
+                        <div class="userinfo-top">
+                            <p><i>ID：</i><span></span><a onclick="logOut()" class="blue" data-cont="退出"></a></p>
+							<p><i data-cont="总资产："></i><font class="is_num" id="balance_total">0</font> BTC</p>
+						</div>
+						<div class="userinfo-title">
+							<div class="userinfo-Coin" data-cont="币种"></div>
+							<div class="userinfo-available" data-cont="可用"></div>
+							<div class="userinfo-frozen" data-cont="冻结"></div>
+						</div>
+					</div>
+					<ul id="user-balance">
+						<div class="listscoll" id="userinfo-list">
+						</div>
+					</ul>
+				</div>
+			</div>
+			<div class="clear"></div>
+		</div>
+		<div class="clear"></div>
+	</div><div class="body">
+	<div class="left">
+			<a href="/security/security.html" data-cont="安全中心"></a>
+			<a href="/security/updatePassword.html" data-cont="登录密码"></a>
+			<a href="/security/updateTradePw.html" data-cont="交易密码"></a>
+			<a onclick="doLogin('authentication')" data-cont="身份认证"></a>
+            <a onclick="doLogin('certification')" data-cont="双重认证"></a>
+            <a href="/security/apiRegulate.html"  class="cur" data-cont="API申请"></a>
+	</div>
+	<div class="right chongzhi tixian change_pwd">
+    <p class="t" data-cont="API申请"></p>
+    <div class="tixian_box">
+        <div class="newbox">
+            <h4 class="title" data-cont="备注"></h4>
+            <input type="text" autocomplete="off" placeholder="" class="newKey_inp"  data-placeholder="请输入API key备注名">
+            <input type="password" autocomplete="new-password" placeholder="" class="trade_pw"  data-placeholder="请输入交易密码">
+            <input type="button" onclick="createApi()" class="btn" value="" data-cont="创建新key">
+        </div>
+        <div class="tip">
+            <h4 data-cont="提示"></h4>
+            <ul>
+                <li><span data-cont="BTC98为您提供了强大的API，您可以通过API使用行情查询、自行交易等服务。"></span></li>
+                <li><span class="bold" data-cont="请不要泄露您的密码，以免造成资产损失。"></span></li>
+                <li data-cont="每个用户最多创建5对密钥。"></li>
+            </ul>
+        </div>
+    </div>
+    <div class="keyList">
+        <h3><span data-cont="我的密钥"></span><span class="del delAll" onclick="delApi('')" data-cont="删除全部API"></span></h3>
+        <div class="listBox">
+        </div>
+    </div>
+</div>
+</div>
+    <footer>
+        <div class="footerCore">
+            <div class="introduceUs">
+                <div class="logo_box">
+                    <ul class="foot2">
+                        <li>
+                            <span>
+                                <img src="/static/customer/images/logo_gda.png" class="foot_logo">
+                            </span>
+                                <img src="/static/customer/images/logosub.png" class="foot_logo">
+                        </li>
+                    </ul>
+                </div>
+                <div class="introduce_list">
+                    <ul class="CompanyIntroduction">
+                        <li class="first">
+                            <h2><span data-cont="公司介绍"></span></h2>
+                        </li>
+                        <li><a href="/other/aboutUs.html" data-cont="关于我们"></a></li>
+                        <li><a href="/other/notice.html" data-cont="官方公告"></a></li>
+                        <li><a href="/other/news.html" data-cont="新闻资讯"></a></li>
+                        <li><a href="/other/coinApplication.html" data-cont="上币申请"></a></li>
+                    </ul>
+                    <ul class="UserAgreement">
+                        <li class="first">
+                            <h2><span data-cont="用户协议"></span></h2>
+                        </li>
+                        <li><a href="/other/TermsService.html" data-cont="服务条款"></a></li>
+                        <li><a href="/other/PrivacyPolicy.html" data-cont="隐私政策"></a></li>
+                        <li><a href="/other/policy.html" data-cont="AML/CTF政策"></a></li>
+                    </ul>
+                    <ul class="HelpCenter">
+                        <li class="first">
+                            <h2><span data-cont="帮助中心"></span></h2>
+                        </li>
+                        <li><a href="/other/rate.html" data-cont="费率说明"></a></li>
+                        <li><a href="/other/question.html" data-cont="常见问题"></a></li>
+                        <li><a href="/other/apiExplain.html" data-cont="API说明"></a></li>
+                        <li><a href="/other/contactService.html" data-cont="联系客服"></a></li>
+                    </ul>
+                    <ul class="ContactUs">
+                        <li class="first">
+                            <h2><span data-cont="联系我们"></span></h2>
+                        </li>
+                        <li><span data-cont="客服邮箱:"></span><span>btc98com@gmail.com</span></li>
+                        <li><span data-cont="商务合作:"></span><span>imbtcmaster@gmail.com</span></li>
+                        <li class="share_area">
+                            <span class="share">
+                                <a href="http://shang.qq.com/wpa/qunwpa?idkey=8cf2665d6e2be61c43b5f063b40bb8dc3ccea65b2b89ae881793a5f821afee1a" target="_blank" class="qq"></a>
+                                <a href="https://twitter.com/BTC98com" target="_blank" class="twitter"></a>
+                                <a href="https://www.facebook.com/btc.li.7" target="_blank" class="fb"></a>
+                                <a href="http://t.me/btc98" target="_blank" class="tg"></a>
+                                <a href="https://btc98.slack.com/messages" target="_blank" class="slack"></a>
+                            </span>
+                        </li>
+                    </ul>
+                </div>
+            </div>            
+            <div class="fbottom">
+                <p class="copyrighthui">Copyright © 2017 BTC98. All rights reserved. <span data-cont="由6EX提供技术支持"></span></p>
+            </div>
+        </div>
+    </footer>
+    <div id="dialog">
+    </div>
+    <script type="text/javascript" src="/static/customer/js/common/common.min.js?v=1.0"></script>
+    <script type="text/html" id="listBox_tmpl">
+        <div class="item">
+            <h5>
+                <span>${remarks}</span>
+                <span class="del" onclick="delApi(${id})">${lang('删除')}</span>
+            </h5>
+            <div class="content">
+                <div class="imgBox imgBox${id}">
+                    <div class="waitAudit {{if examineStatus!=1}}showAudit{{/if}}">${lang('审核中')}...</div>
+                </div>
+                <div class="detail">
+                    <figure>
+                        <p class="name">API Key: </p>
+                        <p class="val">${apiKey}</p>
+                    </figure>
+                    <figure class="secretBox">
+                        <p class="secret">Secret: </p>
+                        <span class="showSecret" onclick="showSecret(this)" style="display: {{if examineStatus==1&&screctView==1}}block{{else}}none{{/if}}">${lang('展示')}</span>
+                        <p class="val showOnce" style="display: {{if screctView==0}}block{{else}}none{{/if}}">${screctKey}</p>
+                        <p class="red" style="display: {{if examineStatus==1&&screctView==1}}block{{else}}none{{/if}}">${lang('为了您的资金安全，请将您的Secret Key存储在安全的地方，将不再展示。')}</p>
+                    </figure>
+                    <figure>
+                        <p class="opt">Option: </p>
+                        <p class="val">
+                            <label>
+                                <input type="checkbox" checked="${query==1}" disabled="">
+                                <span class="checkSpan"></span>
+                                <span>${lang('读取信息')}</span>
+                            </label>
+                            <label>
+                                <input type="checkbox" checked="${trade==1}" disabled="">
+                                <span class="checkSpan"></span>
+                                <span>${lang('开放交易')}</span>
+                            </label>
+                            <label>
+                                <input type="checkbox" disabled="">
+                                <span class="checkSpan"></span>
+                                <span>${lang('开放提现')}</span>
+                            </label>
+                        </p>
+                    </figure>
+
+                </div>
+            </div>
+        </div>
+    </script>
+    <script type="text/html" id="dialog_tmpl">
+        <div class="shadow"></div>
+        <div class="content">
+            <h4>${lang('提示')}</h4>
+            <p style="">${title}</p>
+            <p></p>
+            <div class="btns">
+                <span class="cancel" style="display: {{if showCancel}}inline-block{{else}}none{{/if}}" onclick="$('#dialog').hide()">${lang('取消')}</span>
+                <span class="affirm" onclick="${callbackType}">${lang('确定')}</span>
+            </div>
+        </div>
+    </script>
+ 	<script type="text/javascript">
+        $(function(){
+            doLogin();
+        });
+        $('.foot-con4_all').hover(function(){$('.foot-connectus').show()},function(){$('.foot-connectus').hide()});
+        $('.lang,.lanague').hover(
+            function(){$('.lang').addClass('selected');$('.lanague').addClass('selected');$('.header').css('z-index',-120);},
+            function(){$('.header').css('z-index',19);$('.lanague').removeClass('selected');$('.lang').removeClass('selected');}
+        );
+        $('.total-con').hover(function(){$('.total-con-list').show()},function(){$('.total-con-list').hide()});
+        $('.jy-email,#userinfo').hover(
+                function() {
+    	        	$('.jy-email').addClass('isHover');
+       	    		$('#userinfo').show();
+                    $('.header').css('z-index', -100);
+                    $('.hdslide').css('z-index', -100);
+                    $('.page').css('z-index', -100); },
+                function() {
+       	    		$('#userinfo').hide();
+       	        	$('.jy-email').removeClass('isHover');
+                    $('.header').css('z-index', 19);
+                    $('.email').removeClass('selected');
+                    $('.hdslide').css('z-index', 0);
+                    $('.page').css('z-index', 'auto'); }
+            );
+        balance();
+    </script>
+    <script>
+        $.ajaxSetup({
+            contentType : 'application/json',
+        });
+        getapiList();
+        function createApi(){
+            var _remark=$('.newKey_inp').val();
+            var _pw=$('.trade_pw').val();
+            if(_remark==''){
+                return alert(lang('请填写APIkey'))
+            }else if(_pw==''){
+                return alert(lang('请输入交易密码'))
+            }
+            var _params={
+                remarks:_remark,
+                pwtrade:_pw
+            }
+            $.post(WebHelper.createUserApi,JSON.stringify(_params),function(d){
+                if(d.status!=1){
+                    // var data=[{showCancel:false,showTitle:true,title:lang('操作成功'),callbackType:'closeDialog(-1)'}]
+                    // $('#dialog').show();
+                    // $('#dialog_tmpl').tmpl(data).htm('#dialog');
+                    // var str=$('#listBox_tmpl').tmpl(d.data);
+                    //  $('.listBox').prepend(str);
+                    // $('.imgBox'+d.data.id).qrcode({
+                    //     text:JSON.stringify({
+                    //         apiKey:d.data.apiKey,
+                    //         secretKey:d.data.screctKey
+                    //     }),
+                    //     render    : 'canvas',
+                    //     width:153,
+                    //     height:158,
+                    // });
+                }
+                var data=[{showCancel:false,showTitle:true,title:lang(d.msg),callbackType:'closeDialog(-1)'}]
+                $('#dialog').show();
+                $('#dialog_tmpl').tmpl(data).htm('#dialog');
+                getapiList()
+            })
+        }
+        function getapiList(){
+            $.post(WebHelper.findUserApiList,function(d){
+                if(d.status==1){
+                    var _qrArr=[];
+                    $('#listBox_tmpl').tmpl(d.data).htm('.listBox');
+                    $.each(d.data,function(i,item){
+                        if(item.examineStatus==1&&item.screctView==1){
+                        console.log(item)
+                            $('.imgBox'+item.id).qrcode({
+                                text:JSON.stringify({
+                                    apiKey:item.apiKey,
+                                    secretKey:item.screctKey
+                                }),
+                                render    : 'canvas',
+                                width:153,
+                                height:158,
+                            });
+                        }
+                    })
+                }
+            })
+        }
+        function delApi(id){
+            var data=[];
+            if($('.listBox .item').length==0){
+                data.push({showCancel:false,showTitle:true,title:lang('您还未创建APIkey'),callbackType:'closeDialog(-1)'})
+            }else{
+                data.push({showCancel:true,showTitle:true,title:lang('确定要永久删除？'),callbackType:'closeDialog('+id+')'})
+            }
+            $('#dialog').show();
+            $('#dialog_tmpl').tmpl(data).htm('#dialog');
+        }
+        function closeDialog(type){
+            $('#dialog').hide()
+            if(type==-1){
+                return ;
+            }else if(type==undefined){
+                url=WebHelper.deleteUserApiList;
+            }else{
+                url=WebHelper.deleteUserApi;
+            }
+            if(type==undefined)type='';
+            $.post(url,JSON.stringify({id:type}),function(d){
+                if(d.status==1){
+                    getapiList();
+                }
+            })
+        }
+        function showSecret(_this){
+            $(_this).hide().siblings('.showOnce').show();
+        }
+    </script>
+</body></html>

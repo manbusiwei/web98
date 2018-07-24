@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="viewport" content="width=device-width">
+	<link rel="icon" href="/static/customer/images/favicon.ico"/>
+    <title data-cont="比特酒吧| BTC98 - The most professional and safe virtual digital currency trading platform [official website]"></title>
+    <link rel="stylesheet" href="/static/customer/css/global.css" type="text/css">
+    <link rel="stylesheet" href="/static/customer/css/main.css" type="text/css">
+    <script type="text/javascript" src="/static/customer/js/plugin/jquery.1.11.0.min.js"></script>
+    <script src="/static/customer/js/common/webHelper.min.js"></script>
+    <script type="text/javascript" src="/static/customer/js/locale/ts.min.js"></script>
+    <script type="text/javascript" src="/static/customer/js/coinuni.min.js"></script>
+    <script type="text/javascript" src="/static/customer/js/common/os.js"></script>
+</head>
+
+<body>
+    <div class="top-fixed-nav">
+        <a href="/index.html" class="logo"></a>
+        <ul class="left nav">
+	        <li><a class="" href="/index.html" data-cont="首页"></a></li>
+	        <li><a class="" href="/trade/coinTrade.html" data-cont="交易"></a></li>
+            <li><a href="/other/news.html" data-cont="资讯"></a></li>
+            <li><a href="/active/promotion.html" data-cont="福利"></a></li>
+            <li><a href="/active/inviteRebate.html" data-cont="邀请"></a></li>
+            <li><a class="valid-login" onclick="doLogin('finance')" data-cont="财务"></a></li>
+            <li><a class="valid-login white" onclick="doLogin('security')" data-cont="安全"></a></li>
+	    </ul>
+        <div class="top-login right top-user">
+            <div id="lang" class="right">
+                <span class="lang"><em class="flag"></em><em class="flagName"></em></span>
+	            <div class="lanague">
+                    <ul>
+                        <li class="en_US"><a href="javascript:void(0)" onclick="cutLanguage('&lang=en_US')">English</a></li>
+                        <li class="ko_KR"><a href="javascript:void(0)" onclick="cutLanguage('&lang=ko_KR')">한국어</a></li>
+                        <li class="ja_JP"><a href="javascript:void(0)" onclick="cutLanguage('&lang=ja_JP')">日本語</a></li>
+                        <li class="fr_FR"><a href="javascript:void(0)" onclick="cutLanguage('&lang=fr_FR')">Français</a></li>
+                        <li class="es_AR"><a href="javascript:void(0)" onclick="cutLanguage('&lang=es_AR')">Espagnol</a></li>
+                        <li class="ru_RU"><a href="javascript:void(0)" onclick="cutLanguage('&lang=ru_RU')">русский </a></li>
+                        <li class="my_ZG"><a href="javascript:void(0)" onclick="cutLanguage('&lang=my_ZG')">မြန်မာ</a></li>
+                        <li class="ar_AE"><a href="javascript:void(0)" onclick="cutLanguage('&lang=ar_AE')">العربية</a></li>
+                        <li class="zh_TW"><a href="javascript:void(0)" onclick="cutLanguage('&lang=zh_TW')">繁體中文</a></li>
+                        <li class="zh_CN" style="border-bottom: 0;"><a href="javascript:void(0)" onclick="cutLanguage('&lang=zh_CN')">简体中文</a></li>
+                    </ul>
+	            </div>
+        	</div>
+            <a href="/finance/finance.html">
+                <p class="top-user-email jy-email sj_bd user_name"></p>
+            </a>
+            <div id="userinfo" class="userinfo">
+                <div class="userinfo-all">
+                    <div class="userinfo-t">
+                        <div class="userinfo-top">
+                            <p><i>ID：</i><span></span><a onclick="logOut()" class="blue" data-cont="退出"></a></p>
+                            <p><i data-cont="总资产："></i>
+                                <font class="is_num" id="balance_total">0</font> BTC</p>
+                        </div>
+                        <div class="userinfo-title">
+                            <div class="userinfo-Coin" data-cont="币种"></div>
+                            <div class="userinfo-available" data-cont="可用"></div>
+                            <div class="userinfo-frozen" data-cont="冻结"></div>
+                        </div>
+                    </div>
+                    <ul id="user-balance">
+                        <div class="listscoll" id="userinfo-list">
+
+                        </div>
+                    </ul>
+                </div>
+            </div>
+            <div class="clear"></div>
+        </div>
+        <div class="clear"></div>
+    </div>
+    <div class="body">
+        <div class="left">
+            <a href="/security/security.html" class="cur" data-cont="安全中心"></a>
+            <a href="/security/updatePassword.html" data-cont="登录密码"></a>
+            <a href="/security/updateTradePw.html" data-cont="交易密码"></a>
+            <a onclick="doLogin('authentication')" data-cont="身份认证"></a>
+            <a onclick="doLogin('certification')" data-cont="双重认证"></a>
+            <a href="/security/apiRegulate.html" data-cont="API申请"></a>
+        </div>
+        <div class="right anquan">
+            <!-- <a href="doubleAtt.html"> --><div class="t" data-cont="安全中心"></div><!-- </a> -->
+            <p class="id"><span>ID:</span><span class="red"></span></p>
+            <p class="id"><span data-cont="账号:"></span><span class="red"></span></p>
+            <table width="100%" border="0" cellpadding="0" cellspacing="0">
+                <tbody>
+                    <tr>
+                        <td width="20%"><i class="login"></i><span data-cont="登录密码"></span></td>
+                        <td width="53%"><span data-cont="登录账户需要输入的密码"></span></td>
+                        <td align="right">
+                            <a href="/security/updatePassword.html" class="red">
+                                <font data-cont="修改登录密码"></font>
+                            </a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><i class="trade"></i><span data-cont="交易密码"></span></td>
+                        <td><span data-cont="交易时需要输入的密码"></span></td>
+                        <td align="right" class="hui_a">
+                            <a href="/security/updateTradePw.html" class="red">
+                                <font data-cont="修改交易密码"></font>
+                            </a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><i class="status"></i><span data-cont="身份认证"></span></td>
+                        <td><span data-cont="为了您的账户安全请完善身份认证"></span></td>
+                        <td align="right">
+                            <a href="/security/authentication.html" class="red authentication-no">
+                                <font data-cont="去认证"></font>
+                            </a>
+                            <font class="authentication-yes green" data-cont="已认证"></font>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><i class="dual"></i><span data-cont="双重认证"></span></td>
+                        <td><span data-cont="Google Authenticator可以更安全的保护您的账户"></span></td>
+                        <td align="right">
+                            <a onclick="doLogin('certification')" class="red certification-no">
+                                <font data-cont="去认证"></font>
+                            </a>
+                            <font class="certification-yes green" data-cont="已认证"></font>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <footer>
+        <div class="footerCore">
+            <div class="introduceUs">
+                <div class="logo_box">
+                    <ul class="foot2">
+                        <li>
+                            <span>
+                                <img src="/static/customer/images/logo_gda.png" class="foot_logo">
+                            </span>
+                                <img src="/static/customer/images/logosub.png" class="foot_logo">
+                        </li>
+                    </ul>
+                </div>
+                <div class="introduce_list">
+                    <ul class="CompanyIntroduction">
+                        <li class="first">
+                            <h2><span data-cont="公司介绍"></span></h2>
+                        </li>
+                        <li><a href="/other/aboutUs.html" data-cont="关于我们"></a></li>
+                        <li><a href="/other/notice.html" data-cont="官方公告"></a></li>
+                        <li><a href="/other/news.html" data-cont="新闻资讯"></a></li>
+                        <li><a href="/other/coinApplication.html" data-cont="上币申请"></a></li>
+                    </ul>
+                    <ul class="UserAgreement">
+                        <li class="first">
+                            <h2><span data-cont="用户协议"></span></h2>
+                        </li>
+                        <li><a href="/other/TermsService.html" data-cont="服务条款"></a></li>
+                        <li><a href="/other/PrivacyPolicy.html" data-cont="隐私政策"></a></li>
+                        <li><a href="/other/policy.html" data-cont="AML/CTF政策"></a></li>
+                    </ul>
+                    <ul class="HelpCenter">
+                        <li class="first">
+                            <h2><span data-cont="帮助中心"></span></h2>
+                        </li>
+                        <li><a href="/other/rate.html" data-cont="费率说明"></a></li>
+                        <li><a href="/other/question.html" data-cont="常见问题"></a></li>
+                        <li><a href="/other/apiExplain.html" data-cont="API说明"></a></li>
+                        <li><a href="/other/contactService.html" data-cont="联系客服"></a></li>
+                    </ul>
+                    <ul class="ContactUs">
+                        <li class="first">
+                            <h2><span data-cont="联系我们"></span></h2>
+                        </li>
+                        <li><span data-cont="客服邮箱:"></span><span>btc98com@gmail.com</span></li>
+                        <li><span data-cont="商务合作:"></span><span>imbtcmaster@gmail.com</span></li>
+                        <li class="share_area">
+                            <span class="share">
+                                <a href="http://shang.qq.com/wpa/qunwpa?idkey=8cf2665d6e2be61c43b5f063b40bb8dc3ccea65b2b89ae881793a5f821afee1a" target="_blank" class="qq"></a>
+                                <a href="https://twitter.com/BTC98com" target="_blank" class="twitter"></a>
+                                <a href="https://www.facebook.com/btc.li.7" target="_blank" class="fb"></a>
+                                <a href="http://t.me/btc98" target="_blank" class="tg"></a>
+                                <a href="https://btc98.slack.com/messages" target="_blank" class="slack"></a>
+                            </span>
+                        </li>
+                    </ul>
+                </div>
+            </div>            
+            <div class="fbottom">
+                <p class="copyrighthui">Copyright © 2017 BTC98. All rights reserved. <span data-cont="由6EX提供技术支持"></span></p>
+            </div>
+        </div>
+    </footer>
+	<script type="text/javascript" src="/static/customer/js/common/common.min.js"></script>
+    <script>
+        $(function(){
+			doLogin(null,securityPage);
+		});
+        function securityPage(d){
+        	if(d.data.fopenTransferGoogleValidate){
+    			$('.certification-yes').show();
+    		}else{
+    			$('.certification-no').show();
+    		}
+
+        	if(d.data.fhasRealValidate){
+    			$('.authentication-yes').show();
+    		}else{
+                if(d.data.fpostRealValidate){
+                    $('.authentication-yes').show().html(lang('审核中'));
+                }else{
+                    $('.authentication-no').show();
+                }
+    		}
+        }
+        $('.foot-con4_all').hover(function() { $('.foot-connectus').show() }, function() { $('.foot-connectus').hide() });
+        $('.lang,.lanague').hover(
+            function() { $('.lang').addClass('selected');
+                $('.lanague').addClass('selected');
+                $('.header').css('z-index', -120); },
+            function() { $('.header').css('z-index', 19);
+                $('.lanague').removeClass('selected');
+                $('.lang').removeClass('selected'); }
+        );
+        $('.total-con').hover(function() { $('.total-con-list').show() }, function() { $('.total-con-list').hide() });
+        $('.jy-email,#userinfo').hover(
+            function() {
+	        	$('.jy-email').addClass('isHover');
+   	    		$('#userinfo').show();
+                $('.header').css('z-index', -100);
+                $('.hdslide').css('z-index', -100);
+                $('.page').css('z-index', -100); },
+            function() {
+   	    		$('#userinfo').hide();
+   	        	$('.jy-email').removeClass('isHover');
+                $('.header').css('z-index', 19);
+                $('.email').removeClass('selected');
+                $('.hdslide').css('z-index', 0);
+                $('.page').css('z-index', 'auto'); }
+        );
+        balance();
+    </script>
+</body>
+
+</html>

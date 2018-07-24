@@ -1,0 +1,562 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="viewport" content="width=device-width">
+    <link rel="icon" href="/static/customer/images/favicon.ico" />
+    <title data-cont="比特酒吧| BTC98 - The most professional and safe virtual digital currency trading platform [official website]"></title>
+    <link rel="stylesheet" href="/static/customer/css/global.css" type="text/css">
+    <link rel="stylesheet" href="/static/customer/css/main.css?v=1.0" type="text/css">
+    <script type="text/javascript" src="/static/customer/js/plugin/jquery.1.11.0.min.js"></script>
+    <script type="text/javascript" src="/static/customer/js/common/webHelper.min.js"></script>
+    <script type="text/javascript" src="/static/customer/js/locale/ts.min.js"></script>
+    <script type="text/javascript" src="/static/customer/js/coinuni.min.js?v=1.0"></script>
+    <script type="text/javascript" src="/static/customer/js/common/os.js"></script>
+    <script type="text/javascript" src="/static/customer/js/plugin/tmpl.js"></script>
+    <style>
+        .top-fixed-nav{background-color: rgba(0,0,0,0.1)}/*首页单独控制背景*/
+        #myCarousel .banner_shade{font-size: 14px; position: absolute;top: 150px;width: 100%;text-align: center;color: #fff;z-index: 1}
+        .banner_shade .tit{font-size: 40px;line-height: 40px;margin-bottom: 36px;text-shadow:0 0 15px #8BC}
+        .banner_shade .sub_tit{margin-bottom: 36px;margin-bottom: 54px;text-shadow: 0 0 15px #8BC}
+        .banner_shade .ope a{text-align: center; color: #fff;display: inline-block;line-height: 42px;min-width: 238px;background:rgba(61,173,217,0.65);}
+        .banner_shade .ope a:hover{text-decoration: none;background:rgba(61,173,217,0.79);}
+        .banner_shade .ope  em{display: inline-block; margin-right: 10px;width: 13px;height: 16px;position: relative;top: 4px;background-repeat: no-repeat;}
+        .banner_shade .ope .add em{background-image: url(/static/customer/images/01.banner_add.png);}
+        .banner_shade .ope .share em{background-image: url(/static/customer/images/01.banner_share.png);}
+        .cont_des{background: #f9f9f9;overflow: hidden;}
+        .cont_des .item_list{width: 1200px;margin: 0 auto;}
+        .cont_des .all_select{line-height: 20px;font-size: 16px;width: 1200px;margin: 30px auto 0;padding-left: 10px;}
+        .cont_des .all_select p{display: inline-block;}
+        .cont_des .all_select span{display: inline-block;cursor: pointer;}
+        .cont_des .all_select span.active{color: #183669;font-weight: bold;}
+        .cont_des .all_select span i{display: inline-block;width: 1px;background: #bcbcbc;height: 12px;margin: 0 12px;}
+        .cont_des .item_list:after{content: '';display: block;clear: both;height: 0}
+        .cont_des .item_list dl{float: left; width: 370px;height: 485px;background: #fff;margin: 30px 15px 0;}
+        /*.cont_des .item_list dl.midd{margin: 30px 30px 0}*/
+        .cont_des .item_list dl:hover{box-shadow: 0 6px 12px 0 rgba(0,0,0,0.18)}
+        .cont_des .item_list dl dt{height: 220px;margin-bottom: 10px;position: relative;}
+        .cont_des .item_list dl dt em{display: inline-block; position: absolute;top: 20px;left: 0;color: #fff;padding: 10px 14px;font-size: 14px; }
+        .cont_des .item_list dl dt em.progress{background: #ff5817;}
+        .cont_des .item_list dl dt em.com{background: #bbb;}
+        .cont_des .item_list dl dt em.upc{background: #3dadd9;}
+        .cont_des .item_list dl dt img{display: block;height: 220px;width: 100% }
+        .cont_des .item_list dl dd{padding: 0 20px;}
+        .cont_des .item_list dl dd{line-height: 32px;}
+        .cont_des .item_list dl dd.tit{line-height: 20px;padding: 10px 20px;}
+        .cont_des .item_list dl dd.tit span{font-size: 16px;font-weight: bold;}
+        .cont_des .item_list dl dd span{font-size: 13px;}
+        .cont_des .item_list dl dd .hei{font-weight: normal;font-size: 13px;}
+        .cont_des .item_list dl dd span.hui{font-weight: normal;color: #808080}
+        .cont_des .item_list dl dd.last{line-height: 48px;margin-top: 10px}
+        .cont_des .item_list dl dd.last.forb a{background: #ccc;cursor: not-allowed;}
+        .cont_des .item_list dl dd.last.forb a:hover{background: #ccc;cursor: not-allowed;}
+        .cont_des .item_list dl dd.last a{display: block; text-align: center;color: #fff;background: url(/static/customer/images/02.card_button01.png);}
+        .cont_des .item_list dl dd.last a:hover{text-decoration: none;background: url(/static/customer/images/02.card_button02.png);}
+        .cont_des .statement{margin: 30px auto 60px;width: 1200px;line-height: 24px;}
+        .cont_des .statement .tips{margin-bottom: 24px;color: red;}
+        .cont_des .statement h3{font-size: 18px}
+       #indexBannerBox .item{ display:block;background: url(/static/customer/images/banner/promotion_banner.jpg);background-position:center;}
+    </style>
+</head>
+
+<body>
+    <!-- 头部导航 -->
+    <div class="top-fixed-nav">
+        <a href="/index.html" class="logo"></a>
+        <ul class="left nav">
+            <li><a href="/index.html" data-cont="首页"></a></li>
+            <li><a href="/trade/coinTrade.html" data-cont="交易"></a></li>
+            <li><a href="/other/news.html" data-cont="资讯"></a></li>
+            <li><a href="/active/promotion.html" data-cont="福利" class="white"></a></li>
+            <li><a href="/active/inviteRebate.html" data-cont="邀请"></a></li>
+            <li><a class="valid-login" onclick="doLogin('finance')" data-cont="财务"></a></li>
+            <li><a class="valid-login" onclick="doLogin('security')" data-cont="安全"></a></li>
+        </ul>
+        <div class="top-login right top-user">
+            <div id="lang" class="right">
+                <span class="lang"><em class="flag"></em><em class="flagName"></em></span>
+                <div class="lanague">
+                    <ul>
+                        <li class="en_US"><a href="javascript:void(0)" onclick="cutLanguage('&lang=en_US')">English</a></li>
+                        <li class="ko_KR"><a href="javascript:void(0)" onclick="cutLanguage('&lang=ko_KR')">한국어</a></li>
+                        <li class="ja_JP"><a href="javascript:void(0)" onclick="cutLanguage('&lang=ja_JP')">日本語</a></li>
+                        <li class="fr_FR"><a href="javascript:void(0)" onclick="cutLanguage('&lang=fr_FR')">Français</a></li>
+                        <li class="es_AR"><a href="javascript:void(0)" onclick="cutLanguage('&lang=es_AR')">Espagnol</a></li>
+                        <li class="ru_RU"><a href="javascript:void(0)" onclick="cutLanguage('&lang=ru_RU')">русский </a></li>
+                        <li class="my_ZG"><a href="javascript:void(0)" onclick="cutLanguage('&lang=my_ZG')">မြန်မာ</a></li>
+                        <li class="ar_AE"><a href="javascript:void(0)" onclick="cutLanguage('&lang=ar_AE')">العربية</a></li>
+                        <li class="zh_TW"><a href="javascript:void(0)" onclick="cutLanguage('&lang=zh_TW')">繁體中文</a></li>
+                        <li class="zh_CN" style="border-bottom: 0;"><a href="javascript:void(0)" onclick="cutLanguage('&lang=zh_CN')">简体中文</a></li>
+                    </ul>
+                </div>
+            </div>
+            <a href="/user/login.html" class="login" data-cont="登录"></a>
+            <a href="/user/register.html" class="login" data-cont="注册"></a>
+            <a href="/finance/finance.html">
+                <p class="top-user-email jy-email sj_bd"></p>
+            </a>
+            <div id="userinfo" class="userinfo">
+                <div class="userinfo-all">
+                    <div class="userinfo-t">
+                        <div class="userinfo-top">
+                            <p><i>ID：</i><span></span><a onclick="logOut()" class="blue" data-cont="退出"></a></p>
+                            <p><i data-cont="总资产："></i>
+                                <font class="is_num" id="balance_total"></font> BTC</p>
+                        </div>
+                        <div class="userinfo-title">
+                            <div class="userinfo-Coin" data-cont="币种"></div>
+                            <div class="userinfo-available" data-cont="可用"></div>
+                            <div class="userinfo-frozen" data-cont="冻结"></div>
+                        </div>
+                    </div>
+                    <ul id="user-balance">
+                        <div class="listscoll" id="userinfo-list">
+                        </div>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- 中部内容 -->
+    <div class="main">
+        <div class="contain">
+            <!--New start-->
+            <div class="index_banner po_re">
+                <div id="myCarousel" class="my-carousel">
+                    <ol class="my-carousel-indicators">
+                        <!-- <li data-slide-to="0" class="active"></li> -->
+                    </ol>
+                    <div class="my-carousel-inner" id="indexBannerBox">
+                        <div class="item active" ></div>
+                    </div>
+                    <div class="banner_shade">
+                        <div class="tit" data-cont="不错过任何一颗糖"></div>
+                        <div class="sub_tit" data-cont="BTC98糖果旨在帮助优秀的区块链项目增长，并给BTC98用户带来好处。"></div>
+                        <div class="ope" style="display: none">
+                            <a href="/other/contactService.html" class="add"><em></em><span data-cont="推广我的项目"></span></a>
+                            <a href="" class="share"><em></em><span  data-cont="与我的朋友分享"></span></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="cont_des">
+            <div class="all_select">
+                <span class="selSpan active " data-type="all"><span data-cont="全部"></span><i></i></span>
+                <span class="selSpan" data-type="progress"><span data-cont="进行中"></span><i></i></span>
+                <span class="selSpan" data-type="upc"><span data-cont="即将到来"></span><i></i></span>
+                <span class="selSpan" data-type="com"><span data-cont="已结束"></span></span>
+            </div>
+            <div class="item_list">
+                <script type="text/html" id="item_list_tmpl">
+                    {{each(i,users) data}}
+                        <dl class="{{if (i+1)%3==2}}midd{{/if}}" data-type="{{if status==1}}progress{{else status==2}}upc{{else}}com{{/if}}">
+                            <dt>
+                                <em class="{{if status==1}}progress{{else status==2}}upc{{else}}com{{/if}}">{{if status==1}}${lang('进行中')}{{else status==2}}${lang('即将发放')}{{else}}${lang('已结束')}{{/if}}</em>
+                                <img src="/${mainImage}" alt="">
+                            </dt>
+                            <dd class="tit">
+                                <!-- <span class="tit_span">${lang('免费分发')}</span> -->
+                                <!-- <span> GOD， </span>
+                                <span data-cont="持有"></span>
+                                <span>BTC</span>
+                                <span data-cont="即可领取"></span> -->
+                                <span>{{if $.cookie('lang')=='zh_CN'}}${fzhName}{{else}}${fenName}{{/if}}</span>
+                            </dd>
+                            <dd class="con1">
+                                <span class="hui">${lang('派发规则')}</span>
+                                <span class="hui">：</span>
+                                <span class="hei">${amount} ${fvirtualcointypeByFviFId.fShortName} : {{if ruleType==0}}${ruleAmount}{{else}}***{{/if}} ${fvirtualcointypeByRuleFViFId.fShortName}</span>
+                            </dd>
+                            <dd class="con2">
+                                <span class="hui">${lang('派发要求')}</span>
+                                <span class="hui">：</span>
+                                <span class="hei">${lang('持有')}</span>
+                                <span>${fvirtualcointypeByRuleDemandFViFId.fShortName}</span>
+                            </dd>
+                            <dd class="con3">
+                                <span class="hui">${lang('区块高度')}</span>
+                                <span class="hui">：</span>
+                                <span>{{if blockHeight=='a'}}${lang('无')}{{else blockHeight=='b'}}${lang('待定')}{{else}}${blockHeight}{{/if}}</span>
+                            </dd>
+                            <dd class="con4">
+                                <span class="hui">${lang('截止日期')}</span>
+                                <span class="hui">：</span>
+                                <span class="hei"> ${jsonDateFormat(endDate,'yyyy-MM-dd')}</span>
+                            </dd>
+                            <dd class="last {{if status!=1}}forb{{/if}}"><a href="{{if status==1}}/finance/recharge.html{{else}}javascript:void(0){{/if}}">{{if status==1}}${lang('存入')} ${fvirtualcointypeByRuleDemandFViFId.fShortName}{{else status==2}}OPEN SOON{{else}}${lang('已结束')}{{/if}}</a></dd>
+                        </dl>
+                    {{/each}}
+                </script><!--
+                <dl>
+                    <dt>
+                        <em class="progress" data-cont="进行中">进行中</em>
+                        <img src="/static/customer/images/god_active.jpg" alt="">
+                    </dt>
+                    <dd class="tit">
+                        <span class="tit_span" data-cont="免费分发">免费分发</span>
+                        <span> GOD， </span>
+                        <span data-cont="持有">持有</span>
+                        <span>BTC</span>
+                        <span data-cont="即可领取">即可领取</span>
+                    </dd>
+                    <dd class="con1">
+                        <span class="hui" data-cont="派发规则">派发规则</span>
+                        <span class="hui">：</span>
+                        <span class="hei">1 BTC : 1 GOD</span>
+                    </dd>
+                    <dd class="con2">
+                        <span class="hui" data-cont="派发要求">派发要求</span>
+                        <span class="hui">：</span>
+                        <span class="hei" data-cont="持有">持有</span>
+                        <span>BTC</span>
+                    </dd>
+                    <dd class="con3">
+                        <span class="hui" data-cont="区块高度">区块高度</span>
+                        <span class="hui">：</span>
+                        <span>501225</span>
+                    </dd>
+                    <dd class="con4">
+                        <span class="hui" data-cont="截止日期">截止日期</span>
+                        <span class="hui">：</span>
+                        <span class="hei"> 2017-12-25</span>
+                    </dd>
+                    <dd class="last"><a href="/finance/recharge.html" data-cont="存入BTC">存入BTC</a></dd>
+                </dl>
+                <dl class="midd">
+                    <dt>
+                        <em class="progress" data-cont="进行中"></em>
+                        <img src="/static/customer/images/etf_active.jpg" alt="">
+                    </dt>
+                    <dd class="tit">
+                        <span class="tit_span" data-cont="免费分发"></span>
+                        <span> ETF， </span>
+                        <span data-cont="持有"></span>
+                        <span>ETH</span>
+                        <span data-cont="即可领取"></span>
+                    </dd>
+                    <dd class="con1">
+                        <span class="hui" data-cont="派发规则"></span>
+                        <span class="hui">：</span>
+                        <span class="hei">1 BTC : *** ETH</span>
+                    </dd>
+                    <dd class="con2">
+                        <span class="hui" data-cont="派发要求"></span>
+                        <span class="hui">：</span>
+                        <span class="hei" data-cont="持有"></span>
+                        <span>BTC</span>
+                    </dd>
+                    <dd class="con3">
+                        <span class="hui" data-cont="区块高度"></span>
+                        <span class="hui">：</span>
+                        <span>4830000</span>
+                    </dd>
+                    <dd class="con4">
+                        <span class="hui" data-cont="截止日期"></span>
+                        <span class="hui">：</span>
+                        <span class="hei"> 2018-1-1</span>
+                    </dd>
+                    <dd class="last"><a href="/finance/recharge.html">存入 BTC</a></dd>
+                </dl>
+                <dl>
+                    <dt>
+                        <em class="com" data-cont="已结束"></em>
+                        <img src="/static/customer/images/btcs_active.jpg" alt="">
+                    </dt>
+                    <dd class="tit">
+                        <span class="tit_span" data-cont="免费分发"></span>
+                        <span> BTCS， </span>
+                        <span data-cont="持有"></span>
+                        <span>BTC</span>
+                        <span data-cont="即可领取"></span>
+                    </dd>
+                    <dd class="con1">
+                        <span class="hui" data-cont="派发规则"></span>
+                        <span class="hui">：</span>
+                        <span class="hei">1 BTC : 100 BTCS</span>
+                    </dd>
+                    <dd class="con2">
+                        <span class="hui" data-cont="派发要求"></span>
+                        <span class="hui">：</span>
+                        <span class="hei" data-cont="持有"></span>
+                        <span>BTC</span>
+                    </dd>
+                    <dd class="con3">
+                        <span class="hui" data-cont="区块高度"></span>
+                        <span class="hui">：</span>
+                        <span>499999</span>
+                    </dd>
+                    <dd class="con4">
+                        <span class="hui" data-cont="截止日期"></span>
+                        <span class="hui">：</span>
+                        <span class="hei"> 2017-12-20</span>
+                    </dd>
+                    <dd class="last forb"><a href="javascript:void(0)" data-cont="已结束"></a></dd>
+                </dl>
+                <dl>
+                    <dt>
+                        <em class="com" data-cont="已结束"></em>
+                        <img src="/static/customer/images/lbtc_active.jpg" alt="">
+                    </dt>
+                    <dd class="tit">
+                        <span class="tit_span" data-cont="免费分发"></span>
+                        <span> LBTC， </span>
+                        <span data-cont="持有"></span>
+                        <span>BTC</span>
+                        <span data-cont="即可领取"></span>
+                    </dd>
+                    <dd class="con1">
+                        <span class="hui" data-cont="派发规则"></span>
+                        <span class="hui">：</span>
+                        <span class="hei">1 BTC : 1 LBTC</span>
+                    </dd>
+                    <dd class="con2">
+                        <span class="hui" data-cont="派发要求"></span>
+                        <span class="hui">：</span>
+                        <span class="hei" data-cont="持有"></span>
+                        <span>BTC</span>
+                    </dd>
+                    <dd class="con3">
+                        <span class="hui" data-cont="区块高度"></span>
+                        <span class="hui">：</span>
+                        <span>499999</span>
+                    </dd>
+                    <dd class="con4">
+                        <span class="hui" data-cont="截止日期"></span>
+                        <span class="hui">：</span>
+                        <span class="hei"> 2017-12-20</span>
+                    </dd>
+                    <dd class="last forb"><a href="javascript:void(0)" data-cont="已结束"></a></dd>
+                </dl>
+                <dl class="midd">
+                    <dt>
+                        <em class="com" data-cont="已结束"></em>
+                        <img src="/static/customer/images/btp_active.jpg" alt="">
+                    </dt>
+                    <dd class="tit">
+                        <span class="tit_span" data-cont="免费分发"></span>
+                        <span> BTP， </span>
+                        <span data-cont="持有"></span>
+                        <span>BTC</span>
+                        <span data-cont="即可领取"></span>
+                    </dd>
+                    <dd class="con1">
+                        <span class="hui" data-cont="派发规则"></span>
+                        <span class="hui">：</span>
+                        <span class="hei">1 BTC : *** BTP</span>
+                    </dd>
+                    <dd class="con2">
+                        <span class="hui" data-cont="派发要求"></span>
+                        <span class="hui">：</span>
+                        <span class="hei" data-cont="持有"></span>
+                        <span>BTC</span>
+                    </dd>
+                    <dd class="con3">
+                        <span class="hui" data-cont="区块高度"></span>
+                        <span class="hui">：</span>
+                        <span>500000</span>
+                    </dd>
+                    <dd class="con4">
+                        <span class="hui" data-cont="截止日期"></span>
+                        <span class="hui">：</span>
+                        <span class="hei"> 2017-12-20</span>
+                    </dd>
+                    <dd class="last forb"><a href="javascript:void(0)" data-cont="已结束"></a></dd>
+                </dl>
+                <dl>
+                    <dt>
+                        <em class="com" data-cont="已结束"></em>
+                        <img src="/static/customer/images/bcx_active.jpg" alt="">
+                    </dt>
+                    <dd class="tit">
+                        <span class="tit_span" data-cont="免费分发"></span>
+                        <span> BCX， </span>
+                        <span data-cont="持有"></span>
+                        <span>BTC</span>
+                        <span data-cont="即可领取"></span>
+                    </dd>
+                    <dd class="con1">
+                        <span class="hui" data-cont="派发规则"></span>
+                        <span class="hui">：</span>
+                        <span class="hei">1 BTC : 10000 BCX</span>
+                    </dd>
+                    <dd class="con2">
+                        <span class="hui" data-cont="派发要求"></span>
+                        <span class="hui">：</span>
+                        <span class="hei" data-cont="持有"></span>
+                        <span>BTC</span>
+                    </dd>
+                    <dd class="con3">
+                        <span class="hui" data-cont="区块高度"></span>
+                        <span class="hui">：</span>
+                        <span>498888</span>
+                    </dd>
+                    <dd class="con4">
+                        <span class="hui" data-cont="截止日期"></span>
+                        <span class="hui">：</span>
+                        <span class="hei"> 2017-12-14</span>
+                    </dd>
+                    <dd class="last forb"><a href="javascript:void(0)" data-cont="已结束"></a></dd>
+                </dl> -->
+            </div>
+            <div class="statement">
+                <p class="tips" data-cont="提示：在指定的块高度或指定的时间之前，打开用户的BTC98快照。快照时间是根据实际执行的。"></p>
+                <h3 data-cont="官方声明："></h3>
+                <p class="stat_item" data-cont="1.BTC98只需要各种数字货币，不需要任何代言，也不意味着货币会交易。"></p>
+                <p class="stat_item" data-cont="2.所有的硬币将由货币组免费提供，或由比特币分叉产生。"></p>
+                <p class="stat_item" data-cont="3.对于硬币分叉，如果分叉失败，平台有权在不通知用户的情况下终止交付活动。"></p>
+                <p class="stat_item" data-cont="4.BTC98不保证货币的质量和价格，所有的货币可能有调零的风险。"></p>
+            </div>
+        </div>
+    </div>
+    <script type="text/javascript" src="/static/customer/js/common/websocket.js"></script>
+    <script type="text/javascript" src="/static/customer/js/plugin/jquery.flot.js"></script>
+    <footer>
+        <div class="footerCore">
+            <div class="introduceUs">
+                <div class="logo_box">
+                    <ul class="foot2">
+                        <li>
+                            <span>
+                                <img src="/static/customer/images/logo_gda.png" class="foot_logo">
+                            </span>
+                                <img src="/static/customer/images/logosub.png" class="foot_logo">
+                        </li>
+                    </ul>
+                </div>
+                <div class="introduce_list">
+                    <ul class="CompanyIntroduction">
+                        <li class="first">
+                            <h2><span data-cont="公司介绍"></span></h2>
+                        </li>
+                        <li><a href="/other/aboutUs.html" data-cont="关于我们"></a></li>
+                        <li><a href="/other/notice.html" data-cont="官方公告"></a></li>
+                        <li><a href="/other/news.html" data-cont="新闻资讯"></a></li>
+                        <li><a href="/other/coinApplication.html" data-cont="上币申请"></a></li>
+                    </ul>
+                    <ul class="UserAgreement">
+                        <li class="first">
+                            <h2><span data-cont="用户协议"></span></h2>
+                        </li>
+                        <li><a href="/other/TermsService.html" data-cont="服务条款"></a></li>
+                        <li><a href="/other/PrivacyPolicy.html" data-cont="隐私政策"></a></li>
+                        <li><a href="/other/policy.html" data-cont="AML/CTF政策"></a></li>
+                    </ul>
+                    <ul class="HelpCenter">
+                        <li class="first">
+                            <h2><span data-cont="帮助中心"></span></h2>
+                        </li>
+                        <li><a href="/other/rate.html" data-cont="费率说明"></a></li>
+                        <li><a href="/other/question.html" data-cont="常见问题"></a></li>
+                        <li><a href="/other/apiExplain.html" data-cont="API说明"></a></li>
+                        <li><a href="/other/contactService.html" data-cont="联系客服"></a></li>
+                    </ul>
+                    <ul class="ContactUs">
+                        <li class="first">
+                            <h2><span data-cont="联系我们"></span></h2>
+                        </li>
+                        <li><span data-cont="客服邮箱:"></span><span>btc98com@gmail.com</span></li>
+                        <li><span data-cont="商务合作:"></span><span>imbtcmaster@gmail.com</span></li>
+                        <li class="share_area">
+                            <span class="share">
+                                <a href="http://shang.qq.com/wpa/qunwpa?idkey=8cf2665d6e2be61c43b5f063b40bb8dc3ccea65b2b89ae881793a5f821afee1a" target="_blank" class="qq"></a>
+                                <a href="https://twitter.com/BTC98com" target="_blank" class="twitter"></a>
+                                <a href="https://www.facebook.com/btc.li.7" target="_blank" class="fb"></a>
+                                <a href="http://t.me/btc98" target="_blank" class="tg"></a>
+                                <a href="https://btc98.slack.com/messages" target="_blank" class="slack"></a>
+                            </span>
+                        </li>
+                    </ul>
+                </div>
+            </div>            
+            <div class="fbottom">
+                <p class="copyrighthui">Copyright © 2017 BTC98. All rights reserved. <span data-cont="由6EX提供技术支持"></span></p>
+            </div>
+        </div>
+    </footer>
+    <script type="text/javascript" src="/static/customer/js/common/common.min.js?v=1.0"></script>
+    <script type="text/javascript">
+        $(function(){
+            doLogin('index');
+        })
+        $('.lang,.lanague').hover(
+            function() {
+                $('.lang').addClass('selected');
+                $('.lanague').addClass('selected');
+                $('.header').css('z-index', -120);
+            },
+            function() {
+                $('.header').css('z-index', 19);
+                $('.lanague').removeClass('selected');
+                $('.lang').removeClass('selected');
+            }
+        );
+        $('.total-con').hover(function() { $('.total-con-list').show() }, function() { $('.total-con-list').hide() });
+        $('.jy-email,#userinfo').hover(
+            function() {
+                $('.jy-email').addClass('isHover');
+                $('#userinfo').addClass('selected');
+                // $('.header').css('z-index', -100);
+                $('.hdslide').css('z-index', -100);
+                $('.page').css('z-index', -100);
+            },
+            function() {
+                $('.header').css('z-index', 19);
+                $('.jy-email').removeClass('isHover');
+                $('.email').removeClass('selected');
+                $('#userinfo').removeClass('selected');
+                $('.hdslide').css('z-index', 0);
+                $('.page').css('z-index', 'auto');
+            }
+        );
+        //顶部导航背景渐变
+        $(document).scroll(function () {
+            var _top=$(this).scrollTop()
+            if(_top<350){
+                $('.top-fixed-nav').css('background-color','rgba(33,48,65,0)')
+            }else{
+                $('.top-fixed-nav').css('background-color','rgba(33,48,65,1)')
+            }
+        })
+        fareactivityAll(1)
+        // 获取福利列表
+        function fareactivityAll(a,b) {
+            var data={
+                pageNum:a,
+                numPerPage:'6'
+            }
+            $.ajax({
+                url:WebHelper.fareactivityAll,
+                data:JSON.stringify(data),
+                type:'POST',
+                contentType:'application/json',
+                success:function (d) {
+                if(d){
+                    $('#item_list_tmpl').tmpl(d).htm('.item_list');
+                }
+            }})
+        }
+        //选择类型
+        $(function(){
+            $('.all_select').find('.selSpan').click(function(){
+                $(this).addClass('active').siblings().removeClass('active');
+                var type=$(this).data('type');
+                var _dl=$('.item_list').find('dl');
+                _dl.each(function(){
+                    if(type=='all'){
+                        $(this).show()
+                        return;
+                    }
+                    if($(this).data('type')==type){
+                        $(this).show()
+                    }else{
+                        $(this).hide()
+                    }
+                })
+            })
+        })
+    </script>
+</body>
+
+</html>

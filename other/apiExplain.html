@@ -1,0 +1,891 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="viewport" content="width=device-width">
+	<link rel="icon" href="/static/customer/images/favicon.ico"/>
+    <title data-cont="比特酒吧| BTC98 - The most professional and safe virtual digital currency trading platform [official website]"></title>
+    <link rel="stylesheet" href="/static/customer/css/global.css" type="text/css">
+    <link rel="stylesheet" href="/static/customer/css/main.css" type="text/css">
+    <script type="text/javascript" src="/static/customer/js/plugin/jquery.1.11.0.min.js"></script>
+    <script src="/static/customer/js/common/webHelper.min.js"></script>
+    <script type="text/javascript" src="/static/customer/js/locale/ts.min.js"></script>
+    <script type="text/javascript" src="/static/customer/js/coinuni.min.js"></script>
+    <script type="text/javascript" src="/static/customer/js/common/os.js"></script>
+    <script type="text/javascript" src="/static/customer/js/locale/apiTs.js"></script>
+    <style>
+    	.blue{
+    		color: #3eadd9!important;
+    	}
+    	.top-fixed-nav{
+    		position:static;
+    	}
+    	.body{
+    		margin-top: 0;
+    	}
+    	.gonggao-con p.api_gg{
+    		font-size: 16px;
+    	}
+    </style>
+</head>
+
+<body>
+    <div class="top-fixed-nav">
+        <a href="/index.html" class="logo"></a>
+        <ul class="left nav">
+	        <li><a class="" href="/index.html" data-cont="首页"></a></li>
+	        <li><a class="" href="/trade/coinTrade.html" data-cont="交易"></a></li>
+            <li><a href="/other/news.html" data-cont="资讯"></a></li>
+            <li><a href="/active/promotion.html" data-cont="福利"></a></li>
+            <li><a href="/active/inviteRebate.html" data-cont="邀请"></a></li>
+            <li><a class="valid-login" onclick="doLogin('finance')" data-cont="财务"></a></li>
+            <li><a class="valid-login" onclick="doLogin('security')" data-cont="安全"></a></li>
+	    </ul>
+        <div class="top-login right top-user">
+            <div id="lang" class="right">
+                <span class="lang"><em class="flag"></em><em class="flagName"></em></span>
+	            <div class="lanague">
+                    <ul>
+                        <li class="en_US"><a href="javascript:void(0)" onclick="cutLanguage('&lang=en_US')">English</a></li>
+                        <li class="ko_KR"><a href="javascript:void(0)" onclick="cutLanguage('&lang=ko_KR')">한국어</a></li>
+                        <li class="ja_JP"><a href="javascript:void(0)" onclick="cutLanguage('&lang=ja_JP')">日本語</a></li>
+                        <li class="fr_FR"><a href="javascript:void(0)" onclick="cutLanguage('&lang=fr_FR')">Français</a></li>
+                        <li class="es_AR"><a href="javascript:void(0)" onclick="cutLanguage('&lang=es_AR')">Espagnol</a></li>
+                        <li class="ru_RU"><a href="javascript:void(0)" onclick="cutLanguage('&lang=ru_RU')">русский </a></li>
+                        <li class="my_ZG"><a href="javascript:void(0)" onclick="cutLanguage('&lang=my_ZG')">မြန်မာ</a></li>
+                        <li class="ar_AE"><a href="javascript:void(0)" onclick="cutLanguage('&lang=ar_AE')">العربية</a></li>
+                        <li class="zh_TW"><a href="javascript:void(0)" onclick="cutLanguage('&lang=zh_TW')">繁體中文</a></li>
+                        <li class="zh_CN" style="border-bottom: 0;"><a href="javascript:void(0)" onclick="cutLanguage('&lang=zh_CN')">简体中文</a></li>
+                    </ul>
+	            </div>
+        	</div>
+            <a href="/user/login.html" class="login" data-cont="登录"></a>
+            <a href="/user/register.html" class="login" data-cont="注册"></a>
+            <a href="/finance/finance.html">
+                <p class="top-user-email jy-email sj_bd user_name"></p>
+            </a>
+            <div id="userinfo" class="userinfo">
+                <div class="userinfo-all">
+                    <div class="userinfo-t">
+                        <div class="userinfo-top">
+                            <p><i>ID：</i><span></span><a onclick="logOut()" class="blue" data-cont="退出"></a></p>
+                            <p><i data-cont="总资产："></i>
+                                <font class="is_num" id="balance_total">0</font> BTC</p>
+                        </div>
+                        <div class="userinfo-title">
+                            <div class="userinfo-Coin" data-cont="币种"></div>
+                            <div class="userinfo-available" data-cont="可用"></div>
+                            <div class="userinfo-frozen" data-cont="冻结"></div>
+                        </div>
+                    </div>
+                    <ul id="user-balance">
+                        <div class="listscoll" id="userinfo-list">
+
+                        </div>
+                    </ul>
+                </div>
+            </div>
+            <div class="clear"></div>
+        </div>
+        <div class="clear"></div>
+    </div>
+    <div class="body">
+        <div class="left">
+            <a href="/other/notice.html" data-cont="官方公告"></a>
+            <a href="/other/news.html" data-cont="新闻资讯"></a>
+            <a href="/other/question.html" data-cont="常见问题"></a>
+            <a href="/other/aboutUs.html" data-cont="关于我们"></a>
+            <a href="/other/contactService.html" data-cont="联系客服"></a>
+            <a href="/other/TermsService.html" data-cont="服务条款"></a>
+            <a href="/other/PrivacyPolicy.html" data-cont="隐私政策"></a>
+            <a href="/other/policy.html" data-cont="AML/CTF政策"></a>
+            <a href="/other/rate.html" data-cont="费率说明"></a>
+            <a href="/other/apiExplain.html" data-cont="API说明" class="cur"></a>
+            <a href="/other/coinApplication.html" data-cont="上币申请"></a>
+        </div>
+		<!--右侧内容-->
+		<div class="right gonggao">
+            <!-- <p class="text_zwnr">OPEN SOON</p> -->
+		 	<!-- <div class="usdtcont">open soon</div> -->
+			<p class="t" data-cont="API文档"></p>
+			<div class="gonggao-con api_con">
+				<p class="api_t1 api_gg"><span data-cont="域名为："></span><a href="https://api.btc98.com/" class="blue">https://api.btc98.com</a></p>
+				<p class="api_t1"><a href="#partone" class="blue" data-cont="一、API使用说明"></a></p>
+				<p class="api_t2"><a href="#one" data-cont="1、请求过程说明"></a></p>
+				<p class="api_t2"><a href="#two" data-cont="2、安全认证"></a></p>
+				<p class="api_t2"><a href="#three" data-cont="3、接口"></a></p>
+				<p class="api_t3"><a href="#three-one" data-cont="3.1获取当前最新行情 - Ticker"></a></p>
+				<p class="api_t3"><a href="#three-two" data-cont="3.2市场深度 - Depth"></a></p>
+				<p class="api_t3"><a href="#three-three" data-cont="3.3最近的市场交易 - Orders"></a></p>
+				<p class="api_t3"><a href="#three-four" data-cont="3.4账户信息 - Balance"></a></p>
+				<p class="api_t3"><a href="#three-six" data-cont="3.5挂单查询 - Trade_list"></a></p>
+				<p class="api_t3"><a href="#three-seven" data-cont="3.6查询订单信息 - Trade_view"></a></p>
+				<p class="api_t3"><a href="#three-eight" data-cont="3.7取消订单 - Trade_cancel"></a></p>
+				<p class="api_t3"><a href="#three-nine" data-cont="3.8下单/买单 - Trade_add"></a></p>
+				<p class="api_t3"><a href="#Trade_add" data-cont="3.9下单/卖单 - Trade_add"></a></p>
+				<p class="api_t3"><a href="#Kline" data-cont="3.10 K线 - Kline"></a></p>
+				<p class="api_t3"><a href="#Depth_data" data-cont="3.11 深度图 -Depth_data"></a></p>
+				<p class="api_t2"><a href="#data_type" data-cont="4.数据类型"></a></p>
+				<p class="api_t2"><a href="#error_code" data-cont="5.错误代码对照表"></a></p>
+				<p class="api_t1"><a href="#parttwo" class="blue" data-cont="二、API实例代码"></a></p>
+				<div class="apijj_con">
+						<p id="one" class="api_p1" data-cont="1、请求过程说明"></p>
+						<p class="api_p2" data-cont="1.1 构造请求数据，用户数据按照BTC98提供的接口规则，通过程序生成签名和要传输给BTC98的数据集合；"></p>
+						<p class="api_p2" data-cont="1.2 发送请求数据，把构造完成的数据集合通过POST/GET提交的方式传递给BTC98；"></p>
+						<p class="api_p2" data-cont="1.3 BTC98对请求数据进行处理，服务器在接收到请求后，会首先进行安全校验，验证通过后便会处理该次发送过来的请求；"></p>
+						<p class="api_p2" data-cont="1.4 返回响应结果数据，BTC98把响应结果以JSON的格式反馈给用户，具体的响应格式，错误代码参见接口部分；"></p>
+						<p class="api_p2" data-cont="1.5 对获取的返回结果数据进行处理；"></p>
+						<p id="two" class="api_p1" data-cont="2、安全认证"></p>
+						<p class="api_p2" data-cont="所有的private API都需要经过认证"></p>
+						<p class="api_p2" data-cont="Api的申请可以到财务中心 -&gt; API，申请得到私钥和公钥，私钥BTC98将不做储存，一旦丢失将无法找回"></p>
+						<p class="api_p2" data-cont="注意:请勿向任何人泄露这两个参数，这像您的密码一样重要"></p>
+						<p class="api_p1" data-cont="3.签名机制"></p>
+						<p class="api_p2" data-cont="每次请求private api 都需要验证签名，发送的参数示例："></p>
+						<p class="api_p2">$param = array(</p>
+						<p class="api_p3">amount =&gt; 1,</p>
+						<p class="api_p3">price =&gt; 10000,</p>
+						<p class="api_p3">type =&gt; 'buy',</p>
+						<p class="api_p3">nonce =&gt; 141377098123</p>
+						<p class="api_p3">key =&gt; 5zi7w-4mnes-swmc4-egg9b-f2iqw-396z4-g541b</p>
+						<p class="api_p3">signature =&gt; 459c69d25c496765191582d9611028b9974830e9dfafd762854669809290ed82</p>
+						<p class="api_p2">);</p>
+						<p class="api_p2"><span data-cont="nonce 可以理解为一个递增的整数："></span>http://zh.wikipedia.org/wiki/Nonce</p>
+						<p class="api_p2" data-cont="key 是申请到的公钥"></p>
+						<p class="api_p2" data-cont="signature是签名，是将amount price type nonce key等参数通过'&amp;'字符连接起来通过md5(私钥)为key进行sha256算法加密得到的值."></p>
+						<p id="three" class="api_p1" data-cont="4、接口"></p>
+						<div id="three-one">
+							<p class="api_p2"><b data-cont="Ticker（牌价）"></b></p>
+							<p class="api_p3">Path ：/api/ticker/ALL</p>
+							<p class="api_p3"><span data-cont="Request类型："></span>GET</p>
+							<p class="api_p3" data-cont="参数：无"></p>
+							<p class="api_p3" data-cont="返回JSON dictionary："></p>
+							<p class="api_p4" data-cont="opening_price - 开盘价"></p>
+							<p class="api_p4" data-cont="closing_price - 收盘价"></p>
+							<p class="api_p4" data-cont="min_price - 24小时最低价"></p>
+							<p class="api_p4" data-cont="max_price - 24小时最高价"></p>
+							<p class="api_p4" data-cont="average_price - 平均价格"></p>
+							<p class="api_p4" data-cont="units_traded - 最新成交价"></p>
+							<p class="api_p4" data-cont="volume_1day - 一天交易量"></p>
+							<p class="api_p4" data-cont="volume_7day - 七天交易量"></p>
+							<p class="api_p4" data-cont="buy_price - 买一价格"></p>
+							<p class="api_p4" data-cont="sell_price - 卖一价格"></p>
+							<p class="api_p3" data-cont="返回结果示例："></p>
+							<p class="api_p4">
+							{
+							    "status": "0000",
+							    "data": {
+							        "HKC": {
+							            "opening_price": "0.000000000000",
+							            "closing_price": "0.000316490000",
+							            "min_price": "0.000000000000",
+							            "max_price": "0.000000000000",
+							            "average_price": "0.000000000000",
+							            "units_traded": "0",
+							            "volume_1day": "0.000000000000",
+							            "volume_7day": "5856348.787000000000",
+							            "buy_price": "0",
+							            "sell_price": "0"
+							        },
+							        "QTUM": {
+							            "opening_price": "0.000000000000",
+							            "closing_price": "0.000000000000",
+							            "min_price": "0.000000000000",
+							            "max_price": "0.000000000000",
+							            "average_price": "0.000000000000",
+							            "units_traded": "0",
+							            "volume_1day": "0.000000000000",
+							            "volume_7day": "0.000000000000",
+							            "buy_price": "0",
+							            "sell_price": "0"
+							        }
+							    },
+							    "date": 1515051956828
+							}
+						</p>
+						</div>
+						<div id="three-two">
+							<p class="api_p2"><b data-cont="Depth（市场深度）"></b></p>
+							<p class="api_p3" data-cont="描述：返回所有的市场深度，此回应的数据量会较大，所以请勿频繁调用。"></p>
+							<p class="api_p3">Path ：/api/index/findDepthDataByFviFid?fviFid=2</p>
+							<p class="api_p3"><span data-cont="Request类型："></span>GET</p>
+							<p class="api_p3" data-cont="参数 ：fviFid - 币种id"></p>
+							<p class="api_p3" data-cont="返回JSON dictionary："></p>
+							<p class="api_p4" data-cont="buy - 委买单[价格, 委单量]，价格从低到高排序"></p>
+							<p class="api_p4" data-cont="sell- 委卖单[价格, 委单量]，价格从高到低排序"></p>
+							<p class="api_p3" data-cont="返回结果示例："></p>
+							<p class="api_p4">
+							{
+							    "status": 1,
+							    "msg": null,
+							    "page": null,
+							    "data": {
+							        "buy": [
+							            [
+							                0.0011415,
+							                9.151
+							            ],
+							            [
+							                0.002,
+							                15.673
+							            ],
+							            [
+							                0.003451,
+							                5.611
+							            ],
+							            [
+							                0.0043415,
+							                9.41
+							            ],
+							            [
+							                0.005424,
+							                5.61
+							            ],
+							            [
+							                0.006879,
+							                1.151
+							            ],
+							            [
+							                0.007312,
+							                15.84
+							            ],
+							            [
+							                0.0085,
+							                8.8839
+							            ],
+							            [
+							                0.008745,
+							                4.5156
+							            ],
+							            [
+							                0.0099554,
+							                3.1151
+							            ],
+							            [
+							                0.0100515,
+							                8.415
+							            ],
+							            [
+							                0.011145,
+							                5.151
+							            ],
+							            [
+							                0.012346,
+							                1.516
+							            ],
+							            [
+							                0.0135787,
+							                12.151
+							            ],
+							            [
+							                0.013873,
+							                6.4651
+							            ],
+							            [
+							                0.01416,
+							                2.1056
+							            ],
+							            [
+							                0.0146,
+							                3.045
+							            ],
+							            [
+							                0.0151,
+							                1.0996
+							            ],
+							            [
+							                0.016,
+							                8.0001
+							            ],
+							            [
+							                0.016015,
+							                2.94
+							            ],
+							            [
+							                0.016093,
+							                2.31
+							            ],
+							            [
+							                0.01637,
+							                5.9857
+							            ],
+							            [
+							                0.0165,
+							                0.4633
+							            ],
+							            [
+							                0.016645,
+							                8.4379
+							            ],
+							            [
+							                0.016998,
+							                1.47076126
+							            ],
+							            [
+							                0.017072,
+							                0.94753196
+							            ],
+							            [
+							                0.01735,
+							                1.024
+							            ],
+							            [
+							                0.01753173,
+							                1.22
+							            ],
+							            [
+							                0.0179,
+							                2.004
+							            ],
+							            [
+							                0.01812,
+							                1.3335
+							            ],
+							            [
+							                0.01836451,
+							                1.454
+							            ],
+							            [
+							                0.018762,
+							                1.217
+							            ],
+							            [
+							                0.01888543,
+							                2.78
+							            ],
+							            [
+							                0.0189,
+							                3.07
+							            ],
+							            [
+							                0.01891363,
+							                0.596
+							            ],
+							            [
+							                0.0191,
+							                1.1
+							            ],
+							            [
+							                0.01910307,
+							                0.595
+							            ],
+							            [
+							                0.0193,
+							                1.29
+							            ]
+							        ],
+							        "sell": [
+							            [
+							                0.1,
+							                167.66
+							            ],
+							            [
+							                0.0981,
+							                9.56
+							            ],
+							            [
+							                0.093,
+							                86.664
+							            ],
+							            [
+							                0.087,
+							                13.64
+							            ],
+							            [
+							                0.08,
+							                43.7745
+							            ],
+							            [
+							                0.076,
+							                14.842
+							            ],
+							            [
+							                0.07,
+							                143.7537
+							            ],
+							            [
+							                0.0645,
+							                97.423
+							            ],
+							            [
+							                0.056,
+							                3.5154
+							            ],
+							            [
+							                0.05445,
+							                9.415
+							            ],
+							            [
+							                0.043,
+							                15.753
+							            ],
+							            [
+							                0.036,
+							                32.684
+							            ],
+							            [
+							                0.031,
+							                4.7
+							            ],
+							            [
+							                0.025,
+							                6.6434
+							            ],
+							            [
+							                0.0221,
+							                0.35
+							            ],
+							            [
+							                0.022,
+							                53.8822
+							            ],
+							            [
+							                0.0218,
+							                0.5358
+							            ],
+							            [
+							                0.021,
+							                3.0001
+							            ],
+							            [
+							                0.02,
+							                53.6737
+							            ],
+							            [
+							                0.01977,
+							                1.5215
+							            ],
+							            [
+							                0.01930158,
+							                0.77
+							            ]
+							        ]
+							    },
+							    "url": null
+							}
+						</p>
+						</div>
+						<div id="three-three">
+							<p class="api_p2"><b data-cont="Orders（市场交易）"></b></p>
+							<p class="api_p3">Path ：/api/pro/history?id=2</p>
+							<p class="api_p3"><span data-cont="Request类型："></span>GET</p>
+							<p class="api_p3" data-cont="参数 ：id - 币种id"></p>
+							<p class="api_p3" data-cont="返回JSON dictionary："></p>
+							<p class="api_p4" data-cont="fid - 成交记录id"></p>
+							<p class="api_p4" data-cont="buyfid - 买入交易id"></p>
+							<p class="api_p4" data-cont="famount - 总额"></p>
+							<p class="api_p4" data-cont="fcreateTime - 创建时间"></p>
+							<p class="api_p4" data-cont="fprize - 价格"></p>
+							<p class="api_p4" data-cont="fEntrustType - 交易类型 0:买，1卖"></p>
+							<p class="api_p3" data-cont="返回结果示例："></p>
+							<p class="api_p4">
+								{
+								    "status": 1,
+								    "msg": "ok",
+								    "page": null,
+								    "data": [
+								        {
+								            "fid": 172827,
+								            "buyfid": 0,
+								            "famount": 1.977,
+								            "fcreateTime": 1516089834000,
+								            "fprize": 0.01977,
+								            "fEntrustType": 1      
+								  }
+								    ],
+								    "url": null
+								}
+							</p>
+						</div>
+						<div id="three-four">
+							<p class="api_p2"><b data-cont="只读权限方法列表"></b></p>
+							<p class="api_p2"><b data-cont="Account Balance（账户信息）"></b></p>
+							<p class="api_p3">Path ：/api/coin/userwallet.do</p>
+							<p class="api_p3"><span data-cont="Request类型："></span>POST</p>
+							<p class="api_p3" data-cont="参数：无"></p>
+							<p class="api_p3" data-cont="返回JSON dictionary："></p>
+							<p class="api_p4" data-cont="btc_lock - 冻结资金"></p>
+							<p class="api_p4" data-cont="btc_balance - 剩余资金"></p>
+							<p class="api_p4" data-cont="btc_total- 总资金"></p>
+							<p class="api_p3" data-cont="返回结果示例："></p>
+							<p class="api_p4">
+								{
+								    "status": 1,
+								    "msg": null,
+								    "page": null,
+								    "data": {
+								        "btc_total": "999.99995580",
+								        "btc_balance": "999.89995580",
+								"btc_lock": "17.81200000",
+								        "btc_lock": "0.10000000",
+								"eth_lock": "0",
+								        "eth_balance": "800.00000000"
+								    },
+								    "url": null
+								}
+							</p>
+						</div>
+						<div id="three-six">
+							<p class="api_p2"><b data-cont="Trade_list（挂单查询）"></b></p>
+							<p class="api_p3">Path ：/api/pro/trades?id=2</p>
+							<p class="api_p3"><span data-cont="Request类型："></span>GET</p>
+							<p class="api_p3" data-cont="参数：id - 币种id"></p>
+							<p class="api_p4" data-cont="返回JSON dictionary："></p>
+							<p class="api_p4" data-cont="fprize - 价格"></p>
+							<p class="api_p4" data-cont="famount - 数量"></p>
+							<p class="api_p4" data-cont="coinTypeShortName - 币种"></p>
+							<p class="api_p3" data-cont="返回结果示例："></p>
+							<p class="api_p4">
+								{
+								    "status": 1,
+								    "msg": "ok",
+								    "page": null,
+								    "data": {
+								        "sell": [
+								            {
+								                "fprize": 0.01977,
+								                "fleftCount": 900,
+								                "coinTypeShortName": "LTC"
+								            }
+								        ],
+								        "buy": [
+								            {
+								                "fprize": 0.01977,
+								                "fleftCount": 900,
+								                "coinTypeShortName": "LTC"
+								            }
+								        ]
+								    },
+								    "url": null
+								}
+							</p>
+						</div>
+						<div id="three-seven">
+								<p class="api_p2"><b data-cont="Trade_view（查询订单信息）"></b></p>
+								<p class="api_p3">Path ：/api/pro/trade_view?id=2</p>
+								<p class="api_p3"><span data-cont="Request类型："></span>POST</p>
+								<p class="api_p3" data-cont="参数：symbol:币种id"></p>
+								<p class="api_p3" data-cont="返回JSON dictionary："></p>
+								<p class="api_p4" data-cont="fid - 委托id"></p>
+								<p class="api_p4" data-cont="fentrustType - 委托类型0:买 1:卖"></p>
+								<p class="api_p4" data-cont="fprize - 价格"></p>
+								<p class="api_p4" data-cont="fcount - 数量"></p>
+								<p class="api_p4" data-cont="fleftCount - 剩余数量"></p>
+								<p class="api_p4" data-cont="fstatus - 状态，1未成交，2部分成交，3完全成交，4撤销"></p>
+								<p class="api_p4" data-cont="fcreateTime - 创建时间"></p>
+								<p class="api_p4" data-cont="coinTypeShortName - 币种简称"></p>
+								<p class="api_p4" data-cont="返回结果示例："></p>
+								<p class="api_p4">
+									{
+									    "status": 1,
+									    "msg": "ok",
+									    "page": null,
+									    "data": {
+									        "fid": 2,
+									        "fcreateTime": 1510750272000,
+									        "fentrustType": 0,
+									        "fprize": 0.04333,
+									        "fcount": 1,
+									        "fleftCount": 0.2,
+									        "fstatus": 3,
+									        "coinTypeShortName": "ETH",
+									    },
+									    "url": null
+									}
+								</p>
+						</div>
+						<p class="gonggao-con-t" data-cont="完整权限方法列表"></p>
+						<div id="three-eight">
+								<p class="api_p2"><b data-cont="Trade_cancel（取消订单）"></b></p>
+								<p class="api_p3">Path：/api/trade/canceltrade.do?id=806&token=10db7b05721ab36</p>
+								<p class="api_p3"><span data-cont="Request类型："></span>GET</p>
+								<p class="api_p3" data-cont="参数"></p>
+								<p class="api_p4" data-cont="id - 订单id"></p>
+								<p class="api_p4">token - token </p>
+								<p class="api_p3" data-cont="返回JSON dictionary："></p>
+								<p class="api_p4" data-cont="status - 状态"></p>
+								<p class="api_p3" data-cont="返回结果示例："></p>
+								<p class="api_p4">
+									{
+									    "status": 1,
+									    "msg": "ok"
+									}
+								</p>
+						</div>
+						<div id="three-nine">
+								<p class="api_p2"><b data-cont="" data-cont="Trade_add（下单/买单）"></b></p>
+								<p class="api_p3">Path：/api/trade/buy.do</p>
+								<p class="api_p3"><span data-cont="" data-cont="Request类型："></span>POST</p>
+								<p class="api_p3" data-cont="" data-cont="参数："></p>
+								<p class="api_p4">price - 0.212</p>
+								<p class="api_p4">number	 - 100</p>
+								<p class="api_p4">pwtrade - 8cf19a2fb40a5595f6b4</p>
+								<p class="api_p4">type - buy</p>
+								<p class="api_p4">symbol - 6</p>
+								<p class="api_p4">token - 10db7b05c9cedf4a8273721ab3615401193580a8</p>
+								<p class="api_p3" data-cont="" data-cont="返回JSON dictionary："></p>
+								<p class="api_p4" data-cont="" data-cont="status - 状态"></p>
+								<p class="api_p4" data-cont="" data-cont="result - true(成功), false(失败)"></p>
+								<p class="api_p3" data-cont="" data-cont="返回结果示例："></p>
+								<p class="api_p4">
+									{
+									    "status": 1,
+									    "msg": "ok"
+									}
+								</p>
+						</div>
+						<div id="Trade_add">
+								<p class="api_p2"><b data-cont="Trade_add（下单/卖单）"></b></p>
+								<p class="api_p3">Path：/api/trade/sell.do</p>
+								<p class="api_p3"><span data-cont="Request类型："></span>POST</p>
+								<p class="api_p3" data-cont="参数："></p>
+								<p class="api_p4">price - 0.212</p>
+								<p class="api_p4">number	 - 100</p>
+								<p class="api_p4">pwtrade - 8cf19a2fb40a5595f6b4</p>
+								<p class="api_p4">type - buy</p>
+								<p class="api_p4">symbol - 6</p>
+								<p class="api_p4">token - 10db7b05c9cedf4a8273721ab3615401193580a8</p>
+								<p class="api_p3" data-cont="返回JSON dictionary："></p>
+								<p class="api_p4" data-cont="status - 状态"></p>
+								<p class="api_p4" data-cont="result - true(成功), false(失败)"></p>
+								<p class="api_p3" data-cont="返回结果示例："></p>
+								<p class="api_p4">
+									{
+									    "status": 1,
+									    "msg": "ok"
+									}
+								</p>
+						</div>
+						<div id="Kline">
+								<p class="api_p2"><b data-cont="Kline（k线）"></b></p>
+								<p class="api_p3">Path：/api/index/findKLineByFviFid.do?fviFid=10</p>
+								<p class="api_p3"><span data-cont="Request类型："></span>GET</p>
+								<p class="api_p3" data-cont="参数："></p>
+								<p class="api_p4">fviFid - 10</p>
+								<p class="api_p3" data-cont="返回JSON dictionary："></p>
+								<p class="api_p4" data-cont="1d - 1天数据[时间，开盘价，收盘价，最高价，最低价]"></p>
+								<p class="api_p4">8h - 8<span data-cont="小时数据"></span></p>
+								<p class="api_p4">30m - 30<span data-cont="分钟数据"></span></p>
+								<p class="api_p4">15m - 15<span data-cont="分钟数据"></span></p>
+								<p class="api_p4">5m - 5<span data-cont="分钟数据"></span></p>
+								<p class="api_p4">1m - 1<span data-cont="分钟数据"></span></p>
+								<p class="api_p3" data-cont="返回结果示例："></p>
+								<p class="api_p4">
+									{
+										"status": 1,
+										"data": {
+											"8h": [
+												[1522108800000, "0.000000701500", "0.000000663400", "0.000000706500", "0.000000650500", "411594.578400000000"]
+											],
+											"30m": [
+												[1524729600000, "0.000000715600", "0.000000695000", "0.000000719500", "0.000000687900", "97328.066100000000"]
+											],
+											"1d": [
+												[1516550400000, "0.000002973800", "0.000002516500", "0.000003014500", "0.000002243500", "1695240.557800000000"]
+											],
+											"5m": [
+												[1524873300000, "0.000000691200", "0.000000711200", "0.000000711200", "0.000000691200", "13556.256600000000"]
+											],
+											"15m": [
+												[1524816000000, "0.000000692600", "0.000000713000", "0.000000713000", "0.000000688800", "26849.762300000000"]
+											],
+											"1m": [
+												[1524894840000, "0.000000811900", "0.000000811900", "0.000000811900", "0.000000811900", "0.000000000000"]
+											]
+										}
+									}
+								</p>
+						</div>
+						<div id="Depth_data">
+								<p class="api_p2"><b data-cont="Depth_data（深度图）"></b></p>
+								<p class="api_p3">Path：/api/index/findDepthDataByFviFid.do?fviFid=44</p>
+								<p class="api_p3"><span data-cont="Depth_data（深度图）"></span>POST</p>
+								<p class="api_p3" data-cont="参数："></p>
+								<p class="api_p4">fviFid - 44</p>
+								<p class="api_p3" data-cont="返回JSON dictionary："></p>
+								<p class="api_p4" data-cont="buy - 买[价格，数量]"></p>
+								<p class="api_p4" data-cont="sell - 卖[价格，数量]"></p>
+								<p class="api_p3" data-cont="返回结果示例："></p>
+								<p class="api_p4">
+									{
+										"status": 1,
+										"msg": null,
+										"page": null,
+										"data": {
+											"buy": [
+												[0.000018460000000, 626.390000000000],
+												[0.000019170000000, 540.399510000000]
+											],
+											"sell": [
+												[0.000112040000000, 1000.000000000000],
+												[0.000112030000000, 99.000000000000]
+											]
+										},
+										"url": null
+									}
+								</p>
+						</div>
+						<p class="gonggao-con-t" id="data_type"><b data-cont="数据类型"></b></p>
+						<div>
+							<p class="api_p2">type：int</p>
+							<p class="api_p2">price：Bigdecimal</p>
+							<p class="api_p2">amount：Bigdecimal</p>
+							<p class="api_p2">status：int</p>
+							<p class="api_p2">message：String</p>
+							<p class="api_p2">id：int</p>
+						</div>
+						<p id="four" class="gonggao-con-t" id="error_code"><b data-cont="错误代码"></b></p>
+						<table border="0">
+							<tbody><tr>
+								<th width="120" data-cont="错误代码"></th>
+								<th width="390" data-cont="详细描述"></th>
+							</tr>
+							<tr>
+								<td>-5001</td>
+								<td data-cont="操作失败"></td>
+							</tr>
+							<tr>
+								<td>-3006</td>
+								<td data-cont="余额不足"></td>
+							</tr>
+							<tr>
+								<td>-4000</td>
+								<td data-cont="交易失败"></td>
+							</tr>
+							<tr>
+								<td>-4001</td>
+								<td data-cont="没有开放交易"></td>
+							</tr>
+							<tr>
+								<td>-4004</td>
+								<td data-cont="钱包的金额不足，请充值后再交易"></td>
+							</tr>
+							<tr>
+								<td>-4005</td>
+								<td data-cont="交易数量和金额都不能小于0"></td>
+							</tr>
+							<tr>
+								<td>-4010</td>
+								<td data-cont="取消委托失败，请联系管理员"></td>
+							</tr>
+							<tr>
+								<td>-4011</td>
+								<td data-cont="当前委托单不存在或者状态已经变更，操作失败"></td>
+							</tr>
+							</tbody>
+						</table>
+				</div>
+			</div> 
+		</div>
+	</div>
+    <footer>
+        <div class="footerCore">
+            <div class="introduceUs">
+                <div class="logo_box">
+                    <ul class="foot2">
+                        <li>
+                            <span>
+                                <img src="/static/customer/images/logo_gda.png" class="foot_logo">
+                            </span>
+                                <img src="/static/customer/images/logosub.png" class="foot_logo">
+                        </li>
+                    </ul>
+                </div>
+                <div class="introduce_list">
+                    <ul class="CompanyIntroduction">
+                        <li class="first">
+                            <h2><span data-cont="公司介绍"></span></h2>
+                        </li>
+                        <li><a href="/other/aboutUs.html" data-cont="关于我们"></a></li>
+                        <li><a href="/other/notice.html" data-cont="官方公告"></a></li>
+                        <li><a href="/other/news.html" data-cont="新闻资讯"></a></li>
+                        <li><a href="/other/coinApplication.html" data-cont="上币申请"></a></li>
+                    </ul>
+                    <ul class="UserAgreement">
+                        <li class="first">
+                            <h2><span data-cont="用户协议"></span></h2>
+                        </li>
+                        <li><a href="/other/TermsService.html" data-cont="服务条款"></a></li>
+                        <li><a href="/other/PrivacyPolicy.html" data-cont="隐私政策"></a></li>
+                        <li><a href="/other/policy.html" data-cont="AML/CTF政策"></a></li>
+                    </ul>
+                    <ul class="HelpCenter">
+                        <li class="first">
+                            <h2><span data-cont="帮助中心"></span></h2>
+                        </li>
+                        <li><a href="/other/rate.html" data-cont="费率说明"></a></li>
+                        <li><a href="/other/question.html" data-cont="常见问题"></a></li>
+                        <li><a href="/other/apiExplain.html" data-cont="API说明"></a></li>
+                        <li><a href="/other/contactService.html" data-cont="联系客服"></a></li>
+                    </ul>
+                    <ul class="ContactUs">
+                        <li class="first">
+                            <h2><span data-cont="联系我们"></span></h2>
+                        </li>
+                        <li><span data-cont="客服邮箱:"></span><span>btc98com@gmail.com</span></li>
+                        <li><span data-cont="商务合作:"></span><span>imbtcmaster@gmail.com</span></li>
+                        <li class="share_area">
+                            <span class="share">
+                                <a href="http://shang.qq.com/wpa/qunwpa?idkey=8cf2665d6e2be61c43b5f063b40bb8dc3ccea65b2b89ae881793a5f821afee1a" target="_blank" class="qq"></a>
+                                <a href="https://twitter.com/BTC98com" target="_blank" class="twitter"></a>
+                                <a href="https://www.facebook.com/btc.li.7" target="_blank" class="fb"></a>
+                                <a href="http://t.me/btc98" target="_blank" class="tg"></a>
+                                <a href="https://btc98.slack.com/messages" target="_blank" class="slack"></a>
+                            </span>
+                        </li>
+                    </ul>
+                </div>
+            </div>            
+            <div class="fbottom">
+                <p class="copyrighthui">Copyright © 2017 BTC98. All rights reserved. <span data-cont="由6EX提供技术支持"></span></p>
+            </div>
+        </div>
+    </footer>
+    <script type="text/javascript" src="/static/customer/js/common/common.min.js?v=1.0"></script>
+    <script>
+        $(function(){
+			doLogin(null);
+			// user();
+		});
+        // $('.foot-con4_all').hover(function() { $('.foot-connectus').show() }, function() { $('.foot-connectus').hide() });
+        $('.lang,.lanague').hover(
+            function() { $('.lang').addClass('selected');
+                $('.lanague').addClass('selected');
+                $('.header').css('z-index', -120); },
+            function() { $('.header').css('z-index', 19);
+                $('.lanague').removeClass('selected');
+                $('.lang').removeClass('selected'); }
+        );
+        $('.total-con').hover(function() { $('.total-con-list').show() }, function() { $('.total-con-list').hide() });
+        $('.jy-email,#userinfo').hover(
+            function() {
+	        	$('.jy-email').addClass('isHover');
+   	    		$('#userinfo').show();
+                $('.header').css('z-index', -100);
+                $('.hdslide').css('z-index', -100);
+                $('.page').css('z-index', -100); },
+            function() {
+   	    		$('#userinfo').hide();
+   	        	$('.jy-email').removeClass('isHover');
+                $('.header').css('z-index', 19);
+                $('.email').removeClass('selected');
+                $('.hdslide').css('z-index', 0);
+                $('.page').css('z-index', 'auto'); }
+        );
+        balance();
+        $('html').find('*[data-cont]').each(function(){
+			if($.cookie('lang')=='zh_CN'){
+				$(this).html($(this).attr('data-cont'));
+			}else{
+	        	var langs=api_lang;
+				for(o in langs){
+					if($(this).attr('data-cont')==o){
+                        $(this).html(langs[o]);
+					}
+				}
+			}
+		})
+    </script>
+</body>
+
+</html>

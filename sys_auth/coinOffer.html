@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="viewport" content="width=device-width">
+    <meta name="description" content="比特酒吧|BTC98是全球最專業安全的綜合虛擬貨幣和數位貨幣交易平臺，平臺採用分佈式服務器和SSL冷存儲等先進科技，堅持為數位資產愛好者提供穩定、安全、快捷的服務交易體驗。打造最專業最安全的比特幣/乙太坊/萊特幣等虛擬數位資產貨幣交易平臺"/>
+    <meta name="keywords" content="比特幣，比特幣價格，比特幣行情，萊特幣，萊特幣價格，萊特幣行情，乙太坊，乙太坊價格，乙太坊行情，比特幣交易平臺網，萊特幣交易平臺網，比特98網"/>
+    <link rel="icon" href="/static/customer/images/favicon.ico" />
+    <title data-cont="比特酒吧| BTC98 - The most professional and safe virtual digital currency trading platform [official website]"></title>
+    <meta name="robots" content="index,follow"/>
+	<link rel="stylesheet" href="/static/customer/css/global.css" type="text/css">
+	<link rel="stylesheet" href="/static/customer/css/main.css?v=1.0" type="text/css">
+	<script type="text/javascript" src="/static/customer/js/plugin/jquery.1.11.0.min.js"></script>
+	<script type="text/javascript" src="/static/customer/js/common/webHelper.min.js"></script>
+	<script type="text/javascript" src="/static/customer/js/plugin/jquery-ui.min.js"></script>
+	<script type="text/javascript" src="/static/customer/js/locale/ts.min.js"></script>
+	<script type="text/javascript" src="/static/customer/js/coinuni.min.js?v=1.0"></script>
+    <script type="text/javascript" src="/static/customer/js/common/os.js"></script>
+	<script type="text/javascript" src="/static/customer/js/plugin/tmpl.js"></script>
+
+	<style>
+        .clearBoth:after{content: '';display: block;clear: both;}
+    	.all_coin_box li {
+    		width: 110px;
+    	}
+
+    	.total-con-list {
+    		width: 504px;
+    	}
+    	body{position: relative;}
+        .market_head .market_type{line-height: 2;padding: 20px 0}
+        .market_head .market_type>div{display: inline-block;cursor: pointer;margin-right: 30px;}
+        .market_head .market_type .active{border-bottom: 2px solid #3eadd9;color: #3eadd9;}
+        .market_my_entrust{float: left;}
+        .coin_trade{padding:10px 20px;}
+        .coin_trade>div{float: left;}
+        .coinPrice{font-size: 24px;line-height: 45px;}
+        .coin_trade .fabi{font-size: 12px;color: #a0a7ad;}
+        .coin_con_t:after{content: '';display: block;clear: both;}
+	</style>
+</head>
+<body>
+	<div class="top-fixed-nav" style="display: none">
+		<a href="/index.html" class="logo"></a>
+		<ul class="left nav">
+			<li><a class="" href="/index.html" data-cont="首页"></a></li>
+			<li><a class="white" href="/trade/coinTrade.html" data-cont="交易"></a></li>
+   			<li><a href="/other/news.html" data-cont="资讯"></a></li>
+            <li><a href="/active/promotion.html" data-cont="福利"></a></li>
+            <li><a href="/active/inviteRebate.html" data-cont="邀请"></a></li>
+            <li><a class="valid-login" onclick="doLogin('finance')" data-cont="财务"></a></li>
+            <li><a class="valid-login" onclick="doLogin('security')" data-cont="安全"></a></li>
+		</ul>
+        <div class="top-login right top-user">
+            <div id="lang" class="right">
+                <span class="lang"><em class="flag"></em><em class="flagName"></em></span>
+	            <div class="lanague">
+                    <ul>
+                        <li class="en_US"><a href="javascript:void(0)" onclick="cutLanguage('&lang=en_US')">English</a></li>
+                        <li class="ko_KR"><a href="javascript:void(0)" onclick="cutLanguage('&lang=ko_KR')">한국어</a></li>
+                        <li class="ja_JP"><a href="javascript:void(0)" onclick="cutLanguage('&lang=ja_JP')">日本語</a></li>
+                        <li class="fr_FR"><a href="javascript:void(0)" onclick="cutLanguage('&lang=fr_FR')">Français</a></li>
+                        <li class="es_AR"><a href="javascript:void(0)" onclick="cutLanguage('&lang=es_AR')">Espagnol</a></li>
+                        <li class="ru_RU"><a href="javascript:void(0)" onclick="cutLanguage('&lang=ru_RU')">русский </a></li>
+                        <li class="my_ZG"><a href="javascript:void(0)" onclick="cutLanguage('&lang=my_ZG')">မြန်မာ</a></li>
+                        <li class="ar_AE"><a href="javascript:void(0)" onclick="cutLanguage('&lang=ar_AE')">العربية</a></li>
+                        <li class="zh_TW"><a href="javascript:void(0)" onclick="cutLanguage('&lang=zh_TW')">繁體中文</a></li>
+                        <li class="zh_CN" style="border-bottom: 0;"><a href="javascript:void(0)" onclick="cutLanguage('&lang=zh_CN')">简体中文</a></li>
+                    </ul>
+	            </div>
+        	</div>
+            <a href="/user/login.html" class="login" data-cont="登录"></a>
+            <a href="/user/register.html" class="login" data-cont="注册"></a>
+            <a href="/finance/finance.html">
+                <p class="top-user-email jy-email sj_bd"></p>
+            </a>
+            <div id="userinfo" class="userinfo">
+                <div class="userinfo-all">
+                    <div class="userinfo-t">
+                        <div class="userinfo-top">
+                            <p><i>ID：</i><span></span><a onclick="logOut()" class="blue" data-cont="退出"></a></p>
+                            <p><i data-cont="总资产："></i>
+                                <font class="is_num" id="balance_total"></font> BTC</p>
+                        </div>
+                        <div class="userinfo-title">
+                            <div class="userinfo-Coin" data-cont="币种"></div>
+                            <div class="userinfo-available" data-cont="可用"></div>
+                            <div class="userinfo-frozen" data-cont="冻结"></div>
+                        </div>
+                    </div>
+                    <ul id="user-balance">
+                        <div class="listscoll" id="userinfo-list">
+                        </div>
+                    </ul>
+                </div>
+            </div>
+		</div>
+	</div>
+	<div class="main clearBoth" style="background: #f7f7f7; padding-bottom: 20px;">
+		<div class="market_head">
+			<div class="coin_con_t wfull">
+				<div class="w_1200" style="margin-left: 50px;float:left">
+                    <div class="market_type">
+                    </div>
+				</div>
+                <p style="float:left;padding-top: 20px"><!--白色：虚拟单  <span style="background:#a1a1ff">蓝色：官方真实单</span>  <span style="background:#ffffa1">黄色：用户真实单</span>--><a style="margin-left: 20px" class="" href="/index.html" data-cont="首页"></a><a style="margin-left: 10px" onclick="logOut()" class="blue" data-cont="退出"></a></p>
+			</div>
+		</div>
+        <div class="all_coin_box">
+
+        </div>
+	</div>
+    <footer style="display: none">
+        <div class="footerCore">
+            <div class="introduceUs">
+                <div class="logo_box">
+                    <ul class="foot2">
+                        <li>
+                            <span>
+                                <img src="/static/customer/images/logo_gda.png" class="foot_logo">
+                            </span>
+                                <img src="/static/customer/images/logosub.png" class="foot_logo">
+                        </li>
+                    </ul>
+                </div>
+                <div class="introduce_list">
+                    <ul class="CompanyIntroduction">
+                        <li class="first">
+                            <h2><span data-cont="公司介绍"></span></h2>
+                        </li>
+                        <li><a href="/other/aboutUs.html" data-cont="关于我们"></a></li>
+                        <li><a href="/other/notice.html" data-cont="官方公告"></a></li>
+                        <li><a href="/other/news.html" data-cont="新闻资讯"></a></li>
+                        <li><a href="/other/coinApplication.html" data-cont="上币申请"></a></li>
+                    </ul>
+                    <ul class="UserAgreement">
+                        <li class="first">
+                            <h2><span data-cont="用户协议"></span></h2>
+                        </li>
+                        <li><a href="/other/TermsService.html" data-cont="服务条款"></a></li>
+                        <li><a href="/other/PrivacyPolicy.html" data-cont="隐私政策"></a></li>
+                        <li><a href="/other/policy.html" data-cont="AML/CTF政策"></a></li>
+                    </ul>
+                    <ul class="HelpCenter">
+                        <li class="first">
+                            <h2><span data-cont="帮助中心"></span></h2>
+                        </li>
+                        <li><a href="/other/rate.html" data-cont="费率说明"></a></li>
+                        <li><a href="/other/question.html" data-cont="常见问题"></a></li>
+                        <li><a href="/other/apiExplain.html" data-cont="API说明"></a></li>
+                        <li><a href="/other/contactService.html" data-cont="联系客服"></a></li>
+                    </ul>
+                    <ul class="ContactUs">
+                        <li class="first">
+                            <h2><span data-cont="联系我们"></span></h2>
+                        </li>
+                        <li><span data-cont="客服邮箱:"></span><span>btc98com@gmail.com</span></li>
+                        <li><span data-cont="商务合作:"></span><span>imbtcmaster@gmail.com</span></li>
+                        <li class="share_area">
+                            <span class="share">
+                                <a href="http://shang.qq.com/wpa/qunwpa?idkey=8cf2665d6e2be61c43b5f063b40bb8dc3ccea65b2b89ae881793a5f821afee1a" target="_blank" class="qq"></a>
+                                <a href="https://twitter.com/BTC98com" target="_blank" class="twitter"></a>
+                                <a href="https://www.facebook.com/btc.li.7" target="_blank" class="fb"></a>
+                                <a href="http://t.me/btc98" target="_blank" class="tg"></a>
+                                <a href="https://btc98.slack.com/messages" target="_blank" class="slack"></a>
+                            </span>
+                        </li>
+                    </ul>
+                </div>
+            </div>            
+            <div class="fbottom">
+                <p class="copyrighthui">Copyright © 2017 BTC98. All rights reserved. <span data-cont="由6EX提供技术支持"></span></p>
+            </div>
+        </div>
+    </footer>
+    <script type="text/javascript" src="/static/customer/js/common/common.min.js?v=1.0"></script>
+    <script type="text/javascript" src="/static/customer/js/offer_market.min.js"></script>
+    <script type="html/text" id="">
+        
+    </script>
+    <script>
+        // sessionStorage.setItem('sys_auth','coinoffer');
+		doLogin('coinOffer');
+        getCoinTypeOption();
+        $('.market_type div').click(function(){
+            $(this).addClass('active').siblings().removeClass('active')
+            $('#all_coin'+$(this).data('cointype')).siblings().hide()
+            $('#all_coin'+$(this).data('cointype')).show()
+        })
+		$('.lang,.lanague').hover(function() {
+			$('.lang').addClass('selected');
+			$('.lanague').addClass('selected');
+			$('.header').css('z-index', -120);
+		}, function() {
+			$('.header').css('z-index', 19);
+			$('.lanague').removeClass('selected');
+			$('.lang').removeClass('selected');
+		});
+		$('.total-con').hover(function() {
+			$('.total-con-list').show()
+		}, function() {
+			$('.total-con-list').hide()
+		});
+    	$('.jy-email,#userinfo').hover(function(){
+    		$('#userinfo').show();
+        	$('.jy-email').addClass('isHover');
+    	},function(){
+    		$('#userinfo').hide();
+        	$('.jy-email').removeClass('isHover');
+    	})
+		balance();
+		$('.finddeal_bi').hover(function() {
+			$('.total-con-list').show()
+		}, function() {
+			$('.total-con-list').hide()
+		});
+	</script>
+</body>
+</html>

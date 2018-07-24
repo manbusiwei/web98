@@ -1,0 +1,1233 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="viewport" content="width=device-width">
+    <meta name="keywords" data-cont="Bitcoin, Bitcoin Price, Bitcoin Quotes, Litecoin, Litecoin Price, Litecoin Quotes, Ethereum, Ethereum, Ethereum, Bitcoin Exchange, Bitcoin Exchange, Bit 98 network" content="" />
+    <meta name="description" content="BTC98 it is the most professional and safe comprehensive virtual currency and digital currency trading platform in the world. The platform adopts advanced technologies such as distributed servers and SSL cold storage, and it provides a stable, safe and fast service trading experience for digital asset lovers. To create the most professional and safest Bitcoin / Ethereum / Litecoin and other virtual digital assets currency trading platform" />
+    <meta name="robots" content="index,follow" />
+    <link rel="icon" href="/static/customer/images/favicon.ico" />
+    <title data-cont="比特酒吧| BTC98 - The most professional and safe virtual digital currency trading platform [official website]"></title>
+    <link rel="stylesheet" href="/static/customer/css/global.css" type="text/css">
+    <link rel="stylesheet" href="/static/customer/css/main.css?v=20180128" type="text/css">
+    <script type="text/javascript" src="/static/customer/js/plugin/jquery.1.11.0.min.js"></script>
+    <script type="text/javascript" src="/static/customer/js/plugin/highstock.min.js"></script>
+    <script type="text/javascript" src="/static/customer/js/plugin/tmpl.js"></script>
+    <script type="text/javascript" src="/static/customer/js/plugin/jquery-ui.min.js"></script>
+    <script type="text/javascript" src="/static/customer/js/common/webHelper.min.js"></script>
+    <script type="text/javascript" src="/static/customer/js/locale/ts.min.js"></script>
+    <script type="text/javascript" src="/static/customer/js/coinuni.min.js?v=20180530"></script>
+    <script type="text/javascript" src="/static/customer/js/common/os.js"></script>
+    <style>
+        .all_coin_box li {
+            width: 110px;
+        }
+
+        .total-con-list {
+            width: 504px;
+        }
+
+        body {
+            position: relative;
+        }
+        .coin_con_t span{
+            color: #8a8a8a;
+        }
+        .newTrade .totalTitle{
+            line-height: 48px;
+            font-size: 12px;
+            color: #3dadd9;
+            padding-left: 15px;
+            border-bottom: 2px solid #E5E5E5;
+        }
+        .coin-name .blod_span{
+            margin-left: -5px;
+        }
+        .finddeal_currency{
+            margin-top: 9px;
+        }
+        .finddeal_currency span{
+            margin-left: 5px;
+        }
+        .scrollBox{
+            overflow: hidden;
+            position:relative;
+        }
+        .scrollBox .arrow{
+            width: 20px;
+            height: 100%;
+            background: rgba(204,204,204,.44);
+            position: absolute;
+            right: 0;
+            top: 0;
+            z-index: 2;
+            cursor: pointer;
+            text-align: center;
+            line-height: 44px;
+            color: #3dadd9;
+            background: rgba(0,0,0,.7);
+            display:none;
+        }
+        .scrollBox:hover .arrow{
+            /*display: block*/
+        }
+        .scrollBox .arrowleft{
+            left: 0;
+        }
+        .scrollBox .market-type{
+            left:0;
+        }
+        .choose_market.market_my_entrust{
+            width: 280px;
+            margin-right: 0;
+            height: 470px;
+        }
+        .choose_market .market-type{
+            border-bottom: 2px solid #E5E5E5;
+            white-space: nowrap;
+            position: relative;
+            padding-top: 10px;
+            height: 50px;
+        }
+        .choose_market .market-type li.active{
+            border:0;
+            /*background: url(/static/customer/images/arrow.png) no-repeat bottom;*/
+            background: #3dadd9;
+            color: #fff;
+            border-radius: 2px;
+            line-height: 25px;
+        }
+        .choose_market .market-type li{
+            margin-bottom: 0;
+            display: inline-block;
+            line-height: 25px;
+        }
+        .choose_market .price_today li{
+            width: 31%;
+            margin: 0;
+            padding:0 10px;
+            height: 40px;
+        }
+        .choose_market .price_today li:first-child{
+            width: 38%
+        }
+        .choose_market .price_today_ul i{
+           margin: 0 5px 10px;
+        }
+        .kline_depth{
+            width: 610px;
+            margin: 15px 10px 10px;
+        }
+        .kline_depth .k_d_Btn{
+            border-bottom: 2px solid #E5E5E5;
+            padding-left: 0;
+        }
+        .kline_depth .k_d_Btn span{
+            color: #0c1e38;
+            line-height: 25px;
+            padding: 0 4px;
+        }
+        .kline_depth .k_d_Btn span.active{
+            border:0;
+            /*background: url(/static/customer/images/arrow.png) no-repeat bottom;*/
+            background: #3dadd9;
+            color: #fff;
+            border-radius: 2px;
+        }
+        .choose_market .price_today{
+            background: #fff;
+            height: 40px;
+            border-bottom: 1px solid rgba(40,40,40,.12)
+        }
+        .kline_depth #chart-control .btn{
+            padding: 0 10px;
+        }
+        .market_my_entrust{
+            width: 290px;
+            height: 930px;
+            margin-top: 15px;
+        }
+        .table_h{
+            line-height: 40px;
+            height: 40px;
+            border-bottom: 1px solid rgba(40,40,40,.12);
+        }
+        .table_h div{
+            float: left;
+            width: 24%;
+            text-align: right;
+        }
+        .table_h div:nth-of-type(1){
+            padding-left: 10px;
+            width: 35%;
+            text-align: left
+        }
+        .table_h div:nth-of-type(3){
+            width: 37%;
+        }
+        .market_my_entrust .book-sell{
+            padding: 0;
+            margin: 0;
+        }
+        .market_my_entrust .sidebar-dl dd{
+            padding-left:10px;
+            margin-right: 5px;
+        }
+        .market_my_entrust .sidebar-dl dd div{
+            width: 25%;
+            text-align: right;
+        }
+        .market_my_entrust .sidebar-dl dd div:nth-of-type(2){
+            text-align: left;
+            width: 35%;
+        }
+        .market_my_entrust .sidebar-dl dd div:nth-of-type(4){
+            width: 40%;
+        }
+        .market_my_entrust .listscoll{
+            max-height: 390px;
+            overflow: hidden;
+        }
+        .market_my_entrust .listscoll dd{
+            cursor: pointer;
+        }
+        .market_my_entrust .order{
+            display: inline-block;
+            width: 29px;
+            height: 24px;
+            margin-right: 12px;
+            cursor: pointer;
+            margin-bottom: -8px;
+            position: relative;
+            background: no-repeat center;
+        }
+        .market_my_entrust .order.active{
+            border-radius: 2px;
+            border: 1px solid #3dadd9;
+        }
+        .market_my_entrust .allOrder{
+            background-image: url(/static/customer/images/option01.png)
+        }
+        .market_my_entrust .sellOrder{
+            background-image: url(/static/customer/images/option02.png)
+        }
+        .market_my_entrust .buyOrder{
+            background-image: url(/static/customer/images/option03.png)
+        }
+        .sidebar-dl .highest{
+            max-height: 780px;
+            overflow-y: auto;
+        }
+        #reShow_ticker{
+            line-height: 20px;
+            padding: 6px 0 6px 75px;
+            text-align: left;
+            font-size: 18px;
+            border-top: 1px solid #f6f6f8;
+            border-bottom: 1px solid #f6f6f8;
+        }
+        #reShow_ticker div:nth-of-type(1){
+            cursor: pointer;
+        }
+        #reShow_ticker .upOrDown{
+            background: url(/static/customer/images/marketDown.png) no-repeat center;
+            background-size: 7px auto;
+            display:inline-block;
+            width: 11px;
+            height: 16px;
+            position: relative;
+            top: 2px;
+            left: 5px;
+        }
+        #reShow_ticker .upOrDown.marketUp{
+            background-image: url(/static/customer/images/marketUp.png);
+        }
+        #reShow_ticker .small{
+            font-size: 12px;
+        }
+        .market_record{
+            width: 280px;
+            float: left;
+            margin-top: 0;
+            padding-bottom: 1px;
+            min-height: 449px;
+        }
+        .slider_wrap .ratio{
+            display: none
+        }
+        .chart-buy-all .select_percent{
+            padding-top: 10px;
+        }
+        .chart-buy-all .select_item{
+            float: left;
+            width: 62px;
+            height: 20px;
+            line-height: 20px;
+            border: 1px solid rgba(40,40,40,0.12);
+            border-radius: 2px;
+            color: #8a8a8a;
+            cursor: pointer;
+            text-align: center;
+            margin-right: 8px;
+        }
+        .chart-buy-all .select_item:nth-of-type(4){
+            margin-right: 0;
+        }
+        #form-tradeadd-buy .select_item.active{
+            color: #fff;
+            background: #1bc676
+        }
+        #form-tradeadd-sell .select_item.active{
+            color: #fff;
+            background: #ff6767
+        }
+        .fast_tr{
+            padding-top: 0;
+            width: 610px;
+            margin: 0 10px;
+            height: 450px;
+        }
+        .market_list{
+            padding: 0;
+        }
+        .market_list #book-dl-list{
+
+        }
+        .market_list1 span:nth-of-type(3){
+            justify-content: flex-end;
+            padding-right: 5px;
+        }
+        .market_list dt{
+            background: #fff;
+            border-bottom: 1px solid rgba(40,40,40,.12);
+        }
+        .fast_tr h2{
+            margin: 15px 15px 0;
+        }
+        .fast_tr h2 .coinType_use{
+            position: absolute;
+            right: 0;
+            top: 0;
+            display: none;
+        }
+        .fast_tr h2 .coinType_use span{
+            font-size: 12px;
+            color: #8a8a8a;
+        }
+        .fast_tr .chart-buy li input{
+            padding: 0 40px 0 10px;
+            color: #8a8a8a;
+        }
+        .chart-buy .price-warr{
+            left: 50%;
+            z-index: 5
+        }
+        .chart-sell .price-warr{
+            left: -60%;
+        }
+        .input_order_name{
+            width: 70px;
+            text-align: center;
+            line-height: 40px;
+            position: absolute;
+        }
+        .input_order_coinname{
+            text-align: center;
+            line-height: 40px;
+            position: absolute;
+            padding-right: 35px;
+            right: 0;
+            top: 4px;
+            color: #8a8a8a;
+        }
+        form li.fast_input:nth-of-type(2) .input_order_coinname{
+            padding-right: 10px;
+        }
+        .input_order_coinname .sub{
+            position: absolute;
+            display: inline-block;
+            height: 19px;
+            width: 28px;
+            border-bottom:1px solid #e4e5e9;
+            border-left:1px solid #e4e5e9;
+            right: 0;
+            top: 1px;
+            background: url(/static/customer/images/arrowhui.png) no-repeat center;
+            background-size: 9px auto;
+            cursor: pointer;
+        }
+        .input_order_coinname .sub.subDown{
+            border: 0;
+            top: 20px;
+            border-right: 1px solid #e4e5e9;
+        }
+        .input_order_coinname .sub.subDown{
+            transform:rotate(180deg);
+            -ms-transform:rotate(180deg);     /* IE 9 */
+            -moz-transform:rotate(180deg);    /* Firefox */
+            -webkit-transform:rotate(180deg); /* Safari 和 Chrome */
+            -o-transform:rotate(180deg);
+        }
+        .input_order_coinname .sub:hover{
+            background-image: url(/static/customer/images/arrowhei.png);
+        }
+        .dollarOrRmbNum{
+            padding-left: 10px;
+            position: absolute;
+        }
+        .fast_input .tips{
+            background: #fff;
+        }
+        .fast_tr .chart-buy li{
+            margin: 0 15px 10px;
+        }
+        form li.fast_input:nth-of-type(1){
+            margin-bottom: 20px;
+        }
+        form li.fast_input:nth-of-type(2){
+            margin-bottom: 15px;
+        }
+        .entrust_option{
+            float:right;
+        }
+        .entrust_option li{
+            float:left;
+            margin-left: 20px;
+            color:  #282828;
+            cursor: pointer;
+        }
+        .entrust_option li.active{
+            color:#3DADD9;
+        }
+        .entrust_option .more{
+            float: right;
+            padding:0 5px;
+            border:1px solid #3dadd9;
+            border-radius: 2px;
+            margin: 12px;
+            height: 22px;
+            line-height: 22px;
+            position: relative;
+            cursor: pointer;
+        }
+        .shop_best{
+            display: none
+        }
+        .fast_tr .chart-buy li button{
+            margin-top: 10px;
+        }
+        .all_coin_info dt{
+            width: 200px;
+        }
+        .all_coin_info dd{
+            width: 175px;
+        }
+        .market_list1 span{
+            flex: 4;
+            height: 26px;
+        }
+        .market_list1 div span:nth-of-type(3),.market_list1 dt span:nth-of-type(3){
+            flex: 2;
+        }
+        .fast_tr .chart-buy li.pwdtrade{
+            padding-bottom: 4px;
+        }
+        #coinDetail_cont .coinDetail .cont p{
+            font-size: 12px!important;
+        }
+        #coinDetail_cont .coinDetail .cont p span{
+            font-size: 12px!important;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="docLoading"></div>
+    <div class="top-fixed-nav">
+        <a href="/index.html" class="logo"></a>
+        <ul class="left nav">
+            <li><a class="" href="/index.html" data-cont="首页"></a></li>
+            <li><a class="white" href="/trade/coinTrade.html" data-cont="交易"></a></li>
+            <li><a href="/other/news.html" data-cont="资讯"></a></li>
+            <li><a href="/active/promotion.html" data-cont="福利"></a></li>
+            <li><a href="/active/inviteRebate.html" data-cont="邀请"></a></li>
+            <li><a class="valid-login" onclick="doLogin('finance')" data-cont="财务"></a></li>
+            <li><a class="valid-login" onclick="doLogin('security')" data-cont="安全"></a></li>
+        </ul>
+        <div class="top-login right top-user">
+            <div id="lang" class="right">
+                <span class="lang"><em class="flag"></em><em class="flagName"></em></span>
+                <div class="lanague">
+                    <ul>
+                        <li class="en_US"><a href="javascript:void(0)" onclick="cutLanguage('&lang=en_US')">English</a></li>
+                        <li class="ko_KR"><a href="javascript:void(0)" onclick="cutLanguage('&lang=ko_KR')">한국어</a></li>
+                        <li class="ja_JP"><a href="javascript:void(0)" onclick="cutLanguage('&lang=ja_JP')">日本語</a></li>
+                        <li class="fr_FR"><a href="javascript:void(0)" onclick="cutLanguage('&lang=fr_FR')">Français</a></li>
+                        <li class="es_AR"><a href="javascript:void(0)" onclick="cutLanguage('&lang=es_AR')">Espagnol</a></li>
+                        <li class="ru_RU"><a href="javascript:void(0)" onclick="cutLanguage('&lang=ru_RU')">русский </a></li>
+                        <li class="my_ZG"><a href="javascript:void(0)" onclick="cutLanguage('&lang=my_ZG')">မြန်မာ</a></li>
+                        <li class="ar_AE"><a href="javascript:void(0)" onclick="cutLanguage('&lang=ar_AE')">العربية</a></li>
+                        <li class="zh_TW"><a href="javascript:void(0)" onclick="cutLanguage('&lang=zh_TW')">繁體中文</a></li>
+                        <li class="zh_CN" style="border-bottom: 0;"><a href="javascript:void(0)" onclick="cutLanguage('&lang=zh_CN')">简体中文</a></li>
+                    </ul>
+                </div>
+            </div>
+            <a href="/user/login.html" class="login" data-cont="登录"></a>
+            <a href="/user/register.html" class="login" data-cont="注册"></a>
+            <a href="/finance/finance.html">
+                <p class="top-user-email jy-email sj_bd"></p>
+            </a>
+            <div id="userinfo" class="userinfo">
+                <div class="userinfo-all">
+                    <div class="userinfo-t">
+                        <div class="userinfo-top">
+                            <p><i>ID：</i><span></span><a onclick="logOut()" class="blue" data-cont="退出"></a></p>
+                            <p><i data-cont="总资产："></i>
+                                <font class="is_num" id="balance_total"></font> BTC</p>
+                        </div>
+                        <div class="userinfo-title">
+                            <div class="userinfo-Coin" data-cont="币种"></div>
+                            <div class="userinfo-available" data-cont="可用"></div>
+                            <div class="userinfo-frozen" data-cont="冻结"></div>
+                        </div>
+                    </div>
+                    <ul id="user-balance">
+                        <div class="listscoll" id="userinfo-list">
+                        </div>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- <div class="leftAllCoinMap">
+		<div class="leftAllCoinMap_con">
+			<a onclick="cutPage('prev')" class="prev pre_btn noMore"></a>
+			<div class="leftAllCoinMap_box">
+				<ul id="leftAllCoinMap_ul"></ul>
+			</div>
+			<a onclick="cutPage('next')" class="next pre_btn"></a>
+		</div>
+	</div> -->
+    <div class="main newTrade" style="background: #f7f7f7; padding-bottom: 20px;">
+        <div class="market_head">
+            <div class="coin_con_t wfull" style="margin-top: 50px;">
+                <div class="w_1200">
+                    <div class="finddeal_bi po_re left">
+                        <div class="finddeal_currency">
+                            <i class="coin coin_40 left"></i><span><span
+                                class="coin-name"></span>
+                            <!-- <i class="jian"></i> --></span>
+                        </div>
+                        <!-- <div class="total-con-list" style="display: none;">
+                            <div class="total-con-list-c">
+                                <span class="all_coin_box_jian"></span>
+                                <div class="all_coin_box">
+                                    <ul id="all_coin">
+                                    </ul>
+                                </div>
+                            </div>
+                        </div> -->
+                    </div>
+                    <dl class="all_coin_info">
+                        <dt class="po_re info1">
+                            <font class="is_num" id="ticker-last"></font>
+                            <span class="showDollarOrRmb"></span>
+                        </dt>
+                        <dd style="width: 135px;padding-left: 15px">
+                            <p id="ticker-chg"></p>
+                            <span data-cont="涨跌幅"></span>
+                        </dd>
+                        <dd>
+                            <p class="green is_num" id="ticker-high"></p>
+                            <span data-cont="最高价"></span>
+                        </dd>
+                        <dd>
+                            <p class="red is_num" id="ticker-low"></p>
+                            <span data-cont="最低价"></span>
+                        </dd>
+                        <!-- <dd><p id="buy-price-index">0.11600001</p>买一价</dd>
+                    <dd><p id="sell-price-index">0.13999999</p>卖一价</dd> -->
+                        <dd class="w150">
+                            <p id="ticker-vol"></p>
+                            <span data-cont="成交量"></span>
+                        </dd>
+                        <dd class="w150">
+                            <p id="market-volume"></p>
+                            <span data-cont="成交额"></span>
+                        </dd>
+                    </dl>
+                    <div class="clear"></div>
+                </div>
+            </div>
+        </div>
+        <div class="w_1200 ">
+            <div class="choose_market market_my_entrust">
+                <div class="index_market">
+                    <div class="scrollBox">
+                        <span class="arrow arrowleft" onclick="marketsscroll('left')"><</span>
+                        <ul class="market-type">
+                        </ul>
+                        <span class="arrow arrowright" onclick="marketsscroll('right')">></span>
+                    </div>
+                    <div class="price_today">
+                        <div class="autobox">
+                            <ul class="price_today_ull">
+                                <li data-sort="0"><span data-cont="币种"></span></li>
+                                <li class="click-sort" data-sort="" data-flaglist="0" data-toggle="0"><span data-cont="最新价"></span><i class="cagret cagret-down"></i><i class="cagret cagret-up"></i></li>
+                                <li class="click-sort" data-sort="increase" data-flaglist="1" data-toggle="1" style="text-align: right;"><span data-cont="涨幅"></span><i class="cagret cagret-down"></i><i class="cagret cagret-up"></i></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="show_content">
+                        <ul class="price_today_ul show_favorite_data">
+                        </ul>
+                        <ul class="price_today_ul show_BTC_data" id="price_today_ul">
+                        </ul>
+                        <ul class="price_today_ul show_ETH_data">
+                            <div class="usdtcont"></div>
+                        </ul>
+                        <ul class="price_today_ul show_USDT_data">
+                            <div class="usdtcont">OPEN SOON</div>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="kline_depth">
+                <div class="k_d_Btn totalTitle">
+                    <span class="k_line_btn active" data-type="k_line" data-cont="K线图"></span>
+                    <span class="depth_btn" data-type="depth" data-cont="深度图"></span>
+                    <span class="coinDetail_btn" data-type="coinDetail" data-cont="币种资料"></span>
+                </div>
+                <div>
+                    <div class="k_lineBox">
+                        <div id="kline_canvasBox">
+                            <div class="kline_loading">LOADING...</div>
+                        </div>
+                        <div id="chart-control" class="btn-group">
+                            <span class="btn">5m</span>
+                            <span class="btn">15m</span>
+                            <span class="btn btn_active">30m</span>
+                            <span class="btn">1h</span>
+                            <span class="btn">8h</span>
+                            <span class="btn">1d</span>
+                        </div>
+                    </div>
+                    <div class="depthBox">
+                        <div id="depth_canvas">
+                            <div class="kline_loading">LOADING...</div>
+                        </div>
+                    </div>
+                    <div class="coinDetailBox">
+                        <div id="coinDetail_cont">
+                            <!-- <div class="kline_loading" data-cont="暂无内容"></div> -->
+                            <div class="coinDetail">
+                                <!-- <h4>
+									<span class="coin_name"></span><span>(</span><span class="coin_shortName"></span><span>)</span><span data-cont="简介"></span>
+								</h4>
+								<div class="subTit">
+									<span class="coin_name"></span>
+									<span>(</span><span data-cont="英文"></span><span>：</span><span class="coin_enName"></span><span style="margin-left: 5px" data-cont="缩写"></span><span>：</span><span class="coin_shortName">LTC</span><span style="margin-right: 20px">)</span>
+									<span data-cont="推出日期"></span><span>：</span>
+									<span class="releaseDate"></span>
+								</div> -->
+                                <div class="cont">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="market_my_entrust">
+                <div class="totalTitle">
+                    <p class="allOrder order active" onclick="chooseOrder('all',this)"></p>
+                    <p class="sellOrder order" onclick="chooseOrder('sell',this)"></p>
+                    <p class="buyOrder order" onclick="chooseOrder('buy',this)"></p>
+                </div>
+                <div class="table_h">
+                    <div class="w_33p"><span data-cont="价格"></span>(<span class="market_type"></span>)</div>
+                    <div class="w_33p"><span data-cont="数量"></span></div>
+                    <div class="w_33t"><span data-cont="成交额"></span></div>
+                </div>
+                <div class="book-sell">
+                    <dl class="sidebar-dl">
+                        <div class="listscoll" id="orderbook-sell">
+                        </div>
+                        <div id="reShow_ticker">
+                        </div>
+                        <div class="listscoll book-buy sidebar-dl" id="orderbook-buy">
+                        </div>
+                    </dl>
+                </div>
+            </div>
+            <div class="market_record">
+                <div class="totalTitle">
+                    <span data-cont="成交记录"></span><!-- <a class="more_transaction" href="" data-cont="成交查询"></a> -->
+                </div>
+                <dl class="market_list market_list1">
+                    <dt>
+                        <span class=""><i data-cont="价格"></i>(<i class="market_type"></i>)</span>
+                        <!-- <span class="dollarOrRmb"></span> --><span class="w_33" data-cont="成交数量"></span> <!-- <span style="width: 12%" class="w_33 indentleft" data-cont="成交额"></span> -->
+                        <span class="w_33" data-cont="时间"></span> <!-- <span class="w_33" data-cont="类别"></span> -->
+                        <div class="clear" style="width: 5px;"></div>
+                    </dt>
+                    <!-- <p class="no-records">暂无记录</p> -->
+                    <div class="market_record_all">
+                        <dd id="book-dl-list">
+                        </dd>
+                    </div>
+                </dl>
+            </div>
+            <div class="fast_tr">
+                <div class="totalTitle" data-cont="币币交易"></div>
+                <div class="chart-buy-all">
+                    <form id="form-tradeadd-buy" action="">
+                        <h2 class="green coin-name">
+                            <span class="green" data-cont="买入"></span>
+                            <div class="coinType_use">
+                                <span class="coinname_b"></span><span data-cont="可用"></span><span>：</span><span class="coinType_finance"></span>
+                            </div>
+                        </h2>
+                        <ul class="chart-buy">
+                            <li class="fast_input">
+                                <!-- <div class="input_order_name" data-cont="买价"></div> -->
+                                <div class="price-warr">
+                                    <span data-cont="价格与市场价偏差过大，请慎重填写！"></span>
+                                </div>
+                                <input autocomplete="new-password" name="price" onblur="xian('buy')" id="buy-price" placeholder="" data-placeholder="请输入买入价格" class="nlinput tsinput" type="text" onkeyup="subMoneyKeyUp(this,event,10);maxbuy(1)">
+                                <span class="shop_best"> <em id="buy-price-well" class="green bd_red is_num" onclick="$('#buy-price').val($(this).html())"></em></span>
+                                <div class="input_order_coinname">
+                                    <span class="coinname_b"></span>
+                                    <span class="subUp sub" onclick="slightAdjustPrice('buy','plus')"></span>
+                                    <span class="subDown sub" onclick="slightAdjustPrice('buy','minue')"></span>
+                                </div>
+                                <div class="dollarOrRmbNum">
+                                    <span>≈</span>
+                                    <span class="dollarOrRmb_buy"></span>
+                                </div>
+                            </li>
+                            <li class="fast_input">
+                                <!-- <div class="input_order_name" data-cont="数量"></div> -->
+                                <input autocomplete="new-password" name="number" id="buy-number" placeholder="" data-placeholder="请输入买入数量" class="nlinput tsinput" type="text" onkeyup="subMoneyKeyUp(this,event,4);"> 
+                                <span class="shop_best"><span data-cont="最大可买"></span> <em class="green bd_red" onclick="$('#buy-number').val($(this).html());subMoneyKeyUp($('#buy-number')[0]);" id="buy-max-input">0</em></span>
+                                <div class="input_order_coinname coinname_a"></div>
+                            </li>
+                            <li class="chart-buy-sell-tomal">
+                                <div class="select_percent">
+                                    <p class="select_item" onclick="getPercentNum('buy',0.25,this)">25%</p>
+                                    <p class="select_item" onclick="getPercentNum('buy',0.5,this)">50%</p>
+                                    <p class="select_item" onclick="getPercentNum('buy',0.75,this)">75%</p>
+                                    <p class="select_item" onclick="getPercentNum('buy',1,this)">100%</p>
+                                </div>
+                                <div class="slider_wrap">
+                                    <div id="ratio_num_buy" class="ratio">0%</div>
+                                    <!-- <div class="sliderbox market_sliderbox">
+                                        <div id="slider_buy" class="ui-slider ui-slider-horizontal ui-widget ui-widget-content ui-corner-all">
+                                            <div class="ui-slider-range ui-widget-header ui-slider-range-min"></div>
+                                            <a data_slide="buy" class="ui-slider-handle ui-state-default ui-corner-all ui-state-hover" href="#" style="left: 0%;"></a>
+                                            <div class="ui-slider-range ui-widget-header ui-corner-all ui-slider-range-min" style="width: 0%;"></div>
+                                            <div class="ui-slider-range ui-widget-header ui-corner-all ui-slider-range-min" style="width: 0%;"></div>
+                                            <div class="ui-slider-range ui-widget-header ui-corner-all ui-slider-range-min" style="width: 0%;"></div>
+                                            <div class="ui-slider-range ui-widget-header ui-corner-all ui-slider-range-min" style="width: 0%;"></div>
+                                        </div>
+                                    </div> -->
+                                </div>
+                                <div class="clear"></div>
+                            </li>
+                            <li class="chart-buy-sell-tomal" style="display: none;"><span data-cont="手续费："></span><span class="fee-span fee-buy"></span><span>%</span>
+                            </li>
+                            <li class="chart-buy-sell-tomal"><span data-cont="总计"></span><span> ≈ </span>
+                                <font id="buy-total">0</font>
+                                <span class="market_type"></span><span id="buy_usd" class="huisejiaqianziti"></span></li>
+                            <li class="pwdtrade">
+                                <input autocomplete="new-password" id="buy-pwtrade" name="pwtrade" type="password" placeholder="" data-placeholder="请输入交易密码">
+                            </li>
+                            <li class="fast_input">
+                                <div class="tan_btn" id="tm-buy">
+                                    <img src="/static/customer/images/warn.png"><span style="color: #e65e10;"></span>
+                                </div>
+                                <input autocomplete="off" type="hidden" name="type" value="buy">
+                                <input autocomplete="off" type="hidden" name="symbol" />
+                                <button type="button" onclick="tradeadd('buy');" class="valid-login chart-buy-sell-buy" data-cont="买入"></button>
+                            </li>
+                        </ul>
+                    </form>
+                    <form id="form-tradeadd-sell" action="">
+                        <h2 class="red coin-name">
+                            <span class="red" data-cont="卖出"></span>
+                            <div class="coinType_use">
+                                <span class="coinname_a"></span><span data-cont="可用"></span><span>：</span><span class="coinType_finance_sell"></span>
+                            </div>
+                        </h2>
+                        <ul class="chart-buy chart-sell">
+                            <li class="fast_input">
+                                <!-- <div class="input_order_name" data-cont="卖价"></div> -->
+                                <div class="price-warr">
+                                    <span data-cont="价格与市场价偏差过大，请慎重填写！"></span>
+                                </div>
+                                <input autocomplete="off" name="price" onblur="xian('sell')" id="sell-price" placeholder="" data-placeholder="请输入卖出价格" value="" class="nlinput tsinput" type="text" onkeyup="subMoneyKeyUp(this,event,10);sell_max()"> 
+                                <span class="shop_best"> <em id="sell-price-well" class="red is_num" onclick="$('#sell-price').val($(this).html())"></em></span>
+                                <div class="input_order_coinname">
+                                    <span class="coinname_b"></span>
+                                    <span class="subUp sub" onclick="slightAdjustPrice('sell','plus')"></span>
+                                    <span class="subDown sub" onclick="slightAdjustPrice('sell','minue')"></span>
+                                </div>
+                                <div class="dollarOrRmbNum">
+                                    <span>≈</span>
+                                    <span class="dollarOrRmb_sell"></span>
+                                </div>
+                            </li>
+                            <li class="fast_input">
+                                <!-- <div class="input_order_name" data-cont="数量"></div> -->
+                                <input autocomplete="off" name="number" id="sell-number" placeholder="" data-placeholder="请输入卖出数量" class="nlinput tsinput" type="text" onkeyup="subMoneyKeyUp(this,event,4);"> 
+                                <span class="shop_best"><span data-cont="最大可卖"></span> <em class="red" onclick="$('#sell-number').val($(this).html())" id="max-sell-input">0</em></span>
+                                <div class="input_order_coinname coinname_a"></div>
+                            </li>
+                            <li class="chart-buy-sell-tomal">
+                                <div class="select_percent">
+                                    <p class="select_item" onclick="getPercentNum('sell',0.25,this)">25%</p>
+                                    <p class="select_item" onclick="getPercentNum('sell',0.5,this)">50%</p>
+                                    <p class="select_item" onclick="getPercentNum('sell',0.75,this)">75%</p>
+                                    <p class="select_item" onclick="getPercentNum('sell',1,this)">100%</p>
+                                </div>
+                                <div class="slider_wrap">
+                                    <div id="ratio_num_sell" class="ratio">0%</div>
+                                    <!-- <div class="sliderbox market_sliderbox">
+                                        <div id="slider_sell" class="ui-slider ui-slider-horizontal ui-widget ui-widget-content ui-corner-all">
+                                            <div class="ui-slider-range ui-widget-header ui-slider-range-min"></div>
+                                            <a data_slide="sell" class="ui-slider-handle ui-state-default ui-corner-all ui-state-hover" href="/bcc/#" style="left: 0%;"></a>
+                                            <div class="ui-slider-range ui-widget-header ui-corner-all ui-slider-range-min" style="width: 0%;"></div>
+                                            <div class="ui-slider-range ui-widget-header ui-corner-all ui-slider-range-min" style="width: 0%;"></div>
+                                            <div class="ui-slider-range ui-widget-header ui-corner-all ui-slider-range-min" style="width: 0%;"></div>
+                                            <div class="ui-slider-range ui-widget-header ui-corner-all ui-slider-range-min" style="width: 0%;"></div>
+                                        </div>
+                                    </div> -->
+                                </div>
+                                <div class="clear"></div>
+                            </li>
+                            <li class="chart-buy-sell-tomal"  style="display: none;">
+                                <!--                            -->
+                                <!--：<span id="sell-max" onclick="$('#sell-number').val(this.innerHTML)">-</span>-->
+                                <span style="color: #0c1e38; margin: 0;"><span data-cont="手续费："></span><span class="fee-span fee-sell"></span>%</span>
+                            </li>
+                            <li class="chart-buy-sell-tomal"><span data-cont="总计"></span><span> ≈ </span>
+                                <font id="sell-total">0</font>
+                                <span class="market_type"></span><span id="sell_usd" class="huisejiaqianziti"></span>
+                            </li>
+                            <li class="pwdtrade">
+                                <input autocomplete="off" id="sell-pwtrade" name="pwtrade" type="text" onfocus="$(this).prop('type','password');" placeholder="" data-placeholder="请输入交易密码">
+                            </li>
+                            <li class="fast_input">
+                                <div class="tan_btn" id="tm-sell">
+                                    <img src="/static/customer/images/warn.png"><span style="color: #e65e10;"></span>
+                                </div>
+                                <input autocomplete="off" type="hidden" name="type" value="sell">
+                                <input autocomplete="off" type="hidden" name="symbol" />
+                                <button type="button" onclick="tradeadd('sell');" class="valid-login chart-buy-sell-buy" data-cont="卖出"></button>
+                            </li>
+                        </ul>
+                    </form>
+                </div>
+                <div class="clear"></div>
+            </div>
+            <div class="clear"></div>
+        </div>
+        <div class="market_con3 w_1200">
+            <div class="market_entrust">
+                <div class="totalTitle">
+					<span data-cont="当前委托"></span>
+                    <ul class="entrust_option">
+                        <li data-cont="买入" onclick="itemByType('buy' ,this)"></li>
+                        <li data-cont="卖出" onclick="itemByType('sell',this)"></li>
+                        <li data-cont="全部" class="active" onclick="itemByType('all',this)"></li>
+                        <div onclick="goMoreEntrust()" class="more"><span data-cont="更多"></span> ></div>
+                    </ul>
+				</div>
+                <dl class="market_list market_list2">
+                    <dt>
+                        <span style="width: 155px" data-cont="时间"></span> <span style="width: 102px" data-cont="类别"></span>
+                        <span class=""><i data-cont="价格"></i>(<i class="market_type"></i>)</span>
+                        <!-- <span class="dollarOrRmb"></span> --><span class="" data-cont="数量"></span>
+                        <span class="" data-cont="已成交"></span> <span class="" data-cont="未成交"></span> <span class="" data-cont="状态"></span> <span style="width: 90px" class="indentleft" data-cont="操作"></span>
+                        <div class="clear" style="width: 17px;"></div>
+                    </dt>
+                    <div class="market_entrust_all">
+                        <div class="noLogin_box">
+                            <a href="/user/login.html" data-cont="登录"></a>
+                            <a href="/user/register.html" data-cont="注册"></a>
+                        </div>
+                        <dl class="listscoll" id="grid-orders">
+                            <p class="no-records" data-cont="暂无记录"></p>
+                        </dl>
+                    </div>
+                    <div class="clear"></div>
+                </dl>
+            </div>
+            <div class="clear"></div>
+        </div>
+    </div>
+    <footer>
+        <div class="footerCore">
+            <div class="introduceUs">
+                <div class="logo_box">
+                    <ul class="foot2">
+                        <li>
+                            <span>
+                                <img src="/static/customer/images/logo_gda.png" class="foot_logo">
+                            </span>
+                            <img src="/static/customer/images/logosub.png" class="foot_logo">
+                        </li>
+                    </ul>
+                </div>
+                <div class="introduce_list">
+                    <ul class="CompanyIntroduction">
+                        <li class="first">
+                            <h2><span data-cont="公司介绍"></span></h2>
+                        </li>
+                        <li><a href="/other/aboutUs.html" data-cont="关于我们"></a></li>
+                        <li><a href="/other/notice.html" data-cont="官方公告"></a></li>
+                        <li><a href="/other/news.html" data-cont="新闻资讯"></a></li>
+                        <li><a href="/other/coinApplication.html" data-cont="上币申请"></a></li>
+                    </ul>
+                    <ul class="UserAgreement">
+                        <li class="first">
+                            <h2><span data-cont="用户协议"></span></h2>
+                        </li>
+                        <li><a href="/other/TermsService.html" data-cont="服务条款"></a></li>
+                        <li><a href="/other/PrivacyPolicy.html" data-cont="隐私政策"></a></li>
+                        <li><a href="/other/policy.html" data-cont="AML/CTF政策"></a></li>
+                    </ul>
+                    <ul class="HelpCenter">
+                        <li class="first">
+                            <h2><span data-cont="帮助中心"></span></h2>
+                        </li>
+                        <li><a href="/other/rate.html" data-cont="费率说明"></a></li>
+                        <li><a href="/other/question.html" data-cont="常见问题"></a></li>
+                        <li><a href="/other/apiExplain.html" data-cont="API说明"></a></li>
+                        <li><a href="/other/contactService.html" data-cont="联系客服"></a></li>
+                    </ul>
+                    <ul class="ContactUs">
+                        <li class="first">
+                            <h2><span data-cont="联系我们"></span></h2>
+                        </li>
+                        <li><span data-cont="客服邮箱:"></span><span>btc98com@gmail.com</span></li>
+                        <li><span data-cont="商务合作:"></span><span>imbtcmaster@gmail.com</span></li>
+                        <li class="share_area">
+                            <span class="share">
+                                <a href="http://shang.qq.com/wpa/qunwpa?idkey=8cf2665d6e2be61c43b5f063b40bb8dc3ccea65b2b89ae881793a5f821afee1a" target="_blank" class="qq"></a>
+                                <a href="https://twitter.com/BTC98com" target="_blank" class="twitter"></a>
+                                <a href="https://www.facebook.com/btc.li.7" target="_blank" class="fb"></a>
+                                <a href="http://t.me/btc98" target="_blank" class="tg"></a>
+                                <a href="https://btc98.slack.com/messages" target="_blank" class="slack"></a>
+                            </span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="fbottom">
+                <p class="copyrighthui">Copyright © 2017 BTC98. All rights reserved. <span data-cont="由6EX提供技术支持"></span></p>
+            </div>
+        </div>
+    </footer>
+    <script type="text/javascript" src="/static/customer/js/common/common.min.js?v=1.0"></script>
+    <script type="text/javascript" src="/static/customer/js/newMarket.min.js?v=0510"></script>
+    <script type="text/javascript" src="/static/customer/js/newMarkets.min.js"></script>
+    <script id="tmpl-orders" type="text/html">
+        <dd>
+            <span style="width: 155px">${jsonDateFormat(fcreateTime,'MM-dd hh:mm:ss')}</span>
+            <span style="width: 102px" class="{{if fentrustType == 0}}green{{/if}} {{if fentrustType == 1}}red{{/if}}">${lang(fentrustType_s)}</span>
+            <span class="is_num">${fprize}</span>
+            <!-- <span>${getPointNum(fprize)}</span> -->
+            <span class="is_num" data-point="${pointData(coinShortName,'numberPre')}">${fcount}</span>
+            <span class="is_num" data-point="${pointData(coinShortName,'numberPre')}">${fcount - fleftCount}</span>
+            <span class="is_num" data-point="${pointData(coinShortName,'numberPre')}">${fleftCount}</span>
+            <span>{{if fstatus==1}}${lang('未成交')}{{/if}}{{if fstatus==2}}${lang('部分成交')}{{/if}}{{if fstatus==3}}${lang('完全成交')}{{/if}}{{if fstatus==4}}${lang('撤销')}{{/if}}</span>
+            <span style="width: 90px">{{if fstatus<3 }}<a class="red" onclick="order_cancel(${fid})">${lang("撤消")}</a>{{/if}}</span>
+        </dd>
+    </script>
+    <script type="text/html" id="linksBox_tmpl">
+        <a href="${href}">${hrefName}</a>
+    </script>
+    <script type="text/html" id="paramsBox_tmpl">
+        <div class="{{if long }}long_item{{/if}}">
+            <span>${paramKey}</span><span>：</span><span>${paramValue}</span>
+        </div>
+    </script>
+    <script>
+    doLogin('coinTrade');
+    if (!USER) {
+        $('.market_entrust_all .noLogin_box').show().siblings().hide();
+    }
+    // initAllCoin();
+    //展示币种信息
+
+    //查询当前币种行情
+
+    //查询当前登录人的委托信息
+
+    //查询所有的委托信息
+
+    //查询所有的成功交易
+
+    var initRem = function() {
+        var n = $(window).width(),
+            r = $(window).height(),
+            t = n > 640 ? 640 :
+            n,
+            i = 100 / 640 * t;
+        $("html").css({
+            fontSize: i
+        })
+    };
+    var lang = top.frames.lang;
+    </script>
+    <script type="text/javascript">
+    $('.foot-con4_all').hover(function() {
+        $('.foot-connectus').show()
+    }, function() {
+        $('.foot-connectus').hide()
+    });
+    $('.lang,.lanague').hover(function() {
+        $('.lang').addClass('selected');
+        $('.lanague').addClass('selected');
+        $('.header').css('z-index', -120);
+    }, function() {
+        $('.header').css('z-index', 19);
+        $('.lanague').removeClass('selected');
+        $('.lang').removeClass('selected');
+    });
+    $('.total-con').hover(function() {
+        $('.total-con-list').show()
+    }, function() {
+        $('.total-con-list').hide()
+    });
+    $('.jy-email,#userinfo').hover(function() {
+        $('#userinfo').show();
+        $('.jy-email').addClass('isHover');
+    }, function() {
+        $('#userinfo').hide();
+        $('.jy-email').removeClass('isHover');
+    })
+    balance();
+    var trade_ed = '0';
+    if (trade_ed == '1') {
+        $('.pwdtrade').hide();
+    }
+    $('.lang,.lanague').hover(function() {
+        $('.lang').addClass('selected');
+        $('.lanague').addClass('selected');
+        $('.header').css('z-index', -120);
+    }, function() {
+        $('.header').css('z-index', 19);
+        $('.lanague').removeClass('selected');
+        $('.lang').removeClass('selected');
+    });
+    $('.finddeal_bi').hover(function() {
+        $('.total-con-list').show()
+    }, function() {
+        $('.total-con-list').hide()
+    });
+    // var coin = getRequestByName("shortName");
+    var USD = '0';
+    //部分页面事件处理
+    // $('#ratio_num_buy').bind('DOMNodeInserted', $(this).html(), function() {
+    //     $('#buy-number').val(to_num(Number($(this).html().toString().replace('%', '')) / 100 * $('#buy-max-input').html(),pointData(coinShortName,'numberPre')))
+    // })
+    // $('#ratio_num_sell').bind('DOMNodeInserted', $(this).html(), function() {
+    //     $('#sell-number').val(to_num(Number($(this).html().toString().replace('%', '')) / 100 * Number($('#max-sell-input').html()),pointData(coinShortName,'numberPre')))
+    // })
+    //输入框校验
+    // inputFB();
+    inputFC();
+    //左侧币种导航条位置随页面滚动
+    $(document).scroll(function() {
+        if ($(this).scrollTop() > 84) {
+            $('.leftAllCoinMap').css({
+                'top': $(this).scrollTop()
+            })
+        } else {
+            $('.leftAllCoinMap').css('top', 84);
+        }
+    })
+    //title部分修改：交易页面点击某个币时，站点右边的内容随着改变， (翻译： 中文则是中文，其他语种都是英文)
+    if ($.cookie('lang') == 'zh_CN') {
+        try { $('title').html(coinShortName.toUpperCase() + ' 交易 , ' + COIN[coinShortName][0] + '行情 , ' + COIN[coinShortName][0] + '价格 , ' + COIN[coinShortName][0] + '兑换比特币-比特酒吧|BTC98—最专业安全的虚拟数字货币交易平台【官网】') } catch (e) {}
+    } else {
+        $('title').html(coinShortName.toUpperCase() + ' Trtansaction , exchanging ' + coinShortName.toUpperCase() + ' for BTC-BTC98 - Professional blockchain asset trading platform')
+    }
+    $('.k_d_Btn').find('span').click(function() {
+        var _this = $(this);
+        _this.addClass('active').siblings().removeClass('active');
+        $('.' + _this.data('type') + 'Box').show().siblings().hide();
+        if (_this.hasClass('depth_btn')) {
+            depthRander();
+        } else if (_this.hasClass('coinDetail_btn')) {
+            getCoinDetail();
+        }
+
+    })
+    $(function() {
+        var str = '<li data-marketType="favorite"><i></i><span>' + lang('自选') + '</span></li>';
+        var show_data = '<ul class="price_today_ul show_favorite_data"></ul>';
+        for (var i = 0; i < allMarkets_arr.length; i++) {
+            var _active = (allMarkets_arr[i][0] == localStorage.getItem('coinType') ? 'active' : '');
+            var _show = allMarkets_arr[i][1] == 'btc' ? 'isShow' : '';
+            str += '<li class="' + _active + '" data-marketType="' + allMarkets_arr[i][1].toUpperCase() + '">' + (allMarkets_arr[i][1] == 'bitcny' ? 'BitCNY' : allMarkets_arr[i][1].toUpperCase()) + '</li>';
+            show_data += '<ul class="price_today_ul show_' + allMarkets_arr[i][1].toUpperCase() + '_data"></ul>'
+        }
+        $('.market-type').html(str);
+        $('.show_content').html(show_data);
+        $('.show_' + allMarkets[localStorage.getItem('coinType')].toUpperCase() + '_data').addClass('isShow')
+        $('.market-type').find('li[data-marketType=' + allMarkets[localStorage.getItem('coinType')].toUpperCase() + ']').addClass('active')
+        $('.market-type').delegate('li', 'click', function() {
+            $(this).addClass('active').siblings().removeClass('active');
+            // console.log($(this).data('markettype'))
+            $('.show_content .price_today_ul').removeClass('isShow');
+            $('.show_content').find('.show_' + $(this).data('markettype') + '_data').addClass('isShow');
+        });
+        //点击收藏
+        $('.show_content').delegate('.isFavorite', 'click', function(e) {
+            e.stopPropagation();
+            $(this).toggleClass('active');
+            var coinType = $(this).data('cointype'); //1,3,favorite
+            var data = {
+                fvirtualcointype: {
+                    fid: $(this).data('coinid')
+                }
+            };
+            if (USER) {
+                // localStorage.removeItem('favorite')
+                if ($(this).hasClass('active')) {
+                    $('.show_favorite_data').prepend($(this).parents('li').prop('outerHTML'));
+                    data.coinType = coinType;
+                    $.ajax({ type: 'POST', url: WebHelper.createOptional, data: JSON.stringify(data), contentType: 'application/json' })
+                } else {
+                    $.ajax({ type: 'POST', url: WebHelper.deleteOptional, data: JSON.stringify(data), contentType: 'application/json' })
+                    $('.show_favorite_data li[data-favoritecoin="' + $(this).data('coinid') + '"]').remove()
+                    $('.price_today_ul li[data-favoritecoin="' + $(this).data('coinid') + '"] .isFavorite').removeClass('active')
+                }
+            } else {
+                var favorites = JSON.parse(localStorage.getItem('favorite'));
+                if ($(this).hasClass('active')) {
+                    favorites[allMarkets[coinType]][$(this).data('coinname')] = $(this).data('coinid');
+                    $('.show_favorite_data').prepend($(this).parents('li').prop('outerHTML'));
+                } else {
+                    delete favorites[allMarkets[coinType]][$(this).data('coinname')];
+                    $('.show_favorite_data li[data-favoritecoin="' + $(this).data('coinid') + '"]').remove()
+                    $('.price_today_ul li[data-favoritecoin="' + $(this).data('coinid') + '"] .isFavorite').removeClass('active')
+                }
+                localStorage.setItem('favorite', JSON.stringify(favorites))
+            }
+        })
+        $('.market_type').html((allMarkets[localStorage.getItem('coinType')]).toUpperCase());
+        $('.more_entrust').attr('href', '/finance/entrust.html?id=' + coinId + '&shortName=' + coinShortName)
+        $('.more_transaction').attr('href', '/finance/transaction.html?id=' + coinId + '&shortName=' + coinShortName);
+        $('.coinname_b').html($('.market_type').html())
+        $('.coinname_a').html(coinShortName.toUpperCase());
+        if(USER){
+            $('.coinType_use').show()
+        }
+    })
+    function goMoreEntrust(){
+        location.href='/finance/transaction.html?id=' + coinId + '&shortName=' + coinShortName+'&coinType='+getRequestByName('coinType');
+    }
+    function itemByType(type, _this){
+        $(_this).addClass('active').siblings().removeClass('active')
+        var items=$('#grid-orders dd');
+        var isshow={
+            sell:'red',
+            buy:'green'
+        }
+        if(type=='all'){
+            items.each(function(){
+                $(this).show();
+            })
+        }else{
+            items.each(function(){
+                if($(this).find('span').hasClass(isshow[type])){
+                    $(this).show()
+                }else{
+                    $(this).hide()
+                }
+            })
+        }
+    }
+    function chooseOrder(type,_this){
+        $(_this).addClass('active').siblings().removeClass('active');
+        if(type=='all'){
+            $('.sidebar-dl .listscoll').removeClass('highest').show()
+        }else{
+            $('#orderbook-'+type).addClass('highest').show();
+            $('#orderbook-'+type).siblings('.listscoll').removeClass('highest').hide();
+        }
+    }
+    function getPercentNum(type,percent,that){
+        $(that).addClass('active').siblings().removeClass('active');
+        if(!USER)return;
+        if(type=='buy'){
+            $('#'+type+'-number').val(to_num(percent * Number($('#buy-max-input').html()),pointData(coinShortName,'numberPre')))
+        }else{
+            $('#'+type+'-number').val(to_num(percent * FINANCE.data[coinShortName+'_balance'],pointData(coinShortName,'numberPre')))
+        }
+    }
+    function slightAdjustPrice(type,count){
+        var current=0;
+        var conf = {0: [1, 1],1: [10, 0.1],2: [100, 0.01], 3: [1000, 0.001], 4: [10000, 0.0001], 5: [100000, 0.00001], 6: [1000000, 0.000001], 7: [10000000, 0.0000001],8: [100000000, 0.00000001],9: [1000000000, 0.000000001],10: [10000000000, 0.0000000001],11: [100000000000, 0.00000000001],12: [1000000000000, 0.000000000001]};
+        var num = '';
+        num = $('#' + type + '-price').val();
+        if(parseFloat(num).toString() == 'NaN'){
+            current = 0;
+        }else{
+            try {
+                current = num.toString().split(".")[1].length;
+            } catch (e) {
+                current = 0;
+            }
+        }
+        try{
+            if(count == 'plus'){
+                num = accAdd(Number(num),conf[current][1].toFixed(current)).toFixed(current);
+            }else{
+                num = subtr(Number(num),conf[current][1].toFixed(current));
+            }
+        } catch (e){
+            console.log(e);
+        }
+        if(num < 0){return false}
+        $('#' + type + '-price').val(num);
+        $('.dollarOrRmb_'+type).html(getCurrencySymbol()+to_num(currentCoinRate[getLang_rate()+'Para']*Number(num)))
+    }
+    function accAdd(arg1,arg2){ 
+        var r1,r2,m; 
+        try{r1=arg1.toString().split(".")[1].length}catch(e){r1=0} 
+        try{r2=arg2.toString().split(".")[1].length}catch(e){r2=0} 
+        m=Math.pow(10,Math.max(r1,r2)) 
+        return (arg1*m+arg2*m)/m 
+    } 
+    function subtr(arg1,arg2){ 
+         var r1,r2,m,n; 
+         try{r1=arg1.toString().split(".")[1].length}catch(e){r1=0} 
+         try{r2=arg2.toString().split(".")[1].length}catch(e){r2=0} 
+         m=Math.pow(10,Math.max(r1,r2)); 
+         n=(r1>=r2)?r1:r2; 
+         return ((arg1*m-arg2*m)/m).toFixed(n); 
+    }
+    function marketsscroll(dir){
+        var step=20;
+        var _left=Number($('.market-type').css('left').replace('px',''));
+        var _width=$('.market-type').width();
+        var box_width=$('.scrollBox').width();
+        var a_left=0;
+        if(dir=='left'){
+            a_left=_left+step;
+        }else{
+            a_left=_left-step;
+        }
+        if(a_left>0)a_left=0;
+        if(Math.abs(a_left)>_width-box_width)a_left=-(_width-box_width);
+        $('.market-type').css('left',a_left);
+    }
+    </script>
+</body>
+
+</html>
